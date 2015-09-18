@@ -1,0 +1,41 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "price" : "1.99",
+ 		   "location" : "Clifton Sainsbury" } }
+
+{"request" : "list", "table" : "price location"}
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "location" : "Clifton Sainsbury" } }
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request" : "list", "table" : "price location"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

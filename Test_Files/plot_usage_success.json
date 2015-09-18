@@ -1,0 +1,89 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bristol.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-01-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 5, 
+ "data": { "expiry date" : "2014-01-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "2014-01-07",
+ 		   "barcode" : "02020202",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "Cravendale",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 3, 
+ "data": { "expiry date" : "2014-01-15",
+ 		   "barcode" : "03030303",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "Sainsbury Basic",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 4, 
+ "data": { "expiry date" : "2014-01-21",
+ 		   "barcode" : "04040404",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "another milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{ "request" : "plot", "product" : "milk" }
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 5,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "02020202"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 3,
+ "barcode" : "03030303"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 4,
+ "barcode" : "04040404"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

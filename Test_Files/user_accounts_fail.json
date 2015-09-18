@@ -1,0 +1,29 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "wrongpassword" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "create_account",
+ "data": {
+ 		   "password" : "password123" } }
+
+{"request": "list", "table" : "users" }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton"
+ 		    } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

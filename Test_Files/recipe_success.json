@@ -1,0 +1,84 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bristol.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "recipes", 
+ "web address" : "http://www.bbcgoodfood.com/recipes/3374/perfect-pancakes", 
+ "data": {"name": "Perfect Pancakes", 
+ 		  "feeds" : 4,
+ 		  "ingredients" : "eggs, milk" } }
+
+{"request" : "recipe", "ingredients" : "my fridge", "facebook" : "false"}
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "02020202",
+ 		   "name" : "eggs",
+ 		   "manufacturer" : "eggs company",
+ 		   "type" : "P",
+ 		   "number in pack" : "6" } }
+
+{"request" : "recipe", "ingredients" : "my fridge", "facebook" : "false"}
+
+{"request": "delete", 
+ "table" : "recipes", 
+ "web address": "http://www.bbcgoodfood.com/recipes/3374/perfect-pancakes"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "02020202"}
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "recipes", 
+ "web address" : "http://www.bbcgoodfood.com/recipes/3374/perfect-pancakes", 
+ "data": {"name": "Perfect Pancakes", 
+ 		  "feeds" : 4,
+ 		  "ingredients" : "eggs, milk" } }
+
+{"request" : "recipe", "ingredients" : "my fridge", "facebook" : "false"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "recipes", 
+ "web address": "http://www.bbcgoodfood.com/recipes/3374/perfect-pancakes"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

@@ -1,0 +1,102 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "02020202",
+ 		   "name" : "low fat milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 3, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "2020",
+ 		   "name" : "low fat butter",
+ 		   "manufacturer" : "butter company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 4, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "1010",
+ 		   "name" : "butter",
+ 		   "manufacturer" : "butter company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "low fat", 
+ "data": { "original barcode" : "01010101",
+ 		   "low fat barcode" : "02020202" } }
+
+{"request": "insert",
+ "table" : "low fat", 
+ "data": { "original barcode" : "1010",
+ 		   "low fat barcode" : "2020" } }
+
+{"request" : "diet", "product" : "milk"}
+
+{"request" : "diet", "product" : "butter"}
+
+{"request" : "diet", "product" : "eggs"}
+
+{"request": "delete",
+ "table" : "low fat", 
+ "data": { "original barcode" : "01010101",
+ 		   "low fat barcode" : "02020202" } }
+
+{"request": "delete",
+ "table" : "low fat", 
+ "data": { "original barcode" : "1010",
+ 		   "low fat barcode" : "2020" } }
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "02020202"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 3,
+ "barcode" : "2020"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 4,
+ "barcode" : "1010"}
+
+{"request": "list", "table" : "low fat"}
+
+{"request": "list", "table" : "product"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

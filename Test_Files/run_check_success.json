@@ -1,0 +1,107 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bristol.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2015-01-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "out of date milk",
+ 		   "manufacturer" : "out of date milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "2015-01-01",
+ 		   "barcode" : "02020202",
+ 		   "name" : "out of date eggs",
+ 		   "manufacturer" : "out of date eggs company",
+ 		   "type" : "P",
+ 		   "number in pack" : "6" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 3, 
+ "data": { "expiry date" : "2015-01-03",
+ 		   "barcode" : "03030303",
+ 		   "name" : "nearly out of date butter",
+ 		   "manufacturer" : "nearly out of date butter company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 4, 
+ "data": { "expiry date" : "2015-01-03",
+ 		   "barcode" : "04040404",
+ 		   "name" : "nearly out of date spinach",
+ 		   "manufacturer" : "nearly out of date spinach company",
+ 		   "type" : "S",
+ 		   "weight" : "60" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 5, 
+ "data": { "expiry date" : "2016-01-01",
+ 		   "barcode" : "2020",
+ 		   "name" : "good milk",
+ 		   "manufacturer" : "good milk company",
+ 		   "type" : "L",
+ 		   "volume" : "2000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 6, 
+ "data": { "expiry date" : "2016-01-01",
+ 		   "barcode" : "1010",
+ 		   "name" : "good eggs",
+ 		   "manufacturer" : "good eggs company",
+ 		   "type" : "P",
+ 		   "number in pack" : "12" } }
+
+{"request": "check_dates"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "02020202"}
+
+{"request": "check_dates"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 3,
+ "barcode" : "03030303"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 4,
+ "barcode" : "04040404"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 5,
+ "barcode" : "2020"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 6,
+ "barcode" : "1010"}
+
+ {"request": "check_dates"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

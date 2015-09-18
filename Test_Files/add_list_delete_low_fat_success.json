@@ -1,0 +1,55 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "02020202",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "low fat", 
+ "data": { "original barcode" : "01010101",
+ 		   "low fat barcode" : "02020202" } }
+
+{"request": "list", "table" : "low fat"}
+
+{"request": "delete",
+ "table" : "low fat", 
+ "data": { "original barcode" : "01010101",
+ 		   "low fat barcode" : "02020202" } }
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "02020202"}
+
+{"request": "list", "table" : "low fat"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

@@ -1,0 +1,174 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "204-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "id" : 3, 
+ "data": { "expiry date" : "204-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 4, 
+ "data": {
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 5, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 6, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 7, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 8, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "weight" : "400" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 9, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S"} }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 10, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "chinese cabbage",
+ 		   "manufacturer" : "chinese cabbage company",
+ 		   "type" : "S",
+ 		   "weight" : "400" } }
+
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+ {"request": "delete", 
+ "table" : "product", 
+ "id": 6,
+ "barcode" : "01010101"}
+
+ {"request": "delete", 
+ "table" : "product", 
+ "id": 7,
+ "barcode" : "01010101"}
+
+ {"request": "delete", 
+ "table" : "product", 
+ "id": 8,
+ "barcode" : "01010101"}
+
+ {"request": "delete", 
+ "table" : "product", 
+ "id": 9,
+ "barcode" : "01010101"}
+
+  {"request": "delete", 
+ "table" : "product", 
+ "id": 10,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 10,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "id": 10,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product"}
+
+ {"request": "list", "table" : "product"}
+
+ {"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+
+ 

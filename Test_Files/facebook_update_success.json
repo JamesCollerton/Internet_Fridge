@@ -1,0 +1,39 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bristol.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "recipes", 
+ "web address" : "http://www.bbcgoodfood.com/recipes/3374/perfect-pancakes", 
+ "data": {"name": "Perfect Pancakes", 
+ 		  "feeds" : 4,
+ 		  "ingredients" : "eggs, milk" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2014-04-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request" : "recipe", "ingredients" : "my fridge", "facebook" : "true"}
+
+{"request": "delete", 
+ "table" : "recipes", 
+ "web address": "http://www.bbcgoodfood.com/recipes/3374/perfect-pancakes"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+ {"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

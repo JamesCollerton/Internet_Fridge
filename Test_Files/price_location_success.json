@@ -1,0 +1,111 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bristol.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 1, 
+ "data": { "expiry date" : "2015-01-01",
+ 		   "barcode" : "01010101",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "one milk company",
+ 		   "type" : "L",
+ 		   "volume" : "1000" } }
+
+{"request": "insert",
+ "table" : "product", 
+ "id" : 2, 
+ "data": { "expiry date" : "2015-01-01",
+ 		   "barcode" : "02020202",
+ 		   "name" : "milk",
+ 		   "manufacturer" : "another milk company",
+ 		   "type" : "L",
+ 		   "volume" : "500" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "price" : "1.99",
+ 		   "location" : "Clifton Sainsbury" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "price" : "1.50",
+ 		   "location" : "Clifton Village Tesco" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "price" : "1.80",
+ 		   "location" : "Bedminster ASDA" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "02020202",
+ 		   "price" : "1.90",
+ 		   "location" : "Clifton Sainsbury" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "02020202",
+ 		   "price" : "1.20",
+ 		   "location" : "The 10 Oclock Shop" } }
+
+{"request": "insert",
+ "table" : "price location", 
+ "data": { "barcode" : "02020202",
+ 		   "price" : "1.80",
+ 		   "location" : "Co-Op Kingsdown" } }
+
+{"request" : "find", "product": "milk"}
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "location" : "Clifton Sainsbury" } }
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "location" : "Clifton Village Tesco" } }
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "01010101",
+ 		   "location" : "Bedminster ASDA" } }
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "02020202",
+ 		   "location" : "Clifton Sainsbury" } }
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "02020202",
+ 		   "location" : "The 10 Oclock Shop" } }
+
+{"request": "delete",
+ "table" : "price location", 
+ "data": { "barcode" : "02020202",
+ 		   "location" : "Co-Op Kingsdown" } }
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "01010101"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "02020202"}
+
+{"request" : "find", "product": "milk"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

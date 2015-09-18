@@ -1,0 +1,37 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "recipes", 
+ "web address" : "http://www.bbcgoodfood.com/recipes/quick-kimchi", 
+ "data": {"name": "Quick Kimchi", 
+ 		  "feeds" : 4,
+ 		  "ingredients" : "chinese cabbage, garlic, chicken, spring onions" } }
+
+{"request": "insert",
+ "table" : "recipes", 
+ "web address" : "http://www.bbcgoodfood.com/recipes/carrot-clementine-pineapple-juice", 
+ "data": {"name": "Carrot, Clementine and Pineapple Juice", 
+ 		  "feeds" : 4,
+ 		  "ingredients" : "carrot, clementine, pineapple" } }
+
+{"request": "list", "table" : "recipes"}
+
+{"request": "delete", 
+ "table" : "recipes", 
+ "web address": "http://www.bbcgoodfood.com/recipes/quick-kimchi" }
+
+{"request": "delete", 
+ "table" : "recipes", 
+ "web address": "http://www.bbcgoodfood.com/recipes/carrot-clementine-pineapple-juice"}
+
+{"request": "list", "table" : "recipes"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

@@ -1,0 +1,76 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bris.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "insert",
+ "table" : "users", 
+ "data": {"username": "StevenSpielberg",
+		  "email address" : "StevenSpielberg@notreal.com",  
+ 		  "salt" : 2,
+ 		  "password" : "2",
+ 		  "stock code" : 2 } }
+
+{"request": "insert",
+ "table" : "users", 
+ "data": {"username": "StevenSpielberg",
+		  "email address" : "StevenSpielberg@notreal.com",  
+ 		  "salt" : 2,
+ 		  "password" : "2",
+ 		  "stock code" : 2 } }
+
+{"request": "list", "table" : "users" }
+
+{"request": "login",
+ "data": { "username" : "StevenSpielberg",
+ 		   "password" : "2" } }
+
+{"request": "delete", "table" : "users", "username" : "StevenSpielberg"}
+
+{"request": "insert",
+ "table" : "blah", 
+ "data": {"username": "JamesCollerton", 
+ 		  "salt" : 1,
+ 		  "password" : 1 } }
+
+ {"request": "insert",
+ "data": {"username": "JamesCollerton", 
+ 		  "salt" : 1,
+ 		  "password" : 1 } }
+
+{"request": "insert",
+ "table" : "users", 
+ "data": { 
+ 		  "salt" : 1,
+ 		  "password" : 1 } }
+
+{"request": "insert",
+ "table" : "users", 
+ "data": {"username": "JamesCollerton", 
+ 		  "password" : 1 } }
+
+{"request": "insert",
+ "table" : "users", 
+ "data": {"username": "JamesCollerton", 
+ 		  "salt" : 1} }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+
+{"request": "delete", "table" : "users"}
+
+{"request": "delete"}
+
+{"request": "list", "table" : "blah" }
+
+{"request": "list"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+

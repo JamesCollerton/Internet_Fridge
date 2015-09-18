@@ -1,0 +1,34 @@
+{"request": "create_account",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123",
+ 		   "email address" : "jc1175@my.bristol.ac.uk" } }
+
+{"request": "login",
+ "data": { "username" : "JamesCollerton",
+ 		   "password" : "password123" } }
+
+{"request" : "add", "barcode" : "0000000173759"}
+
+{"request" : "add", "barcode" : "0784672659826"}
+
+{"request" : "add", "barcode" : "6291003080302"}
+
+{"request": "my_stock"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 1,
+ "barcode" : "0000000173759"}
+
+{"request": "delete", 
+ "table" : "product", 
+ "id": 2,
+ "barcode" : "0784672659826"}
+
+ {"request": "delete", 
+ "table" : "product", 
+ "id": 3,
+ "barcode" : "6291003080302"}
+
+{"request": "delete", "table" : "users", "username" : "JamesCollerton"}
+
