@@ -129,7 +129,7 @@
 # already have its information contained within the product_info database, so
 # there will be some messages warning of that.
 
-# python iotfridge.py fridge.db < ./Test_Files/plot_usage_success.json
+python iotfridge.py fridge.db < ./Test_Files/plot_usage_success.json
 
 # This will check all of the dates for your items and print out the ones going
 # out of date today, as well as the ones going out of date in the next three
@@ -143,7 +143,7 @@
 # has been fine. The mailgun account I use for some other things as well, so try
 # not to send too many!
 
-# python iotfridge.py fridge.db < ./Test_Files/run_check_success.json
+python iotfridge.py fridge.db < ./Test_Files/run_check_success.json
 
 # This shows how you can use the fridge to find the closest places to you to
 # buy things from. It gives a list of options and the prices at each place.
