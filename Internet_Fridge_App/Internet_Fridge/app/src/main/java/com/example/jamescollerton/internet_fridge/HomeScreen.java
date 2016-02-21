@@ -45,7 +45,7 @@ public class HomeScreen extends AppCompatActivity {
      *
      * @param none
      * @return void
-     * 
+     *
      */
     public void floatingActionButtonFunctions() {
 
@@ -60,6 +60,13 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
+    /**
+     * This is test documentation
+     *
+     * @param none
+     * @return Blah
+     *
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -90,8 +97,8 @@ public class HomeScreen extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "HomeScreen Page", // TODO: Define a title for the content shown.
+                Action.TYPE_VIEW,       // TODO: choose an action type.
+                "HomeScreen Page",      // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
@@ -109,8 +116,8 @@ public class HomeScreen extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "HomeScreen Page", // TODO: Define a title for the content shown.
+                Action.TYPE_VIEW,       // TODO: choose an action type.
+                "HomeScreen Page",      // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
