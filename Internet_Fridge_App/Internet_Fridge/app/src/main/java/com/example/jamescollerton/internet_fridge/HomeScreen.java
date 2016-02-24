@@ -22,14 +22,26 @@ public class HomeScreen extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
+    /**
+     *
+     * @param savedInstanceState
+     *
+     * Loads up its latest instance (presumably from when its been sleeping).
+     * Then sets the content view and the toolbar from the XML. Sets all of the
+     * setting buttons on the toolbar and the floating action buttons at the bottom
+     * of the page. Then initialises all of the buttons on the page.
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         floatingActionButtonFunctions();
+        initialiseHomeScreenButtons();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -41,7 +53,8 @@ public class HomeScreen extends AppCompatActivity {
 //  Default functions inserted by the template. They have been left in for the time being.
 
     /**
-     * This is test documentation
+     * This initialises all of the floating action buttons at the bottom of the page.
+     * Eventually this will include a synchronise button and an email button.
      *
      * @param none
      * @return void
@@ -61,32 +74,50 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     /**
-     * This is test documentation
+     * This creates the option menu in the toolbar which can be dropped down to change
+     * settings and to access other options.
+     *
+     * The inflater part inflates the menu; this adds items to the action bar if it is present.
      *
      * @param none
-     * @return Blah
+     * @return true
      *
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home_screen, menu);
         return true;
     }
 
+    /**
+     * Handle action bar item clicks here. The action bar will
+     * automatically handle clicks on the Home/Up button, so long
+     * as you specify a parent activity in AndroidManifest.xml.
+     *
+     * The bottom part is a noinspection SimplifiableIfStatement
+     *
+     * @param none
+     * @return true/ a selected item
+     *
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void initialiseHomeScreenButtons(){
+
+//        View V = inflater.inflate(R.layout.activity_home_screen, container, false);
+
+//        HomeScreenButton scanHomeScreenButton = new HomeScreenButton(V);
+
     }
 
     @Override

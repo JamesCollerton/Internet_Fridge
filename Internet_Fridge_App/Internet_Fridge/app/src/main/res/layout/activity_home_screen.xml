@@ -23,6 +23,13 @@
 
     <include layout="@layout/content_home_screen" />
 
+    <Button android:id="@+id/close"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="60dp"
+        android:text="@string/title_close" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
