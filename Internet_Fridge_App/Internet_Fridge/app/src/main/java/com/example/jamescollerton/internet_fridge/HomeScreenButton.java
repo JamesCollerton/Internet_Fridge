@@ -17,15 +17,14 @@ public class HomeScreenButton {
      * Not used at the moment.
      *
      */
-    public HomeScreenButton() {
+    public HomeScreenButton(Button buttonObject) {
 
-//        Button closeButton = (Button) findViewById(R.id.close);
-//        closeButton.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        buttonObject.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Hello!");
+            }
+        });
 
     }
 

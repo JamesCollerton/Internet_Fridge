@@ -122,13 +122,6 @@ public class HomeScreen extends AppCompatActivity {
 
         HomeScreenButton closeHomeScreenButton = new HomeScreenButton(closeButton);
 
-        closeButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("Hello!");
-            }
-        });
-
     }
 
     @Override
