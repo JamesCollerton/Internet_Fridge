@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.view.View;
+
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -114,9 +118,16 @@ public class HomeScreen extends AppCompatActivity {
 
     public void initialiseHomeScreenButtons(){
 
-//        View V = inflater.inflate(R.layout.activity_home_screen, container, false);
+        Button closeButton = (Button) findViewById(R.id.close);
 
-//        HomeScreenButton scanHomeScreenButton = new HomeScreenButton(V);
+        HomeScreenButton closeHomeScreenButton = new HomeScreenButton(closeButton);
+
+        closeButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Hello!");
+            }
+        });
 
     }
 
