@@ -7,6 +7,15 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.jamescollerton.internet_fridge.HomeScreen">
 
+<!--<android.support.percent.PercentFrameLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--tools:context="com.example.jamescollerton.internet_fridge.HomeScreen">-->
+
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- App bar -->
@@ -34,37 +43,69 @@
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- Four buttons for the home screen. -->
 
-    <!-- The scan button. -->
-    <Button android:id="@+id/homeScreenButtonScanID"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="60dp"
-        android:text="@string/homeScreenButtonScanString" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!-- The recipes button. -->
-    <Button android:id="@+id/homeScreenButtonRecipesID"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="150dp"
-        android:text="@string/homeScreenButtonRecipesString" />
+        <!-- The scan button. -->
+        <Button android:id="@+id/homeScreenButtonScanID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="60dp"
+            android:text="@string/homeScreenButtonScanString" />
 
-    <!-- The deals button. -->
-    <Button android:id="@+id/homeScreenButtonDealsID"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="210dp"
-        android:text="@string/homeScreenButtonDealsString" />
+        <!-- The recipes button. -->
+        <Button android:id="@+id/homeScreenButtonDealsID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="60dp"
+            android:text="@string/homeScreenButtonDealsString" />
 
-    <!-- The friends button. -->
-    <Button android:id="@+id/homeScreenButtonFriendsID"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="270dp"
-        android:text="@string/homeScreenButtonFriendsString" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- The scan button. -->
+        <Button android:id="@+id/homeScreenButtonFriendsID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="120dp"
+            android:text="@string/homeScreenButtonFriendsString" />
+
+        <!-- The recipes button. -->
+        <Button android:id="@+id/homeScreenButtonRecipesID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="120dp"
+            android:text="@string/homeScreenButtonRecipesString" />
+
+    </LinearLayout>
+
+    <!--&lt;!&ndash; The deals button. &ndash;&gt;-->
+    <!--<Button android:id="@+id/homeScreenButtonDealsID"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginTop="210dp"-->
+        <!--android:text="@string/homeScreenButtonDealsString" />-->
+
+    <!--&lt;!&ndash; The friends button. &ndash;&gt;-->
+    <!--<Button android:id="@+id/homeScreenButtonFriendsID"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginTop="270dp"-->
+        <!--android:text="@string/homeScreenButtonFriendsString" />-->
 
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
@@ -76,5 +117,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
+
+<!--</android.support.percent.PercentFrameLayout>-->
 
 </android.support.design.widget.CoordinatorLayout>

@@ -11,8 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.Button;
-import android.view.View.OnClickListener;
-import android.view.View;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
