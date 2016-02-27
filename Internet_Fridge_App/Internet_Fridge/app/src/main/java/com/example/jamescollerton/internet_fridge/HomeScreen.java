@@ -2,10 +2,12 @@ package com.example.jamescollerton.internet_fridge;
 
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +18,10 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.*;
+
+import android.util.DisplayMetrics;
+
 public class HomeScreen extends AppCompatActivity {
 
     /**
@@ -23,6 +29,8 @@ public class HomeScreen extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
+    private Map<String, HomeScreenButton> homeScreenButtonMap = new HashMap<String, HomeScreenButton>();
 
     /**
      *
@@ -41,6 +49,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        setScreenDimensions();
         setSupportActionBar(toolbar);
         floatingActionButtonFunctions();
         initialiseHomeScreenButtons();
@@ -116,11 +125,28 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      *
+     * This is used to set the screen dimensions array. It puts them into a dictionary which
+     * can be accessed publicly.
+     *
+     */
+    private void setScreenDimensions(){
+
+        DisplayMetrics screenMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(screenMetrics);
+        int screenWidth = screenMetrics.widthPixels;
+        int screenHeight = screenMetrics.heightPixels;
+        screenDimensionsMap.put("screenWidth", screenWidth);
+        screenDimensionsMap.put("screenHeight", screenHeight);
+
+    }
+
+    /**
+     *
      * This is used to initialise each of the four buttons on the home screen: Scan, Recipes,
      * Deals and Friends.
      *
      */
-    public void initialiseHomeScreenButtons(){
+    private void initialiseHomeScreenButtons(){
 
         Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
         Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
@@ -131,6 +157,11 @@ public class HomeScreen extends AppCompatActivity {
         HomeScreenButton homeScreenButtonDeals = new HomeScreenButton(dealsButton);
         HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton);
         HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton);
+
+        homeScreenButtonMap.put("homeScreenButtonScan", homeScreenButtonScan);
+        homeScreenButtonMap.put("homeScreenButtonDeals", homeScreenButtonDeals);
+        homeScreenButtonMap.put("homeScreenButtonFriends", homeScreenButtonFriends);
+        homeScreenButtonMap.put("homeScreenButtonRecipes", homeScreenButtonRecipes);
 
     }
 
