@@ -8,4 +8,10 @@
     <string name="homeScreenButtonRecipesString">Recipes</string>
     <string name="homeScreenButtonDealsString">Deals</string>
     <string name="homeScreenButtonFriendsString">Friends</string>
+
+    <!-- Strings for the buttons on the homescreen. -->
+    <string name="homeScreenButtonScanTag">Scan</string>
+    <string name="homeScreenButtonRecipesTag">Recipes</string>
+    <string name="homeScreenButtonDealsTag">Deals</string>
+    <string name="homeScreenButtonFriendsTag">Friends</string>
 </resources>

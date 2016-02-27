@@ -25,6 +25,9 @@ public class HomeScreenButton {
                 System.out.println("Hello!");
             }
         });
+        String buttonObjectID = (String) buttonObject.getTag();
+        System.out.println(buttonObjectID);
+
 
     }
 

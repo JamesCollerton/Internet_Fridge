@@ -49,6 +49,7 @@
 
         <!-- The scan button. -->
         <Button android:id="@+id/homeScreenButtonScanID"
+            android:tag="@string/homeScreenButtonScanTag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
@@ -58,6 +59,7 @@
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonDealsID"
+            android:tag="@string/homeScreenButtonDealsTag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
@@ -73,6 +75,7 @@
 
         <!-- The scan button. -->
         <Button android:id="@+id/homeScreenButtonFriendsID"
+            android:tag="@string/homeScreenButtonFriendsTag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
@@ -82,6 +85,7 @@
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonRecipesID"
+            android:tag="@string/homeScreenButtonRecipesTag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
