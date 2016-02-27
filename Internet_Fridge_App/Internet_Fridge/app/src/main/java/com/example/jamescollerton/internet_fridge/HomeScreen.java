@@ -116,11 +116,23 @@ public class HomeScreen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     *
+     * This is used to initialise each of the four buttons on the home screen: Scan, Recipes,
+     * Deals and Friends.
+     *
+     */
     public void initialiseHomeScreenButtons(){
 
-        Button closeButton = (Button) findViewById(R.id.close);
+        Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
+        Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
+        Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
+        Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
 
-        HomeScreenButton closeHomeScreenButton = new HomeScreenButton(closeButton);
+        HomeScreenButton homeScreenButtonScan = new HomeScreenButton(scanButton);
+        HomeScreenButton homeScreenButtonDeals = new HomeScreenButton(dealsButton);
+        HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton);
+        HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton);
 
     }
 

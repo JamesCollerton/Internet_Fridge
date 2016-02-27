@@ -14,7 +14,7 @@ public class HomeScreenButton {
      *
      * HomeScreenButton Constructor.
      *
-     * Not used at the moment.
+     * @param buttonObject The button object on the menu screen.
      *
      */
     public HomeScreenButton(Button buttonObject) {

@@ -7,6 +7,10 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.jamescollerton.internet_fridge.HomeScreen">
 
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- App bar -->
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,14 +25,49 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+
     <include layout="@layout/content_home_screen" />
 
-    <Button android:id="@+id/close"
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Four buttons for the home screen. -->
+
+    <!-- The scan button. -->
+    <Button android:id="@+id/homeScreenButtonScanID"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="60dp"
-        android:text="@string/title_close" />
+        android:text="@string/homeScreenButtonScanString" />
+
+    <!-- The recipes button. -->
+    <Button android:id="@+id/homeScreenButtonRecipesID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="150dp"
+        android:text="@string/homeScreenButtonRecipesString" />
+
+    <!-- The deals button. -->
+    <Button android:id="@+id/homeScreenButtonDealsID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="210dp"
+        android:text="@string/homeScreenButtonDealsString" />
+
+    <!-- The friends button. -->
+    <Button android:id="@+id/homeScreenButtonFriendsID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="270dp"
+        android:text="@string/homeScreenButtonFriendsString" />
+
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
