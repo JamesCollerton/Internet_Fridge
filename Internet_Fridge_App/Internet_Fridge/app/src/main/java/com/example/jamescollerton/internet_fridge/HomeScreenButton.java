@@ -10,24 +10,39 @@ import android.view.View;
  */
 public class HomeScreenButton {
 
+    private String buttonObjectTag;
+
     /**
      *
-     * HomeScreenButton Constructor.
+     * Finds the tag of the button object so we know which button it represents (scan, deal, friends
+     * or recipes). Then sets the action when the button is clicked.
      *
      * @param buttonObject The button object on the menu screen.
      *
      */
     public HomeScreenButton(Button buttonObject) {
 
+        buttonObjectTag = (String) buttonObject.getTag();
+
+        setButtonClickAction(buttonObject);
+
+    }
+
+    /**
+     *
+     * This is used to set the action when the button is clicked.
+     *
+     * @param buttonObject The button object on the menu screen.
+     *
+     */
+    private void setButtonClickAction(Button buttonObject){
+
         buttonObject.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Hello!");
+                System.out.println(buttonObjectTag);
             }
         });
-        String buttonObjectID = (String) buttonObject.getTag();
-        System.out.println(buttonObjectID);
-
 
     }
 
