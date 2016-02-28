@@ -34,12 +34,12 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      *
-     * @param savedInstanceState
-     *
      * Loads up its latest instance (presumably from when its been sleeping).
      * Then sets the content view and the toolbar from the XML. Sets all of the
      * setting buttons on the toolbar and the floating action buttons at the bottom
      * of the page. Then initialises all of the buttons on the page.
+     *
+     * @param savedInstanceState
      *
      */
     @Override
@@ -64,11 +64,9 @@ public class HomeScreen extends AppCompatActivity {
 //  Default functions inserted by the template. They have been left in for the time being.
 
     /**
+     *
      * This initialises all of the floating action buttons at the bottom of the page.
      * Eventually this will include a synchronise button and an email button.
-     *
-     * @param none
-     * @return void
      *
      */
     public void floatingActionButtonFunctions() {
@@ -85,12 +83,12 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     /**
+     *
      * This creates the option menu in the toolbar which can be dropped down to change
      * settings and to access other options.
      *
      * The inflater part inflates the menu; this adds items to the action bar if it is present.
      *
-     * @param none
      * @return true
      *
      */
@@ -101,13 +99,13 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     /**
+     *
      * Handle action bar item clicks here. The action bar will
      * automatically handle clicks on the Home/Up button, so long
      * as you specify a parent activity in AndroidManifest.xml.
      *
      * The bottom part is a noinspection SimplifiableIfStatement
      *
-     * @param none
      * @return true/ a selected item
      *
      */
@@ -170,6 +168,13 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * This is used to return the map of screen dimensions. At the moment it is used by the buttons
+     * on the screen in order to set their position relative to the screen size.
+     *
+     * @return
+     */
     public Map<String, Integer> getScreenDimensionsMap(){
 
         return (screenDimensionsMap);

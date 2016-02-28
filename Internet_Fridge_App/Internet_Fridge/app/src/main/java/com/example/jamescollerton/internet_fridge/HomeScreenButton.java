@@ -12,6 +12,8 @@ import java.util.Map;
  */
 public class HomeScreenButton {
 
+//    private Button buttonObject;
+//    private HomeScreen parentHomeScreen;
     private String buttonObjectTag;
     private Map<String, Integer> screenDimensionsMap;
 
@@ -32,10 +34,15 @@ public class HomeScreenButton {
 
     }
 
+    /**
+     *
+     * @param buttonObject
+     * @param parentHomeScreen
+     */
     private void setButtonMargins(Button buttonObject, HomeScreen parentHomeScreen){
 
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
-        System.out.println("" + screenDimensionsMap.get("screenWidth") + ", " + screenDimensionsMap.get("screenHeight") );
+        System.out.println("" + screenDimensionsMap.get("screenWidth") + ", " + screenDimensionsMap.get("screenHeight"));
 
     }
 
