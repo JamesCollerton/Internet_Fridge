@@ -18,6 +18,8 @@ import java.util.Map;
 public class HomeScreenButton {
 
     private String buttonObjectTag;
+    private Button buttonObject;
+    private HomeScreen parentHomeScreen;
     private Map<String, Integer> screenDimensionsMap;
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
@@ -33,10 +35,13 @@ public class HomeScreenButton {
      */
     public HomeScreenButton(Button buttonObject, HomeScreen parentHomeScreen) {
 
+        this.buttonObject = buttonObject;
+        this.parentHomeScreen = parentHomeScreen;
+
         buttonObjectTag = (String) buttonObject.getTag();
 
-        setButtonMargins(buttonObject, parentHomeScreen);
-        setButtonClickAction(buttonObject);
+        setButtonMargins();
+        setButtonClickAction();
 
     }
 
@@ -46,11 +51,8 @@ public class HomeScreenButton {
      * object (in order to change its margins) and also the homes. Interestingly, this can't be
      * a switch statement as the values need to be known at compile time for that to work.
      *
-     * @param buttonObject The button object on the menu screen.
-     * @param parentHomeScreen The home screen object that the button was sourced from.
-     *
      */
-    private void setButtonMargins(Button buttonObject, HomeScreen parentHomeScreen){
+    private void setButtonMargins(){
 
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
 
@@ -88,10 +90,8 @@ public class HomeScreenButton {
      *
      * This is used to set the action when the button is clicked.
      *
-     * @param buttonObject The button object on the menu screen.
-     *
      */
-    private void setButtonClickAction(Button buttonObject){
+    private void setButtonClickAction(){
 
         buttonObject.setOnClickListener(new OnClickListener() {
             @Override
