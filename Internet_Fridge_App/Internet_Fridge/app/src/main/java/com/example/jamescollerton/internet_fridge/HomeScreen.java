@@ -156,16 +156,19 @@ public class HomeScreen extends AppCompatActivity {
         Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
         Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
         Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
+        Button myFridgeButton = (Button) findViewById(R.id.homeScreenButtonMyFridgeID);
 
         HomeScreenButton homeScreenButtonScan = new HomeScreenButton(scanButton, this);
         HomeScreenButton homeScreenButtonDeals = new HomeScreenButton(dealsButton, this);
         HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton, this);
         HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton, this);
+        HomeScreenButton homeScreenButtonMyFridge = new HomeScreenButton(myFridgeButton, this);
 
         homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapScan, homeScreenButtonScan);
         homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapDeals, homeScreenButtonDeals);
         homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapFriends, homeScreenButtonFriends);
         homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapRecipes, homeScreenButtonRecipes);
+        homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapMyFridge, homeScreenButtonMyFridge);
 
     }
 

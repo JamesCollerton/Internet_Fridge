@@ -15,5 +15,6 @@ public class DictionaryKeysList {
     public static final String homeScreenButtonMapDeals = "homeScreenButtonDeals";
     public static final String homeScreenButtonMapFriends = "homeScreenButtonFriends";
     public static final String homeScreenButtonMapRecipes = "homeScreenButtonRecipes";
+    public static final String homeScreenButtonMapMyFridge = "homeScreenButtonMyFridge";
 
 }

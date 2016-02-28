@@ -71,6 +71,10 @@ public class HomeScreenButton {
             buttonTopMargin =  screenDimensionsList.homeScreenButtonRecipesTopPercentageMargin *
                                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
         }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonMyFridgeTag))){
+            buttonTopMargin =  screenDimensionsList.homeScreenButtonMyFridgeTopPercentageMargin *
+                               (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+        }
 
         params.setMargins(0, (int) buttonTopMargin, 0, 0);
 

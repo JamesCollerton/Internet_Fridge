@@ -5,11 +5,11 @@ package com.example.jamescollerton.internet_fridge;
  */
 public class ScreenDimensionsList {
 
-    public static final double homeScreenButtonScanTopPercentageMargin = 0.4;
-    public static final double homeScreenButtonDealsTopPercentageMargin = 0.4;
-    public static final double homeScreenButtonFriendsTopPercentageMargin = 0.6;
-    public static final double homeScreenButtonRecipesTopPercentageMargin = 0.6;
+    public static final double homeScreenButtonScanTopPercentageMargin = 0.3;
+    public static final double homeScreenButtonDealsTopPercentageMargin = 0.3;
+    public static final double homeScreenButtonFriendsTopPercentageMargin = 0.5;
+    public static final double homeScreenButtonRecipesTopPercentageMargin = 0.5;
 
-    public static final double homeScreenButtonMyFridgeTopPercentageMargin = 0.5;
+    public static final double homeScreenButtonMyFridgeTopPercentageMargin = 0.4;
 
 }
