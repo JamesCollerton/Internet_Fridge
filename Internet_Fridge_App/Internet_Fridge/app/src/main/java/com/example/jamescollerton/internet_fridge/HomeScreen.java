@@ -123,6 +123,11 @@ public class HomeScreen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+//  ------------------------------------------------------------------------------------------------
+
+//  ------------------------------------------------------------------------------------------------
+//  Defined functions.
+
     /**
      *
      * This is used to set the screen dimensions array. It puts them into a dictionary which
@@ -153,10 +158,10 @@ public class HomeScreen extends AppCompatActivity {
         Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
         Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
 
-        HomeScreenButton homeScreenButtonScan = new HomeScreenButton(scanButton);
-        HomeScreenButton homeScreenButtonDeals = new HomeScreenButton(dealsButton);
-        HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton);
-        HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton);
+        HomeScreenButton homeScreenButtonScan = new HomeScreenButton(scanButton, this);
+        HomeScreenButton homeScreenButtonDeals = new HomeScreenButton(dealsButton, this);
+        HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton, this);
+        HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton, this);
 
         homeScreenButtonMap.put("homeScreenButtonScan", homeScreenButtonScan);
         homeScreenButtonMap.put("homeScreenButtonDeals", homeScreenButtonDeals);
@@ -164,6 +169,17 @@ public class HomeScreen extends AppCompatActivity {
         homeScreenButtonMap.put("homeScreenButtonRecipes", homeScreenButtonRecipes);
 
     }
+
+    public Map<String, Integer> getScreenDimensionsMap(){
+
+        return (screenDimensionsMap);
+
+    }
+
+//  ------------------------------------------------------------------------------------------------
+
+//  ------------------------------------------------------------------------------------------------
+//  Google API Automatically Generated Functions.
 
     @Override
     public void onStart() {
