@@ -72,14 +72,15 @@ public class HomeScreen extends AppCompatActivity {
      */
     public void floatingActionButtonFunctions() {
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.homeScreenEmailButton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        FloatingActionButton emailFloatingActionButton =
+                (FloatingActionButton) findViewById(R.id.homeScreenEmailFloatingActionButton);
+        FloatingActionButton refreshFloatingActionButton =
+                (FloatingActionButton) findViewById(R.id.homeScreenRefreshFloatingActionButton);
+
+        HomeScreenFloatingActionButton homeScreenEmailFloatingActionButton =
+                new HomeScreenFloatingActionButton(emailFloatingActionButton);
+        HomeScreenFloatingActionButton homeScreenRefreshFloatingActionButton =
+                new HomeScreenFloatingActionButton(refreshFloatingActionButton);
 
     }
 

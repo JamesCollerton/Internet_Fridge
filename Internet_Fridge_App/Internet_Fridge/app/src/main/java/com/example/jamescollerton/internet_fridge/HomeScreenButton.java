@@ -43,7 +43,8 @@ public class HomeScreenButton {
     /**
      *
      * This is used to set the button positions relative to the page size. It takes in the button
-     * object (in order to change its margins) and also the homes
+     * object (in order to change its margins) and also the homes. Interestingly, this can't be
+     * a switch statement as the values need to be known at compile time for that to work.
      *
      * @param buttonObject The button object on the menu screen.
      * @param parentHomeScreen The home screen object that the button was sourced from.

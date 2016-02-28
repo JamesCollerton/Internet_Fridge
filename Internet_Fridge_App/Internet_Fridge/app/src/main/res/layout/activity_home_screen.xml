@@ -105,7 +105,7 @@
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/homeScreenEmailButton"
+        android:id="@+id/homeScreenEmailFloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -114,7 +114,7 @@
         android:src="@mipmap/icons_email" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/homeScreenRefreshButton"
+        android:id="@+id/homeScreenRefreshFloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
