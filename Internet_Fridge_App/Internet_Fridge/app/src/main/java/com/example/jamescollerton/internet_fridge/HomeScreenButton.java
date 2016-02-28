@@ -50,8 +50,6 @@ public class HomeScreenButton {
 
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
 
-//        android.view.ViewGroup.LayoutParams
-
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
         params.setMargins(0, 300, 0, 0); //left, top, right, bottom
         buttonObject.setLayoutParams(params);
