@@ -106,7 +106,7 @@ public class HomeScreen extends AppCompatActivity {
      *
      * The bottom part is a noinspection SimplifiableIfStatement
      *
-     * @return true/ a selected item
+     * @return selectedItem (An item that has been selected from the options menu.)
      *
      */
     @Override
@@ -173,7 +173,7 @@ public class HomeScreen extends AppCompatActivity {
      * This is used to return the map of screen dimensions. At the moment it is used by the buttons
      * on the screen in order to set their position relative to the screen size.
      *
-     * @return
+     * @return screenDimensionsMap (The map of screen dimensions.)
      */
     public Map<String, Integer> getScreenDimensionsMap(){
 

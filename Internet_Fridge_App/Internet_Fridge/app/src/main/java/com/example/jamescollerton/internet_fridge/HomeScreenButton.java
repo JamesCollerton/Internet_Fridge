@@ -12,8 +12,6 @@ import java.util.Map;
  */
 public class HomeScreenButton {
 
-//    private Button buttonObject;
-//    private HomeScreen parentHomeScreen;
     private String buttonObjectTag;
     private Map<String, Integer> screenDimensionsMap;
 
@@ -23,6 +21,7 @@ public class HomeScreenButton {
      * or recipes). Then sets the action when the button is clicked.
      *
      * @param buttonObject The button object on the menu screen.
+     * @param parentHomeScreen The home screen object that the button was sourced from.
      *
      */
     public HomeScreenButton(Button buttonObject, HomeScreen parentHomeScreen) {
@@ -36,13 +35,16 @@ public class HomeScreenButton {
 
     /**
      *
-     * @param buttonObject
-     * @param parentHomeScreen
+     * This is used to set the button positions relative to the page size. It takes in the button
+     * object (in order to change its margins) and also the homes
+     *
+     * @param buttonObject The button object on the menu screen.
+     * @param parentHomeScreen The home screen object that the button was sourced from.
      */
     private void setButtonMargins(Button buttonObject, HomeScreen parentHomeScreen){
 
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
-        System.out.println("" + screenDimensionsMap.get("screenWidth") + ", " + screenDimensionsMap.get("screenHeight"));
+
 
     }
 
