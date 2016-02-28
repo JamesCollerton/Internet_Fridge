@@ -3,6 +3,7 @@ package com.example.jamescollerton.internet_fridge;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +50,11 @@ public class HomeScreenButton {
 
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
 
+//        android.view.ViewGroup.LayoutParams
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
+        params.setMargins(0, 300, 0, 0); //left, top, right, bottom
+        buttonObject.setLayoutParams(params);
 
     }
 
