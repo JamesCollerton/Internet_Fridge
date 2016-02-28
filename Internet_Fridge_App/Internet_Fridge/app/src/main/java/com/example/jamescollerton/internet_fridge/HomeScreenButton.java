@@ -19,6 +19,7 @@ public class HomeScreenButton {
 
     private String buttonObjectTag;
     private Map<String, Integer> screenDimensionsMap;
+    private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
 
     /**
      *
@@ -51,6 +52,11 @@ public class HomeScreenButton {
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
+
+        if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.action_get_money))){
+
+        }
+        
         params.setMargins(0, 300, 0, 0); //left, top, right, bottom
         buttonObject.setLayoutParams(params);
 
