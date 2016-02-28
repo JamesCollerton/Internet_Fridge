@@ -72,7 +72,7 @@ public class HomeScreen extends AppCompatActivity {
      */
     public void floatingActionButtonFunctions() {
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.homeScreenEmailButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -47,6 +47,7 @@ public class HomeScreenButton {
      *
      * @param buttonObject The button object on the menu screen.
      * @param parentHomeScreen The home screen object that the button was sourced from.
+     *
      */
     private void setButtonMargins(Button buttonObject, HomeScreen parentHomeScreen){
 

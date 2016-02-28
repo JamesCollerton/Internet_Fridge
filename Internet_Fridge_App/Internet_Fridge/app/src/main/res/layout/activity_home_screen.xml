@@ -105,20 +105,21 @@
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/emailButton"
+        android:id="@+id/homeScreenEmailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:scaleType="fitXY"
+        android:src="@mipmap/icons_email" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/homeScreenRefreshButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_margin"
         android:scaleType="fitXY"
-        android:src="@mipmap/icons_email" />
+        android:src="@mipmap/icons_refresh" />
 
 </android.support.design.widget.CoordinatorLayout>
