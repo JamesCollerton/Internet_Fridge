@@ -20,6 +20,7 @@ public class HomeScreenButton {
     private String buttonObjectTag;
     private Map<String, Integer> screenDimensionsMap;
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
+    private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
 
     /**
      *
@@ -52,12 +53,27 @@ public class HomeScreenButton {
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
+        double buttonTopMargin = 0;
 
-        if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.action_get_money))){
-
+        if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonScanTag))){
+            buttonTopMargin =  screenDimensionsList.homeScreenButtonScanTopPercentageMargin *
+                               (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
         }
-        
-        params.setMargins(0, 300, 0, 0); //left, top, right, bottom
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonDealsTag))){
+            buttonTopMargin =  screenDimensionsList.homeScreenButtonDealsTopPercentageMargin *
+                               (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+        }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonFriendsTag))){
+            buttonTopMargin =  screenDimensionsList.homeScreenButtonFriendsTopPercentageMargin *
+                               (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+        }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonRecipesTag))){
+            buttonTopMargin =  screenDimensionsList.homeScreenButtonRecipesTopPercentageMargin *
+                               (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+        }
+
+        params.setMargins(0, (int) buttonTopMargin, 0, 0);
+
         buttonObject.setLayoutParams(params);
 
     }

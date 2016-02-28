@@ -60,7 +60,7 @@
 
     </LinearLayout>
 
-    <!-- The recipes button. -->
+    <!-- The My Fridge button. -->
     <Button android:id="@+id/homeScreenButtonMyFridgeID"
         android:tag="@string/homeScreenButtonMyFridgeTag"
         android:layout_width="fill_parent"
@@ -105,7 +105,5 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
-
-<!--</android.support.percent.PercentFrameLayout>-->
 
 </android.support.design.widget.CoordinatorLayout>

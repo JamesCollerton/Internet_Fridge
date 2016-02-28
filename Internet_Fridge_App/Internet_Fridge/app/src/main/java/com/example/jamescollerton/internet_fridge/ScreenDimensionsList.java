@@ -10,6 +10,6 @@ public class ScreenDimensionsList {
     public static final double homeScreenButtonFriendsTopPercentageMargin = 0.6;
     public static final double homeScreenButtonRecipesTopPercentageMargin = 0.6;
 
-    public static final double homeScreenButtonRecipesTopMyPercentageMargin = 0.5;
+    public static final double homeScreenButtonMyFridgeTopPercentageMargin = 0.5;
 
 }
