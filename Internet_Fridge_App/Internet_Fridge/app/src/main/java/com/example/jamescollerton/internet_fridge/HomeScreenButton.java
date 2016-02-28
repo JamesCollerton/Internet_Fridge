@@ -9,6 +9,10 @@ import java.util.Map;
 
 /**
  * Created by JamesCollerton on 24/02/2016.
+ *
+ * This class is used to contain all of the information for the buttons on the homescreen. It controls
+ * their actions when they are pressed, their positioning and their appearance.
+ *
  */
 public class HomeScreenButton {
 
