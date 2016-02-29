@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/appDefaultBackground"
     tools:context="com.example.jamescollerton.internet_fridge.HomeScreen">
 
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
@@ -46,7 +47,9 @@
             android:layout_weight=".50"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="60dp"
-            android:text="@string/homeScreenButtonScanString" />
+            android:text="@string/homeScreenButtonScanString"
+            android:background="@color/appDefaultButton"
+            android:textColor="@color/appDefaultBackground"/>
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonDealsID"
@@ -56,7 +59,9 @@
             android:layout_weight=".50"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="60dp"
-            android:text="@string/homeScreenButtonDealsString" />
+            android:text="@string/homeScreenButtonDealsString"
+            android:background="@color/appDefaultButton"
+            android:textColor="@color/appDefaultBackground"/>
 
     </LinearLayout>
 
@@ -71,7 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="120dp"
-            android:text="@string/homeScreenButtonMyFridgeString" />
+            android:text="@string/homeScreenButtonMyFridgeString"
+            android:background="@color/appDefaultButton"
+            android:textColor="@color/appDefaultBackground"/>
 
     </LinearLayout>
 
@@ -87,7 +94,10 @@
             android:layout_weight=".50"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="180dp"
-            android:text="@string/homeScreenButtonFriendsString" />
+            android:text="@string/homeScreenButtonFriendsString"
+            android:enabled="false"
+            android:background="@color/appDefaultButton"
+            android:textColor="@color/appDefaultBackground" />
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonRecipesID"
@@ -97,7 +107,9 @@
             android:layout_weight=".50"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="180dp"
-            android:text="@string/homeScreenButtonRecipesString" />
+            android:text="@string/homeScreenButtonRecipesString"
+            android:background="@color/appDefaultButton"
+            android:textColor="@color/appDefaultBackground"/>
 
     </LinearLayout>
 

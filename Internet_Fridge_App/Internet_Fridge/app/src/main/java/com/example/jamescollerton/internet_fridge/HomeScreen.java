@@ -22,6 +22,12 @@ import java.util.*;
 
 import android.util.DisplayMetrics;
 
+/**
+ *
+ * This is the initial HomeScreen class that is ran on startup. It is responsible for holding all
+ * of the buttons that are contained on the screen, the menu bar and keeping the screen dimensions.
+ *
+ */
 public class HomeScreen extends AppCompatActivity {
 
     /**

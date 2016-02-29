@@ -16,4 +16,9 @@
     <string name="homeScreenButtonDealsTag">Deals</string>
     <string name="homeScreenButtonFriendsTag">Friends</string>
     <string name="homeScreenButtonMyFridgeTag">MyFridge</string>
+
+    <color name="appDefaultBackground">#01263B</color>
+    <color name="appDefaultButton">#fffff0</color>
+    <color name="appDefaultButtonPressed">#ff8E01</color>
+
 </resources>
