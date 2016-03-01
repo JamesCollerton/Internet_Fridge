@@ -80,7 +80,7 @@ public class HomeScreenButton {
                                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
         }
 
-        params.setMargins(0, (int) buttonTopMargin, 0, 0);
+        params.setMargins(30, (int) buttonTopMargin, 30, 0);
 
         buttonObject.setLayoutParams(params);
 
