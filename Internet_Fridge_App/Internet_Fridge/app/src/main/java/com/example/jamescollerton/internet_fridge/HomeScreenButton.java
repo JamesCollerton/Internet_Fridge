@@ -40,6 +40,8 @@ public class HomeScreenButton {
 
         buttonObjectTag = (String) buttonObject.getTag();
 
+        this.buttonObject.setTransformationMethod(null);
+
         setButtonMargins();
         setButtonClickAction();
 

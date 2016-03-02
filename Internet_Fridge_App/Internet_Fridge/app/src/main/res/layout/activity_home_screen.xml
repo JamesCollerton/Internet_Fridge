@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/appDefaultBackground"
+    android:background="@drawable/android_background_element"
+    android:gravity="center"
     tools:context="com.example.jamescollerton.internet_fridge.HomeScreen">
 
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
