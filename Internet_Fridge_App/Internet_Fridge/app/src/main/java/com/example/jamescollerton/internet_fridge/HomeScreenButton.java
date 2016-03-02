@@ -57,7 +57,9 @@ public class HomeScreenButton {
         screenDimensionsMap = new HashMap<>(parentHomeScreen.getScreenDimensionsMap());
 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
+
         double buttonTopMargin = 0;
+        double buttonSideMargins = 0;
 
         if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonScanTag))){
             buttonTopMargin =  screenDimensionsList.homeScreenButtonScanTopPercentageMargin *
@@ -80,7 +82,10 @@ public class HomeScreenButton {
                                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
         }
 
-        params.setMargins(30, (int) buttonTopMargin, 30, 0);
+        buttonSideMargins = screenDimensionsList.homeScreenButtonSidesPercentageMargin *
+                            (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+
+        params.setMargins((int) buttonSideMargins, (int) buttonTopMargin, (int) buttonSideMargins, 0);
 
         buttonObject.setLayoutParams(params);
 
