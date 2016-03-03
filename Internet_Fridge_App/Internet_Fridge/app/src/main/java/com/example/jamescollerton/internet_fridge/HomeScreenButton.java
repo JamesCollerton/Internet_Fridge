@@ -1,9 +1,11 @@
 package com.example.jamescollerton.internet_fridge;
 
+import android.graphics.Typeface;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +44,7 @@ public class HomeScreenButton {
 
         this.buttonObject.setTransformationMethod(null);
 
+        setButtonFont();
         setButtonMargins();
         setButtonClickAction();
 
@@ -106,6 +109,14 @@ public class HomeScreenButton {
                 System.out.println(buttonObjectTag);
             }
         });
+
+    }
+
+    private void setButtonFont(){
+
+        TextView tx = (TextView) parentHomeScreen.findViewById(R.id.homeScreenButtonMyFridgeID);
+        Typeface custom_font = Typeface.createFromAsset(parentHomeScreen.getAssets(),  "fonts/KeepCalm.ttf");
+        tx.setTypeface(custom_font);
 
     }
 

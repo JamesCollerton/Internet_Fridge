@@ -1,5 +1,6 @@
 package com.example.jamescollerton.internet_fridge;
 
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -21,6 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.*;
 
 import android.util.DisplayMetrics;
+import android.widget.TextView;
 
 /**
  *
