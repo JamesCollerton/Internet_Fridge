@@ -164,6 +164,9 @@ public class HomeScreenButton {
      * folder and then resizes it and puts it to screen. The try/ catch block is so that if it
      * can't find the image in the assets folder it exits gracefully.
      *
+     * TODO: Have the paddingLeft and paddingRight variables automatically resize themselves.
+     * TODO: Come up with a good way of exiting the application.
+     *
      */
     private void resizeIcon(){
 
