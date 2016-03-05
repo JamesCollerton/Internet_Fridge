@@ -1,6 +1,8 @@
 package com.example.jamescollerton.internet_fridge;
 
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ScaleDrawable;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
@@ -20,6 +22,7 @@ import java.util.Map;
 public class HomeScreenButton {
 
     private String buttonObjectTag;
+    private Integer buttonObjectID;
     private Button buttonObject;
     private HomeScreen parentHomeScreen;
     private Map<String, Integer> screenDimensionsMap;
@@ -41,12 +44,14 @@ public class HomeScreenButton {
         this.parentHomeScreen = parentHomeScreen;
 
         buttonObjectTag = (String) buttonObject.getTag();
+        buttonObjectID = buttonObject.getId();
 
         this.buttonObject.setTransformationMethod(null);
 
         setButtonFont();
         setButtonMargins();
         setButtonClickAction();
+        resizeIcon();
 
     }
 
@@ -112,11 +117,26 @@ public class HomeScreenButton {
 
     }
 
+    /**
+     *
+     * This is used to take the button text and set it to KeepCalm, the font
+     * for the app.
+     *
+     */
     private void setButtonFont(){
 
-        TextView tx = (TextView) parentHomeScreen.findViewById(R.id.homeScreenButtonMyFridgeID);
+        TextView tx = (TextView) parentHomeScreen.findViewById(buttonObjectID);
         Typeface custom_font = Typeface.createFromAsset(parentHomeScreen.getAssets(),  "fonts/KeepCalm.ttf");
         tx.setTypeface(custom_font);
+
+    }
+
+    private void resizeIcon(){
+
+        Drawable img = parentHomeScreen.getResources().getDrawable(R.drawable.icons_barcode_smaller);
+        img.setBounds(0, 0, 50, 50);
+        buttonObject.setCompoundDrawables(img, null, null, null);
+//        buttonObject.removeOnLayoutChangeListener(this);
 
     }
 

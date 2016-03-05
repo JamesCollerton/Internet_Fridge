@@ -53,7 +53,11 @@
             android:text="@string/homeScreenButtonScanString"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@mipmap/icons_barcode"/>
+            android:drawableLeft="@mipmap/icons_barcode"
+            android:drawablePadding="0dip"
+            android:paddingLeft="23dip"
+            android:singleLine="true"
+            android:paddingRight="10dip"/>
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonDealsID"

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@mipmap/icons_barcode"
-    android:adjustViewBounds="true"
-    android:maxWidth="4dp"
-    android:maxHeight="4dp"
-    android:scaleType="fitCenter"
-    android:layout_marginLeft="3dp">
-</bitmap>
