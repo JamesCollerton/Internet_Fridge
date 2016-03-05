@@ -53,7 +53,6 @@
             android:text="@string/homeScreenButtonScanString"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@mipmap/icons_barcode"
             android:drawablePadding="0dip"
             android:paddingLeft="23dip"
             android:singleLine="true"
@@ -72,7 +71,10 @@
             android:text="@string/homeScreenButtonDealsString"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@mipmap/icons_deals"/>
+            android:drawablePadding="0dip"
+            android:paddingLeft="23dip"
+            android:singleLine="true"
+            android:paddingRight="10dip"/>
 
     </LinearLayout>
 
@@ -92,7 +94,10 @@
             android:text="@string/homeScreenButtonMyFridgeString"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@mipmap/icons_my_fridge"/>
+            android:drawablePadding="0dip"
+            android:paddingLeft="100dip"
+            android:singleLine="true"
+            android:paddingRight="100dip"/>
 
     </LinearLayout>
 
@@ -114,7 +119,10 @@
             android:enabled="false"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@mipmap/icons_friends"/>
+            android:drawablePadding="0dip"
+            android:paddingLeft="23dip"
+            android:singleLine="true"
+            android:paddingRight="10dip"/>
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonRecipesID"
@@ -127,10 +135,13 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:text="@string/homeScreenButtonRecipesString"
-            android:padding="0dp"
+            android:enabled="false"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@mipmap/icons_recipes"/>
+            android:drawablePadding="0dip"
+            android:paddingLeft="23dip"
+            android:singleLine="true"
+            android:paddingRight="10dip"/>
 
     </LinearLayout>
 

@@ -17,6 +17,14 @@
     <string name="homeScreenButtonFriendsTag">Friends</string>
     <string name="homeScreenButtonMyFridgeTag">MyFridge</string>
 
+    <!-- File locations for the icons for the homeScreen -->
+    <string name="homeScreenButtonScanIconLocation">images/icons_barcode.png</string>
+    <string name="homeScreenButtonRecipesIconLocation">images/icons_recipes.png</string>
+    <string name="homeScreenButtonDealsIconLocation">images/icons_deals.png</string>
+    <string name="homeScreenButtonFriendsIconLocation">images/icons_friends.png</string>
+    <string name="homeScreenButtonMyFridgeIconLocation">images/icons_fridge.png</string>
+
+    <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>
     <color name="appDefaultButtonPressed">#ff8E01</color>

@@ -2,7 +2,6 @@ package com.example.jamescollerton.internet_fridge;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ScaleDrawable;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
@@ -22,7 +21,7 @@ import java.util.Map;
  */
 public class HomeScreenButton {
 
-    private String buttonObjectTag;
+    private String buttonObjectTag, buttonIconFileLocation;
     private Integer buttonObjectID;
     private Button buttonObject;
     private HomeScreen parentHomeScreen;
@@ -52,6 +51,7 @@ public class HomeScreenButton {
         setButtonFont();
         setButtonMargins();
         setButtonClickAction();
+        setButtonIconFileLocation();
         resizeIcon();
 
     }
@@ -132,13 +132,48 @@ public class HomeScreenButton {
 
     }
 
+    /**
+     *
+     * This function is used to set the button icon file location. It acts as a switch on the button
+     * tag and then
+     *
+     */
+    private void setButtonIconFileLocation(){
+
+        if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonScanTag))){
+            buttonIconFileLocation = parentHomeScreen.getResources().getString(R.string.homeScreenButtonScanIconLocation);
+        }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonDealsTag))){
+            buttonIconFileLocation = parentHomeScreen.getResources().getString(R.string.homeScreenButtonDealsIconLocation);
+        }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonFriendsTag))){
+            buttonIconFileLocation = parentHomeScreen.getResources().getString(R.string.homeScreenButtonFriendsIconLocation);
+        }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonRecipesTag))){
+            buttonIconFileLocation = parentHomeScreen.getResources().getString(R.string.homeScreenButtonRecipesIconLocation);
+        }
+        else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonMyFridgeTag))){
+            buttonIconFileLocation = parentHomeScreen.getResources().getString(R.string.homeScreenButtonMyFridgeIconLocation);
+        }
+
+    }
+
+    /**
+     *
+     * This is used to resize the icon on the buttons. It pulls the image from the assets/image
+     * folder and then resizes it and puts it to screen. The try/ catch block is so that if it
+     * can't find the image in the assets folder it exits gracefully.
+     *
+     */
     private void resizeIcon(){
 
         try {
-            Drawable img = Drawable.createFromStream(parentHomeScreen.getAssets().open("images/icons_barcode_smaller.png"), null);
+
+            Drawable img = Drawable.createFromStream(parentHomeScreen.getAssets().open(buttonIconFileLocation), null);
             img.setBounds(0, 0, 50, 50);
             buttonObject.setCompoundDrawables(img, null, null, null);
-        } catch (IOException blah){
+
+        } catch (IOException settingButtonIconIOException){
             System.exit(1);
         }
 
