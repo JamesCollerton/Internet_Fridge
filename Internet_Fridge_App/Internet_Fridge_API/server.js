@@ -1,46 +1,43 @@
-// server.js
-
-// BASE SETUP
-// =============================================================================
-
-// call the packages we need
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
+var express = require('express');        
 var bodyParser = require('body-parser');
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
+// This defines the app using Express, then configures it to use bodyParser().
+// bodyParser lets us get data from the POST request.
+var app = express();                 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+// This sets the port on the local host to 8080 to use for the API.
+var port = process.env.PORT || 8080;        
 
-// ROUTES FOR OUR API
-// =============================================================================
-var router = express.Router();              // get an instance of the express Router
+// -----------------------------------------------------------------------------
+// API ROUTING
 
-// middleware to use for all requests
+// This creates an instance of the express router in order to route the API 
+// traffic to the correct place.
+var router = express.Router();              
+
+// Middleware to be used for all of the requests. Logs that a request that 
+// something has been asked for, then looks for the next request.
 router.use(function(req, res, next) {
-    // do logging
-    console.log('Something is happening.');
-    next(); // make sure we go to the next routes and don't stop here
+
+    console.log('Request recieved.');
+    next(); 
+
 });
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
-});
-
+// This just routes all of the traffic with the url suffix '/bears'
 router.route('/bears')
 
-	// create a bear (accessed at POST http://localhost:8080/api/bears)
+	// General post to the API (accessed at POST http://localhost:8080/api/bears).
 	.post(function(req, res) {
 
 	    res.json({ message: 'Posted with information: ' + req.body.name})
 	    
 	})
 
-	// get all the bears (accessed at GET http://localhost:8080/api/bears)
+	// General get from the API (accessed at GET http://localhost:8080/api/bears)
 	.get(function(req, res) {
 	    
 		res.json({ message: 'Get request (for all data) posted.'})
@@ -49,33 +46,32 @@ router.route('/bears')
 
 router.route('/bears/:bear_id')
 
-    // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
+    // Get request with paramters (accessed at GET http://localhost:8080/api/bears/:bear_id)
     .get(function(req, res) {
         
         res.json({ message: 'Get request (for id:' + req.params.bear_id + ') posted.'})
 
     })
 
+	// Put request with paramters (accessed at PUT http://localhost:8080/api/bears/:bear_id)	
     .put(function(req, res) {
 
         res.json({ message: 'Put request (for id:' + req.params.bear_id + ') posted.'})
 
     })
 
+    // Delete request with paramters (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
     .delete(function(req, res) {
         
     	res.json({ message: 'Delete request (for id:' + req.params.bear_id + ') posted.'})
 
     });
 
-
-// more routes for our API will happen here
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
+// This is used to register routes. All of our routes will be prefixed with '/api'
 app.use('/api', router);
 
-// START THE SERVER
-// =============================================================================
+// -----------------------------------------------------------------------------
+// Starts the server
+
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Server started on port: ' + port);
