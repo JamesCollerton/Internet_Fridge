@@ -52,7 +52,8 @@
             android:layout_marginRight="35dp"
             android:text="@string/homeScreenButtonScanString"
             android:background="@drawable/rounded_corners_button"
-            android:textColor="@color/appDefaultBackground"/>
+            android:textColor="@color/appDefaultBackground"
+            android:drawableLeft="@drawable/icons_scan_homescreen"/>
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonDealsID"
@@ -66,7 +67,8 @@
             android:layout_marginRight="35dp"
             android:text="@string/homeScreenButtonDealsString"
             android:background="@drawable/rounded_corners_button"
-            android:textColor="@color/appDefaultBackground"/>
+            android:textColor="@color/appDefaultBackground"
+            android:drawableLeft="@mipmap/icons_deals"/>
 
     </LinearLayout>
 
@@ -85,7 +87,8 @@
             android:layout_marginRight="35dp"
             android:text="@string/homeScreenButtonMyFridgeString"
             android:background="@drawable/rounded_corners_button"
-            android:textColor="@color/appDefaultBackground"/>
+            android:textColor="@color/appDefaultBackground"
+            android:drawableLeft="@mipmap/icons_my_fridge"/>
 
     </LinearLayout>
 
@@ -106,7 +109,8 @@
             android:text="@string/homeScreenButtonFriendsString"
             android:enabled="false"
             android:background="@drawable/rounded_corners_button"
-            android:textColor="@color/appDefaultBackground" />
+            android:textColor="@color/appDefaultBackground"
+            android:drawableLeft="@mipmap/icons_friends"/>
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonRecipesID"
@@ -121,7 +125,8 @@
             android:text="@string/homeScreenButtonRecipesString"
             android:padding="0dp"
             android:background="@drawable/rounded_corners_button"
-            android:textColor="@color/appDefaultBackground"/>
+            android:textColor="@color/appDefaultBackground"
+            android:drawableLeft="@mipmap/icons_recipes"/>
 
     </LinearLayout>
 
