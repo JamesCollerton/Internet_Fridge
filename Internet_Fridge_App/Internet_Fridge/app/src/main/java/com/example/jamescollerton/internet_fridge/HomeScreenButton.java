@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -133,10 +134,13 @@ public class HomeScreenButton {
 
     private void resizeIcon(){
 
-        Drawable img = parentHomeScreen.getResources().getDrawable(R.drawable.icons_barcode_smaller);
-        img.setBounds(0, 0, 50, 50);
-        buttonObject.setCompoundDrawables(img, null, null, null);
-//        buttonObject.removeOnLayoutChangeListener(this);
+        try {
+            Drawable img = Drawable.createFromStream(parentHomeScreen.getAssets().open("images/icons_barcode_smaller.png"), null);
+            img.setBounds(0, 0, 50, 50);
+            buttonObject.setCompoundDrawables(img, null, null, null);
+        } catch (IOException blah){
+            System.exit(1);
+        }
 
     }
 
