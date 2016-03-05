@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS MyFridgeDatabase;
+
+USE MyFridgeDatabase;
+
+CREATE TABLE
+	FridgeContents
+(
+	UPCBarcode VARCHAR(12) NOT NULL PRIMARY KEY
+	, ItemName VARCHAR(255)
+);
