@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- The scan button. -->
+         <!--The scan button. -->
         <Button android:id="@+id/homeScreenButtonScanID"
             android:tag="@string/homeScreenButtonScanTag"
             android:layout_width="0dp"
@@ -53,7 +53,7 @@
             android:text="@string/homeScreenButtonScanString"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
-            android:drawableLeft="@drawable/icons_scan_homescreen"/>
+            android:drawableLeft="@mipmap/icons_barcode"/>
 
         <!-- The recipes button. -->
         <Button android:id="@+id/homeScreenButtonDealsID"
