@@ -28,7 +28,7 @@ router.use(function(req, res, next) {
 });
 
 // This just routes all of the traffic with the url suffix '/bears'
-router.route('/bears')
+router.route('/MyFridge')
 
 	// General post to the API (accessed at POST http://localhost:8080/api/bears).
 	.post(function(req, res) {
@@ -44,26 +44,28 @@ router.route('/bears')
 
 	});
 
-router.route('/bears/:bear_id')
+// This just routes all of the traffic with the url suffix 'bears/' and a bear_id
+// parameter.
+router.route('/MyFridge/:fridgeItemID')
 
     // Get request with paramters (accessed at GET http://localhost:8080/api/bears/:bear_id)
     .get(function(req, res) {
         
-        res.json({ message: 'Get request (for id:' + req.params.bear_id + ') posted.'})
+        res.json({ message: 'Get request (for id:' + req.params.fridgeItemID + ') posted.'})
 
     })
 
 	// Put request with paramters (accessed at PUT http://localhost:8080/api/bears/:bear_id)	
     .put(function(req, res) {
 
-        res.json({ message: 'Put request (for id:' + req.params.bear_id + ') posted.'})
+        res.json({ message: 'Put request (for id:' + req.params.fridgeItemID + ') posted.'})
 
     })
 
     // Delete request with paramters (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
     .delete(function(req, res) {
         
-    	res.json({ message: 'Delete request (for id:' + req.params.bear_id + ') posted.'})
+    	res.json({ message: 'Delete request (for id:' + req.params.fridgeItemID + ') posted.'})
 
     });
 
@@ -71,7 +73,7 @@ router.route('/bears/:bear_id')
 app.use('/api', router);
 
 // -----------------------------------------------------------------------------
-// Starts the server
+// START SERVER
 
 app.listen(port);
 console.log('Server started on port: ' + port);
