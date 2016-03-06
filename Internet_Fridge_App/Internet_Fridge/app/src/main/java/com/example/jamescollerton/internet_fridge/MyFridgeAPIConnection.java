@@ -1,16 +1,12 @@
 package com.example.jamescollerton.internet_fridge;
 
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -21,7 +17,6 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... params) {
-            //do your request in here so that you don't interrupt the UI thread
             try {
                 return downloadContent(params[0]);
             } catch (IOException e) {
@@ -54,6 +49,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
                 // Convert the InputStream into a string
                 String contentAsString = convertInputStreamToString(is, length);
+                System.out.println(contentAsString);
                 return contentAsString;
 
             } finally {
@@ -63,12 +59,20 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             }
         }
 
-        public String convertInputStreamToString(InputStream stream, int length) throws IOException, UnsupportedEncodingException {
-            Reader reader = null;
-            reader = new InputStreamReader(stream, "UTF-8");
-            char[] buffer = new char[length];
-            reader.read(buffer);
-            return new String(buffer);
+        public String convertInputStreamToString(InputStream stream, int length) throws IOException {
+//            Reader reader = null;
+//            reader = new InputStreamReader(stream, "UTF-8");
+//            char[] buffer = new char[length];
+//            reader.read(buffer);
+//            return new String(buffer);
+
+            BufferedReader r = new BufferedReader(new InputStreamReader(stream));
+            StringBuilder total = new StringBuilder();
+            String line;
+            while ((line = r.readLine()) != null) {
+                total.append(line);
+            }
+            return total.toString();
         }
 }
 
