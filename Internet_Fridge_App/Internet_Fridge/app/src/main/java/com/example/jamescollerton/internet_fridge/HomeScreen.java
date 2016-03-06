@@ -62,6 +62,9 @@ public class HomeScreen extends AppCompatActivity {
         floatingActionButtonFunctions();
         initialiseHomeScreenButtons();
 
+        MyFridgeAPIConnection test = new MyFridgeAPIConnection();
+        test.execute("http://192.168.1.174:8080/api/MyFridge");
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
