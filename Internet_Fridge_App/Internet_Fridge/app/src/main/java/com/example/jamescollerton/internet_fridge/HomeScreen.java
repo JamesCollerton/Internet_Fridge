@@ -38,7 +38,7 @@ public class HomeScreen extends AppCompatActivity {
      */
     private GoogleApiClient client;
     private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
-    private Map<String, HomeScreenButton> homeScreenButtonMap = new HashMap<String, HomeScreenButton>();
+//    private Map<String, HomeScreenButton> homeScreenButtonMap = new HashMap<String, HomeScreenButton>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
 
     /**
