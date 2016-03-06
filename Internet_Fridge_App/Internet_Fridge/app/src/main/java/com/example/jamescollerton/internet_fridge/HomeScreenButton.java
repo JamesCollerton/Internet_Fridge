@@ -70,7 +70,7 @@ public class HomeScreenButton {
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
 
         double buttonTopMargin = 0;
-        double buttonSideMargins = 0;
+        double buttonSideMargins;
 
         if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonScanTag))){
             buttonTopMargin =  screenDimensionsList.homeScreenButtonScanTopPercentageMargin *
@@ -126,7 +126,8 @@ public class HomeScreenButton {
     private void setButtonFont(){
 
         TextView tx = (TextView) parentHomeScreen.findViewById(buttonObjectID);
-        Typeface custom_font = Typeface.createFromAsset(parentHomeScreen.getAssets(),  "fonts/KeepCalm.ttf");
+        Typeface custom_font = Typeface.createFromAsset(parentHomeScreen.getAssets(),
+                                                        parentHomeScreen.getResources().getString(R.string.appDefaultFontLocation));
         tx.setTypeface(custom_font);
 
     }

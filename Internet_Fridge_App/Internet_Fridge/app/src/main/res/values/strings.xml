@@ -1,5 +1,9 @@
 <resources>
+
+    <!-- Strings for defining components of the app. -->
     <string name="app_name">MyFridge</string>
+
+    <!-- Strings in the settings bar. -->
     <string name="action_settings">Settings</string>
     <string name="action_get_money">Get money</string>
 
@@ -28,5 +32,8 @@
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>
     <color name="appDefaultButtonPressed">#8EC127</color>
+
+    <!-- Fonts -->
+    <string name="appDefaultFontLocation">fonts/KeepCalm.ttf</string>
 
 </resources>

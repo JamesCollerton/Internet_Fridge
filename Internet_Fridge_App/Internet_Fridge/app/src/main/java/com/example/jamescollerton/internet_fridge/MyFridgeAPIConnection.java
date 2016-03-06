@@ -27,6 +27,8 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      * @param params List of the parameters that are fed into the API call (URL)
      * @return String response from the API call.
      *
+     * TODO: Replace the error string with something defined elsewhere.
+     *
      */
     @Override
     protected String doInBackground(String... params) {
@@ -44,6 +46,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      *
      * @param result Result parameter for use in logging.
      *
+     * TODO: Decide on a postExecute function.
      */
     @Override
     protected void onPostExecute(String result) {
@@ -61,6 +64,9 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      * @return String response from the API Call.
      * @throws IOException Can be caught when downloadContent is called with problems in API call.
      *
+     * TODO: Change GET to an argument from the function call.
+     * TODO: Do something with the response number.
+     *
      */
     private String downloadContent(String APIURL) throws IOException {
 
@@ -75,9 +81,8 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.connect();
-            int response = conn.getResponseCode();
+//            int response = conn.getResponseCode();
             is = conn.getInputStream();
-
 
             String contentAsString = convertInputStreamToString(is);
 

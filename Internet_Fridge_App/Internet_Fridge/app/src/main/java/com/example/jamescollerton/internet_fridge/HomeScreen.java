@@ -183,6 +183,7 @@ public class HomeScreen extends AppCompatActivity {
      * on the screen in order to set their position relative to the screen size.
      *
      * @return screenDimensionsMap (The map of screen dimensions.)
+     *
      */
     public Map<String, Integer> getScreenDimensionsMap(){
 
