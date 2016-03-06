@@ -3,8 +3,8 @@
     <item android:state_pressed="true" >
         <shape android:shape="rectangle"  >
             <corners android:radius="3dip" />
-            <stroke android:width="1dip" android:color="@color/appDefaultButton" />
-            <gradient android:angle="-90" android:startColor="@color/appDefaultButton" android:endColor="@color/appDefaultButton"  />
+            <stroke android:width="1dip" android:color="@color/appDefaultButtonPressed" />
+            <gradient android:angle="-90" android:startColor="@color/appDefaultButtonPressed" android:endColor="@color/appDefaultButtonPressed"  />
         </shape>
     </item>
     <item android:state_focused="true">

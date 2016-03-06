@@ -27,6 +27,6 @@
     <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>
-    <color name="appDefaultButtonPressed">#ff8E01</color>
+    <color name="appDefaultButtonPressed">#8EC127</color>
 
 </resources>

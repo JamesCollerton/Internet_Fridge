@@ -10,7 +10,6 @@ var mySQLConnection
 
 // Reads in the connection details from the untracked .json, then makes a connection
 // to MySQL using those details.
-
 function initialiseMySQLConnection(){
 
     var connectionDetails = JSON.parse(fs.readFileSync('ignore/mySQLConnectionDetails.json', 'utf8'));

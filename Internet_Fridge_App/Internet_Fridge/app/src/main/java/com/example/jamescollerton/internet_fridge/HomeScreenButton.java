@@ -109,8 +109,7 @@ public class HomeScreenButton {
      */
     private void setButtonClickAction(){
 
-        buttonObject.setOnClickListener(new OnClickListener() {
-            @Override
+        buttonObject.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println(buttonObjectTag);
             }
