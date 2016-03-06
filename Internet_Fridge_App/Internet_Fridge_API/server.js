@@ -1,5 +1,17 @@
 var express = require('express');        
 var bodyParser = require('body-parser');
+var mySQL = require('mysql');
+
+// -----------------------------------------------------------------------------
+
+// Testing reading in the credentials from the .json
+
+var fs = require('fs');
+var obj = JSON.parse(fs.readFileSync('ignore/mySQLConnectionDetails.json', 'utf8'));
+
+console.log(obj);
+
+// -----------------------------------------------------------------------------
 
 // This defines the app using Express, then configures it to use bodyParser().
 // bodyParser lets us get data from the POST request.
