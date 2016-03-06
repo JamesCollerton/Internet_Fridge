@@ -9,7 +9,38 @@ var mySQL = require('mysql');
 var fs = require('fs');
 var obj = JSON.parse(fs.readFileSync('ignore/mySQLConnectionDetails.json', 'utf8'));
 
-console.log(obj);
+var connection = mySQL.createConnection({
+  host     : obj["localhost"],
+  user     : obj["username"],
+  password : obj["password"],
+  database : obj["database"]
+});
+
+// connection.query(queryString, function(err, rows, fields) {
+//     if (err) throw err;
+ 
+//     for (var i in rows) {
+//         console.log('Post Titles: ', rows[i].post_title);
+//     }
+// });
+
+connection.connect(function(err) {
+  // connected! (unless `err` is set)
+  // console.log(err)
+  // process.exit(1);
+});
+
+// connection.connect();
+ 
+var queryString = 'SELECT * FROM FridgeContents';
+ 
+connection.query(queryString, function(err, rows, fields) {
+    if (err) throw err;
+    console.log(rows);
+    // for (var i in rows) {
+    //     console.log('Post Titles: ', rows[i].post_title);
+    // }
+});
 
 // -----------------------------------------------------------------------------
 
