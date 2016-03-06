@@ -88,13 +88,31 @@ function initialiseGeneralRouting(){
 
         .post(function(req, res) {
 
-            res.json({ message: 'Posted with information: ' + req.body.name})
+            res.json({ message: 'Posted with information: ' + req.body.name});
             
         })
 
         .get(function(req, res) {
-            
-            res.json({ message: 'Get request (for all data) posted.'})
+
+            // -----------------------------------------------------------------
+            // Testing to see if API can pull from MySQL to Android.
+
+            var queryString = 'SELECT * FROM FridgeContents';
+            var queryResult
+             
+            mySQLConnection.query(queryString, function(err, rows, fields) {
+
+                if (err) throw err;
+             
+                var resultsString = ""
+
+                queryResult = JSON.stringify(rows);
+
+                res.json({ queryResult: queryResult})
+
+            });
+
+            // -----------------------------------------------------------------
 
         });
 

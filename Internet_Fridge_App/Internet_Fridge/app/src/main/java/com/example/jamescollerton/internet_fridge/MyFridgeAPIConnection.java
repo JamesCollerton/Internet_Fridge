@@ -85,7 +85,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             is = conn.getInputStream();
 
             String contentAsString = convertInputStreamToString(is);
-
+            System.out.println(contentAsString);
             return contentAsString;
 
         } finally {

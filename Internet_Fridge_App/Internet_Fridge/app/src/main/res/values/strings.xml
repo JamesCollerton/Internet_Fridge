@@ -5,7 +5,6 @@
 
     <!-- Strings in the settings bar. -->
     <string name="action_settings">Settings</string>
-    <string name="action_get_money">Get money</string>
 
     <!-- Strings for the buttons on the homescreen. -->
     <string name="homeScreenButtonScanString">Scan</string>
