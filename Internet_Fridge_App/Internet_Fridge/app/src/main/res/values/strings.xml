@@ -21,6 +21,10 @@
     <string name="homeScreenButtonFriendsTag">Friends</string>
     <string name="homeScreenButtonMyFridgeTag">MyFridge</string>
 
+    <!-- Tags for the floating action buttons on the homescreen. -->
+    <string name="homeScreenFloatingActionButtonEmailTag">Email</string>
+    <string name="homeScreenFloatingActionButtonRefreshTag">Refresh</string>
+
     <!-- File locations for the icons for the homeScreen -->
     <string name="homeScreenButtonScanIconLocation">images/icons_barcode.png</string>
     <string name="homeScreenButtonRecipesIconLocation">images/icons_recipes.png</string>

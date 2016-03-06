@@ -88,9 +88,9 @@ public class HomeScreen extends AppCompatActivity {
                 (FloatingActionButton) findViewById(R.id.homeScreenRefreshFloatingActionButton);
 
         HomeScreenFloatingActionButton homeScreenEmailFloatingActionButton =
-                new HomeScreenFloatingActionButton(emailFloatingActionButton);
+                new HomeScreenFloatingActionButton(emailFloatingActionButton, this);
         HomeScreenFloatingActionButton homeScreenRefreshFloatingActionButton =
-                new HomeScreenFloatingActionButton(refreshFloatingActionButton);
+                new HomeScreenFloatingActionButton(refreshFloatingActionButton, this);
 
     }
 
