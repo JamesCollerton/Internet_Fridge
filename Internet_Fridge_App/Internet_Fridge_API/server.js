@@ -16,30 +16,19 @@ var connection = mySQL.createConnection({
   database : obj["database"]
 });
 
-// connection.query(queryString, function(err, rows, fields) {
-//     if (err) throw err;
- 
-//     for (var i in rows) {
-//         console.log('Post Titles: ', rows[i].post_title);
-//     }
-// });
-
 connection.connect(function(err) {
   // connected! (unless `err` is set)
   // console.log(err)
   // process.exit(1);
 });
-
-// connection.connect();
  
 var queryString = 'SELECT * FROM FridgeContents';
  
 connection.query(queryString, function(err, rows, fields) {
+
     if (err) throw err;
     console.log(rows);
-    // for (var i in rows) {
-    //     console.log('Post Titles: ', rows[i].post_title);
-    // }
+    
 });
 
 // -----------------------------------------------------------------------------
