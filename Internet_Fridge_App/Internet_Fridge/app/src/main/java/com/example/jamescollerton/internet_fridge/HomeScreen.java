@@ -38,7 +38,6 @@ public class HomeScreen extends AppCompatActivity {
      */
     private GoogleApiClient client;
     private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
-//    private Map<String, HomeScreenButton> homeScreenButtonMap = new HashMap<String, HomeScreenButton>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
 
     /**
@@ -172,12 +171,6 @@ public class HomeScreen extends AppCompatActivity {
         HomeScreenButton homeScreenButtonMyFridge = new HomeScreenButton(myFridgeButton, this);
         HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton, this);
         HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton, this);
-
-//        homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapScan, homeScreenButtonScan);
-//        homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapDeals, homeScreenButtonDeals);
-//        homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapFriends, homeScreenButtonFriends);
-//        homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapRecipes, homeScreenButtonRecipes);
-//        homeScreenButtonMap.put(dictionaryKeysList.homeScreenButtonMapMyFridge, homeScreenButtonMyFridge);
 
     }
 
