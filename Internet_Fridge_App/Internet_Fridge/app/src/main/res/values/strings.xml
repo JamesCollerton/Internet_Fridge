@@ -1,7 +1,8 @@
 <resources>
 
-    <!-- Strings for defining components of the app. -->
+    <!-- Strings for naming screens of the app. -->
     <string name="app_name">MyFridge</string>
+    <string name="title_activity_settings">Settings</string>
 
     <!-- Strings in the settings bar. -->
     <string name="action_settings">Settings</string>
@@ -38,6 +39,5 @@
 
     <!-- Fonts -->
     <string name="appDefaultFontLocation">fonts/KeepCalm.ttf</string>
-    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>
