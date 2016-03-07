@@ -37,6 +37,8 @@ public class HomeScreenButton {
      * @param buttonObject The button object on the menu screen.
      * @param parentHomeScreen The home screen object that the button was sourced from.
      *
+     * TODO: Maybe come up with a way of doing this without a million if/else statements.
+     *
      */
     public HomeScreenButton(Button buttonObject, HomeScreen parentHomeScreen) {
 
@@ -111,8 +113,24 @@ public class HomeScreenButton {
 
         buttonObject.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                System.out.println(buttonObjectTag);
+
+                if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonScanTag))){
+
+                }
+                else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonDealsTag))){
+
+                }
+                else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonFriendsTag))){
+
+                }
+                else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonRecipesTag))){
+
+                }
+                else if(buttonObjectTag.equals(parentHomeScreen.getResources().getString(R.string.homeScreenButtonMyFridgeTag))){
+
+                }
             }
+
         });
 
     }
@@ -135,7 +153,7 @@ public class HomeScreenButton {
     /**
      *
      * This function is used to set the button icon file location. It acts as a switch on the button
-     * tag and then
+     * tag and then puts the icon location dependant on which button it is.
      *
      */
     private void setButtonIconFileLocation(){

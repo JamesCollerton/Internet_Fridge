@@ -38,5 +38,6 @@
 
     <!-- Fonts -->
     <string name="appDefaultFontLocation">fonts/KeepCalm.ttf</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>

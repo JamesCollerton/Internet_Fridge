@@ -1,5 +1,6 @@
 package com.example.jamescollerton.internet_fridge;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -62,8 +63,9 @@ public class HomeScreen extends AppCompatActivity {
         floatingActionButtonFunctions();
         initialiseHomeScreenButtons();
 
-        MyFridgeAPIConnection test = new MyFridgeAPIConnection();
-        test.execute("http://192.168.1.174:8080/api/MyFridge");
+//        FOR TESTING THE API CONNECTION.
+//        MyFridgeAPIConnection test = new MyFridgeAPIConnection();
+//        test.execute("http://192.168.1.174:8080/api/MyFridge");
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -127,10 +129,23 @@ public class HomeScreen extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            launchSettingsScreen();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     *
+     * This function is used for launching the settings screen for the app.
+     *
+     */
+    public void launchSettingsScreen(){
+
+        Intent settingsIntent = new Intent(this, SettingsScreen.class);
+        startActivity(settingsIntent);
+
     }
 
 //  ------------------------------------------------------------------------------------------------
