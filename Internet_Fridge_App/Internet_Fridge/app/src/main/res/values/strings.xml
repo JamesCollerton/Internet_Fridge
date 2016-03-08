@@ -32,6 +32,11 @@
     <string name="homeScreenButtonFriendsIconLocation">images/icons_friends.png</string>
     <string name="homeScreenButtonMyFridgeIconLocation">images/icons_fridge.png</string>
 
+    <!-- Strings for hints in the settings text fields. -->
+    <string name="settingsScreenTextFieldEmailHint">Email Address</string>
+    <string name="settingsScreenButtonOKString">OK</string>
+    <string name="settingsScreenButtonCancelString">Cancel</string>
+
     <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>

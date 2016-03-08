@@ -24,4 +24,53 @@
 
     <include layout="@layout/content_settings_screen" />
 
+    <EditText
+        android:id="@+id/settingsScreenEmailTextFieldID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="@string/settingsScreenTextFieldEmailHint"
+        android:inputType="textEmailAddress" />
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!--The scan button. -->
+        <Button android:id="@+id/settingsScreenOKButtonID"
+            android:tag="@string/homeScreenButtonScanTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginRight="120dp"
+            android:text="@string/settingsScreenButtonOKString"
+            android:background="@drawable/rounded_corners_button"
+            android:textColor="@color/appDefaultBackground"
+            android:drawablePadding="0dip"
+            android:singleLine="true"/>
+
+        <!--The scan button. -->
+        <Button android:id="@+id/settingsScreenCancelButtonID"
+            android:tag="@string/homeScreenButtonScanTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/fab_margin"
+            android:text="@string/settingsScreenButtonCancelString"
+            android:background="@drawable/rounded_corners_button"
+            android:textColor="@color/appDefaultBackground"
+            android:drawablePadding="0dip"
+            android:singleLine="true"/>
+
+    </FrameLayout>
+
+    <!--</LinearLayout>-->
+
 </android.support.design.widget.CoordinatorLayout>
