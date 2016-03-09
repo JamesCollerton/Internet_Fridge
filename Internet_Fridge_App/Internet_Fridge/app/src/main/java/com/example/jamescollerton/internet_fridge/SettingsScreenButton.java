@@ -38,7 +38,7 @@ public class SettingsScreenButton {
      *
      */
     public SettingsScreenButton(Button buttonObject, String onClickAction, String fontLocation,
-                                Map<String, Integer> screenDimensionsMap, String iconFileLocation,
+                                String iconFileLocation, Map<String, Integer> screenDimensionsMap,
                                 Map<String, Integer> buttonMargins, AppCompatActivity parentScreen) {
 
         this.parentScreen = parentScreen;
@@ -49,7 +49,7 @@ public class SettingsScreenButton {
         this.buttonObject.setTransformationMethod(null);
 
         setButtonFont(fontLocation);
-        setButtonMargins(screenDimensionsMap);
+        setButtonMargins(screenDimensionsMap, buttonMargins);
         setButtonClickAction(onClickAction);
         setButtonIconFileLocation(iconFileLocation);
         resizeIcon();
@@ -63,20 +63,25 @@ public class SettingsScreenButton {
      * a switch statement as the values need to be known at compile time for that to work.
      *
      */
-    private void setButtonMargins(Map<String, Integer> screenDimensionsMap){
+    private void setButtonMargins(Map<String, Integer> screenDimensionsMap, Map<String, Integer> buttonMargins){
 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) buttonObject.getLayoutParams();
 
-        double buttonTopMargin;
-        double buttonSideMargins;
+        double buttonTopMargin, buttonBottomMargin, buttonLeftMargin, buttonRightMargin;
 
-        buttonTopMargin = screenDimensionsList.homeScreenButtonScanTopPercentageMargin *
+        buttonTopMargin = buttonMargins.get("Top") *
                           (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
 
-        buttonSideMargins = screenDimensionsList.homeScreenButtonSidesPercentageMargin *
-                            (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+        buttonBottomMargin = buttonMargins.get("Bottom") *
+                             (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
 
-        params.setMargins((int) buttonSideMargins, (int) buttonTopMargin, (int) buttonSideMargins, 0);
+        buttonLeftMargin = buttonMargins.get("Left") *
+                           (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenWidth);
+
+        buttonRightMargin = buttonMargins.get("Right") *
+                            (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenWidth);
+
+        params.setMargins((int) buttonLeftMargin, (int) buttonTopMargin, (int) buttonRightMargin, (int) buttonBottomMargin);
 
         buttonObject.setLayoutParams(params);
 
