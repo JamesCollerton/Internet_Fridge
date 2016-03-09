@@ -19,7 +19,7 @@ import java.util.Map;
  * their actions when they are pressed, their positioning and their appearance.
  *
  */
-public class HomeScreenButton {
+public class MyFridgeButton {
 
     private String buttonObjectTag, buttonIconFileLocation;
     private Integer buttonObjectID;
@@ -40,7 +40,7 @@ public class HomeScreenButton {
      * TODO: Maybe come up with a way of doing this without a million if/else statements.
      *
      */
-    public HomeScreenButton(Button buttonObject, HomeScreen parentHomeScreen) {
+    public MyFridgeButton(Button buttonObject, HomeScreen parentHomeScreen) {
 
         this.buttonObject = buttonObject;
         this.parentHomeScreen = parentHomeScreen;

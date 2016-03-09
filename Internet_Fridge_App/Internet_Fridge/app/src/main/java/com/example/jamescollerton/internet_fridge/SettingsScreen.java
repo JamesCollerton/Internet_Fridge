@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class SettingsScreen extends AppCompatActivity {
 
@@ -17,10 +18,19 @@ public class SettingsScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-
-
+//        initialiseSettingsScreenButtons();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void initialiseSettingsScreenButtons(){
+
+//        Button OKButton = (Button) findViewById(R.id.settingsScreenOKButtonID);
+//        Button CancelButton = (Button) findViewById(R.id.settingsScreenCancelButtonID);
+//
+//        MyFridgeButton settingsScreenButtonOK = new MyFridgeButton(OKButton, null);
+//        MyFridgeButton settingsScreenButtonCancel = new MyFridgeButton(CancelButton, null);
+
     }
 
 }

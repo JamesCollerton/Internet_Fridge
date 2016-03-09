@@ -1,16 +1,13 @@
 package com.example.jamescollerton.internet_fridge;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -23,7 +20,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.*;
 
 import android.util.DisplayMetrics;
-import android.widget.TextView;
 
 /**
  *
@@ -60,7 +56,7 @@ public class HomeScreen extends AppCompatActivity {
 
         setScreenDimensions();
         setSupportActionBar(toolbar);
-        floatingActionButtonFunctions();
+        initialiseHomeScreenFloatingActionButtons();
         initialiseHomeScreenButtons();
 
 //        FOR TESTING THE API CONNECTION.
@@ -82,7 +78,7 @@ public class HomeScreen extends AppCompatActivity {
      * Eventually this will include a synchronise button and an email button.
      *
      */
-    public void floatingActionButtonFunctions() {
+    public void initialiseHomeScreenFloatingActionButtons() {
 
         FloatingActionButton emailFloatingActionButton =
                 (FloatingActionButton) findViewById(R.id.homeScreenEmailFloatingActionButton);
@@ -184,11 +180,11 @@ public class HomeScreen extends AppCompatActivity {
         Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
         Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
 
-        HomeScreenButton homeScreenButtonScan = new HomeScreenButton(scanButton, this);
-        HomeScreenButton homeScreenButtonDeals = new HomeScreenButton(dealsButton, this);
-        HomeScreenButton homeScreenButtonMyFridge = new HomeScreenButton(myFridgeButton, this);
-        HomeScreenButton homeScreenButtonFriends = new HomeScreenButton(friendsButton, this);
-        HomeScreenButton homeScreenButtonRecipes = new HomeScreenButton(recipesButton, this);
+        MyFridgeButton homeScreenButtonScan = new MyFridgeButton(scanButton, this);
+        MyFridgeButton homeScreenButtonDeals = new MyFridgeButton(dealsButton, this);
+        MyFridgeButton homeScreenButtonMyFridge = new MyFridgeButton(myFridgeButton, this);
+        MyFridgeButton homeScreenButtonFriends = new MyFridgeButton(friendsButton, this);
+        MyFridgeButton homeScreenButtonRecipes = new MyFridgeButton(recipesButton, this);
 
     }
 
