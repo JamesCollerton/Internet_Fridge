@@ -36,6 +36,7 @@ public class HomeScreen extends AppCompatActivity {
     private GoogleApiClient client;
     private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
+    private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
 
     /**
      *
@@ -174,17 +175,31 @@ public class HomeScreen extends AppCompatActivity {
      */
     private void initialiseHomeScreenButtons(){
 
-        Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
+//        Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
         Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
         Button myFridgeButton = (Button) findViewById(R.id.homeScreenButtonMyFridgeID);
         Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
         Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
 
-        MyFridgeButton homeScreenButtonScan = new MyFridgeButton(scanButton, this);
+//        MyFridgeButton homeScreenButtonScan = new MyFridgeButton(scanButton, this);
         MyFridgeButton homeScreenButtonDeals = new MyFridgeButton(dealsButton, this);
         MyFridgeButton homeScreenButtonMyFridge = new MyFridgeButton(myFridgeButton, this);
         MyFridgeButton homeScreenButtonFriends = new MyFridgeButton(friendsButton, this);
         MyFridgeButton homeScreenButtonRecipes = new MyFridgeButton(recipesButton, this);
+
+        Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
+        String scanButtonAction = "testAction";
+        String scanButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+        String scanButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonScanIconLocation);
+        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
+        Map<String, Double> scanButtonMargins =  new HashMap<String, Double>();
+
+        scanButtonMargins.put(dictionaryKeysList.buttonBottomMarginPercentage, screenDimensionsList.homeScreenButtonScanBottomPercentageMargin);
+        scanButtonMargins.put(dictionaryKeysList.buttonTopMarginPercentage, screenDimensionsList.homeScreenButtonScanTopPercentageMargin);
+        scanButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonScanLeftPercentageMargin);
+        scanButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonScanRightPercentageMargin);
+
+        SettingsScreenButton homeScreenButtonScan = new SettingsScreenButton(scanButton, scanButtonAction, scanButtonFontLocation, scanButtonIconFileLocation, homeScreenDimensionsMap, scanButtonMargins, this);
 
     }
 

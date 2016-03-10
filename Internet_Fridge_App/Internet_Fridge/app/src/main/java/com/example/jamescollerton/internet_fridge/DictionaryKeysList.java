@@ -17,4 +17,9 @@ public class DictionaryKeysList {
     public static final String homeScreenButtonMapRecipes = "homeScreenButtonRecipes";
     public static final String homeScreenButtonMapMyFridge = "homeScreenButtonMyFridge";
 
+    public static final String buttonLeftMarginPercentage = "buttonLeftMarginPercentage";
+    public static final String buttonRightMarginPercentage = "buttonRightMarginPercentage";
+    public static final String buttonTopMarginPercentage = "buttonTopMarginPercentage";
+    public static final String buttonBottomMarginPercentage = "buttonBottomMarginPercentage";
+
 }

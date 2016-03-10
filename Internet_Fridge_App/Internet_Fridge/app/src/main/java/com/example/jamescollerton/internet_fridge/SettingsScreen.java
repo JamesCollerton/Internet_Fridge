@@ -23,24 +23,19 @@ public class SettingsScreen extends AppCompatActivity {
         initialiseSettingsScreenButtons();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void initialiseSettingsScreenButtons(){
 
-        Button OKButton = (Button) findViewById(R.id.settingsScreenOKButtonID);
-        String testAction = "testAction";
-        String testFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
-        String testFileLocation = null;
-        Map<String, Integer> screenDimensionsMap = null;
-        Map<String, Integer> buttonMargins = null;
-
-        SettingsScreenButton test = new SettingsScreenButton(OKButton, testAction, testFontLocation, testFileLocation, screenDimensionsMap, buttonMargins, this);
-
-
-//        Button CancelButton = (Button) findViewById(R.id.settingsScreenCancelButtonID);
+//        Button OKButton = (Button) findViewById(R.id.settingsScreenOKButtonID);
+//        String testAction = "testAction";
+//        String testFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+//        String testFileLocation = null;
+//        Map<String, Integer> screenDimensionsMap = null;
+//        Map<String, Integer> buttonMargins = null;
 //
-//        MyFridgeButton settingsScreenButtonOK = new MyFridgeButton(OKButton, null);
-//        MyFridgeButton settingsScreenButtonCancel = new MyFridgeButton(CancelButton, null);
+//        SettingsScreenButton test = new SettingsScreenButton(OKButton, testAction, testFontLocation, testFileLocation, screenDimensionsMap, buttonMargins, this);
 
     }
 
