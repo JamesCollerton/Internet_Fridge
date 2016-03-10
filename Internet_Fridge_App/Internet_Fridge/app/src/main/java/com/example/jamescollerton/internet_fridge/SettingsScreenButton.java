@@ -49,10 +49,10 @@ public class SettingsScreenButton {
         this.buttonObject.setTransformationMethod(null);
 
         setButtonFont(fontLocation);
-        setButtonMargins(screenDimensionsMap, buttonMargins);
+//        setButtonMargins(screenDimensionsMap, buttonMargins);
         setButtonClickAction(onClickAction);
-        setButtonIconFileLocation(iconFileLocation);
-        resizeIcon();
+//        setButtonIconFileLocation(iconFileLocation);
+//        resizeIcon();
 
     }
 
