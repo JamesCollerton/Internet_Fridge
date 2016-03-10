@@ -30,12 +30,4 @@ public class ScreenDimensionsList {
     public static final double homeScreenButtonMyFridgeLeftPercentageMargin = 0.07;
     public static final double homeScreenButtonMyFridgeRightPercentageMargin = 0.07;
 
-//    public static final double homeScreenButtonDealsTopPercentageMargin = 0.35;
-//    public static final double homeScreenButtonFriendsTopPercentageMargin = 0.55;
-//    public static final double homeScreenButtonRecipesTopPercentageMargin = 0.55;
-//
-//    public static final double homeScreenButtonSidesPercentageMargin = 0.05;
-
-//    public static final double homeScreenButtonMyFridgeTopPercentageMargin = 0.45;
-
 }

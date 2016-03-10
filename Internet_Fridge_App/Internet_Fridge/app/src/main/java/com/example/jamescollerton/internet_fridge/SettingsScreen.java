@@ -28,14 +28,25 @@ public class SettingsScreen extends AppCompatActivity {
 
     private void initialiseSettingsScreenButtons(){
 
-//        Button OKButton = (Button) findViewById(R.id.settingsScreenOKButtonID);
-//        String testAction = "testAction";
-//        String testFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
-//        String testFileLocation = null;
-//        Map<String, Integer> screenDimensionsMap = null;
-//        Map<String, Integer> buttonMargins = null;
-//
-//        SettingsScreenButton test = new SettingsScreenButton(OKButton, testAction, testFontLocation, testFileLocation, screenDimensionsMap, buttonMargins, this);
+        Map<String, Integer> screenDimensionsMap = null;
+
+        Button OKButton = (Button) findViewById(R.id.settingsScreenOKButtonID);
+        Button cancelButton = (Button) findViewById(R.id.settingsScreenCancelButtonID);
+
+        String OKButtonAction = "testAction";
+        String cancelButtonAction = "testAction";
+
+        String OKButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+        String cancelButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+
+        String OKButtonIconFileLocation = null;
+        String cancelButtonIconFileLocation = null;
+
+        Map<String, Double> OKButtonMargins = null;
+        Map<String, Double> cancelButtonMargins = null;
+
+        MyFridgeButton settingsScreenButtonOK = new MyFridgeButton(OKButton, OKButtonAction, OKButtonFontLocation, OKButtonIconFileLocation, screenDimensionsMap, OKButtonMargins, this);
+        MyFridgeButton settingsScreenButtonCancel = new MyFridgeButton(cancelButton, cancelButtonAction, cancelButtonFontLocation, cancelButtonIconFileLocation, screenDimensionsMap, cancelButtonMargins, this);
 
     }
 

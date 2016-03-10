@@ -145,6 +145,18 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * This is used to
+     *
+     */
+    public void launchMyFridgeScreen(){
+
+        Intent myFridgeIntent = new Intent(this, MyFridgeScreen.class);
+        startActivity(myFridgeIntent);
+
+    }
+
 //  ------------------------------------------------------------------------------------------------
 
 //  ------------------------------------------------------------------------------------------------
@@ -232,25 +244,11 @@ public class HomeScreen extends AppCompatActivity {
         recipesButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonRecipesLeftPercentageMargin);
         recipesButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonRecipesRightPercentageMargin);
 
-        SettingsScreenButton homeScreenButtonScan = new SettingsScreenButton(scanButton, scanButtonAction, scanButtonFontLocation, scanButtonIconFileLocation, homeScreenDimensionsMap, scanButtonMargins, this);
-        SettingsScreenButton homeScreenButtonRecipes = new SettingsScreenButton(recipesButton, recipesButtonAction, recipesButtonFontLocation, recipesButtonIconFileLocation, homeScreenDimensionsMap, recipesButtonMargins, this);
-        SettingsScreenButton homeScreenButtonDeals = new SettingsScreenButton(dealsButton, dealsButtonAction, dealsButtonFontLocation, dealsButtonIconFileLocation, homeScreenDimensionsMap, dealsButtonMargins, this);
-        SettingsScreenButton homeScreenButtonMyFridge = new SettingsScreenButton(myFridgeButton, myFridgeButtonAction, myFridgeButtonFontLocation, myFridgeButtonIconFileLocation, homeScreenDimensionsMap, myFridgeButtonMargins, this);
-        SettingsScreenButton homeScreenButtonFriends = new SettingsScreenButton(friendsButton, friendsButtonAction, friendsButtonFontLocation, friendsButtonIconFileLocation, homeScreenDimensionsMap, friendsButtonMargins, this);
-
-    }
-
-    /**
-     *
-     * This is used to return the map of screen dimensions. At the moment it is used by the buttons
-     * on the screen in order to set their position relative to the screen size.
-     *
-     * @return screenDimensionsMap (The map of screen dimensions.)
-     *
-     */
-    public Map<String, Integer> getScreenDimensionsMap(){
-
-        return (screenDimensionsMap);
+        MyFridgeButton homeScreenButtonScan = new MyFridgeButton(scanButton, scanButtonAction, scanButtonFontLocation, scanButtonIconFileLocation, homeScreenDimensionsMap, scanButtonMargins, this);
+        MyFridgeButton homeScreenButtonRecipes = new MyFridgeButton(recipesButton, recipesButtonAction, recipesButtonFontLocation, recipesButtonIconFileLocation, homeScreenDimensionsMap, recipesButtonMargins, this);
+        MyFridgeButton homeScreenButtonDeals = new MyFridgeButton(dealsButton, dealsButtonAction, dealsButtonFontLocation, dealsButtonIconFileLocation, homeScreenDimensionsMap, dealsButtonMargins, this);
+        MyFridgeButton homeScreenButtonMyFridge = new MyFridgeButton(myFridgeButton, myFridgeButtonAction, myFridgeButtonFontLocation, myFridgeButtonIconFileLocation, homeScreenDimensionsMap, myFridgeButtonMargins, this);
+        MyFridgeButton homeScreenButtonFriends = new MyFridgeButton(friendsButton, friendsButtonAction, friendsButtonFontLocation, friendsButtonIconFileLocation, homeScreenDimensionsMap, friendsButtonMargins, this);
 
     }
 

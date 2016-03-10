@@ -20,7 +20,7 @@ import java.util.Map;
  * their actions when they are pressed, their positioning and their appearance.
  *
  */
-public class SettingsScreenButton {
+public class MyFridgeButton {
 
     private String buttonIconFileLocation;
     private Integer buttonObjectID;
@@ -36,9 +36,9 @@ public class SettingsScreenButton {
      * @param buttonObject The button object on the menu screen.
      *
      */
-    public SettingsScreenButton(Button buttonObject, String onClickAction, String fontLocation,
-                                String iconFileLocation, Map<String, Integer> screenDimensionsMap,
-                                Map<String, Double> buttonMargins, AppCompatActivity parentScreen) {
+    public MyFridgeButton(Button buttonObject, String onClickAction, String fontLocation,
+                          String iconFileLocation, Map<String, Integer> screenDimensionsMap,
+                          Map<String, Double> buttonMargins, AppCompatActivity parentScreen) {
 
         this.parentScreen = parentScreen;
         this.buttonObject = buttonObject;
@@ -46,11 +46,13 @@ public class SettingsScreenButton {
 
         this.buttonObject.setTransformationMethod(null);
 
-        setButtonFont(fontLocation);
-        setButtonMargins(screenDimensionsMap, buttonMargins);
-        setButtonClickAction(onClickAction);
-        setButtonIconFileLocation(iconFileLocation);
-        resizeIcon();
+        if(fontLocation != null){ setButtonFont(fontLocation); };
+        if(screenDimensionsMap != null && buttonMargins != null){ setButtonMargins(screenDimensionsMap, buttonMargins); };
+        if(onClickAction != null){ setButtonClickAction(onClickAction); }
+        if(iconFileLocation != null){
+            setButtonIconFileLocation(iconFileLocation);
+            resizeIcon();
+        }
 
     }
 
