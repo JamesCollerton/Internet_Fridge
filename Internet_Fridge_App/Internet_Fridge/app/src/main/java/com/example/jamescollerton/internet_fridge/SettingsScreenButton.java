@@ -22,10 +22,9 @@ import java.util.Map;
  */
 public class SettingsScreenButton {
 
-    private String buttonObjectTag, buttonIconFileLocation;
+    private String buttonIconFileLocation;
     private Integer buttonObjectID;
     private Button buttonObject;
-    private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
     private AppCompatActivity parentScreen;
 
@@ -43,7 +42,6 @@ public class SettingsScreenButton {
 
         this.parentScreen = parentScreen;
         this.buttonObject = buttonObject;
-        buttonObjectTag = (String) buttonObject.getTag();
         buttonObjectID = buttonObject.getId();
 
         this.buttonObject.setTransformationMethod(null);

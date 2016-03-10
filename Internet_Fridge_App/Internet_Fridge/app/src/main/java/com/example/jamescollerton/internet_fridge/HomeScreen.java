@@ -175,87 +175,68 @@ public class HomeScreen extends AppCompatActivity {
      */
     private void initialiseHomeScreenButtons(){
 
-//        Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
-//        Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
-//        Button myFridgeButton = (Button) findViewById(R.id.homeScreenButtonMyFridgeID);
-//        Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
-//        Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
-//
-////        MyFridgeButton homeScreenButtonScan = new MyFridgeButton(scanButton, this);
-//        MyFridgeButton homeScreenButtonDeals = new MyFridgeButton(dealsButton, this);
-//        MyFridgeButton homeScreenButtonMyFridge = new MyFridgeButton(myFridgeButton, this);
-//        MyFridgeButton homeScreenButtonFriends = new MyFridgeButton(friendsButton, this);
-//        MyFridgeButton homeScreenButtonRecipes = new MyFridgeButton(recipesButton, this);
+        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
 
         Button scanButton = (Button) findViewById(R.id.homeScreenButtonScanID);
+        Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
+        Button myFridgeButton = (Button) findViewById(R.id.homeScreenButtonMyFridgeID);
+        Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
+        Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
+
         String scanButtonAction = "testAction";
+        String dealsButtonAction = "testAction";
+        String myFridgeButtonAction = "testAction";
+        String friendsButtonAction = "testAction";
+        String recipesButtonAction = "testAction";
+
         String scanButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+        String dealsButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+        String myFridgeButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+        String friendsButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+        String recipesButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
+
         String scanButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonScanIconLocation);
-        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
+        String dealsButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonDealsIconLocation);
+        String myFridgeButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonMyFridgeIconLocation);
+        String friendsButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonFriendsIconLocation);
+        String recipesButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonRecipesIconLocation);
+
         Map<String, Double> scanButtonMargins =  new HashMap<String, Double>();
+        Map<String, Double> dealsButtonMargins =  new HashMap<String, Double>();
+        Map<String, Double> myFridgeButtonMargins =  new HashMap<String, Double>();
+        Map<String, Double> friendsButtonMargins =  new HashMap<String, Double>();
+        Map<String, Double> recipesButtonMargins =  new HashMap<String, Double>();
 
         scanButtonMargins.put(dictionaryKeysList.buttonBottomMarginPercentage, screenDimensionsList.homeScreenButtonScanBottomPercentageMargin);
         scanButtonMargins.put(dictionaryKeysList.buttonTopMarginPercentage, screenDimensionsList.homeScreenButtonScanTopPercentageMargin);
         scanButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonScanLeftPercentageMargin);
         scanButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonScanRightPercentageMargin);
 
-        SettingsScreenButton homeScreenButtonScan = new SettingsScreenButton(scanButton, scanButtonAction, scanButtonFontLocation, scanButtonIconFileLocation, homeScreenDimensionsMap, scanButtonMargins, this);
-
-        Button dealsButton = (Button) findViewById(R.id.homeScreenButtonDealsID);
-        String dealsButtonAction = "testAction";
-        String dealsButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
-        String dealsButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonDealsIconLocation);
-//        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
-        Map<String, Double> dealsButtonMargins =  new HashMap<String, Double>();
-
         dealsButtonMargins.put(dictionaryKeysList.buttonBottomMarginPercentage, screenDimensionsList.homeScreenButtonDealsBottomPercentageMargin);
         dealsButtonMargins.put(dictionaryKeysList.buttonTopMarginPercentage, screenDimensionsList.homeScreenButtonDealsTopPercentageMargin);
         dealsButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonDealsLeftPercentageMargin);
         dealsButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonDealsRightPercentageMargin);
-
-        SettingsScreenButton homeScreenButtonDeals = new SettingsScreenButton(dealsButton, dealsButtonAction, dealsButtonFontLocation, dealsButtonIconFileLocation, homeScreenDimensionsMap, dealsButtonMargins, this);
-
-        Button myFridgeButton = (Button) findViewById(R.id.homeScreenButtonMyFridgeID);
-        String myFridgeButtonAction = "testAction";
-        String myFridgeButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
-        String myFridgeButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonMyFridgeIconLocation);
-//        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
-        Map<String, Double> myFridgeButtonMargins =  new HashMap<String, Double>();
 
         myFridgeButtonMargins.put(dictionaryKeysList.buttonBottomMarginPercentage, screenDimensionsList.homeScreenButtonMyFridgeBottomPercentageMargin);
         myFridgeButtonMargins.put(dictionaryKeysList.buttonTopMarginPercentage, screenDimensionsList.homeScreenButtonMyFridgeTopPercentageMargin);
         myFridgeButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonMyFridgeLeftPercentageMargin);
         myFridgeButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonMyFridgeRightPercentageMargin);
 
-        SettingsScreenButton homeScreenButtonMyFridge = new SettingsScreenButton(myFridgeButton, myFridgeButtonAction, myFridgeButtonFontLocation, myFridgeButtonIconFileLocation, homeScreenDimensionsMap, myFridgeButtonMargins, this);
-
-        Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
-        String friendsButtonAction = "testAction";
-        String friendsButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
-        String friendsButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonFriendsIconLocation);
-//        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
-        Map<String, Double> friendsButtonMargins =  new HashMap<String, Double>();
-
         friendsButtonMargins.put(dictionaryKeysList.buttonBottomMarginPercentage, screenDimensionsList.homeScreenButtonFriendsBottomPercentageMargin);
         friendsButtonMargins.put(dictionaryKeysList.buttonTopMarginPercentage, screenDimensionsList.homeScreenButtonFriendsTopPercentageMargin);
         friendsButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonFriendsLeftPercentageMargin);
         friendsButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonFriendsRightPercentageMargin);
-
-        SettingsScreenButton homeScreenButtonFriends = new SettingsScreenButton(friendsButton, friendsButtonAction, friendsButtonFontLocation, friendsButtonIconFileLocation, homeScreenDimensionsMap, friendsButtonMargins, this);
-
-        Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
-        String recipesButtonAction = "testAction";
-        String recipesButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
-        String recipesButtonIconFileLocation = this.getResources().getString(R.string.homeScreenButtonRecipesIconLocation);
-//        Map<String, Integer> homeScreenDimensionsMap = this.screenDimensionsMap;
-        Map<String, Double> recipesButtonMargins =  new HashMap<String, Double>();
 
         recipesButtonMargins.put(dictionaryKeysList.buttonBottomMarginPercentage, screenDimensionsList.homeScreenButtonRecipesBottomPercentageMargin);
         recipesButtonMargins.put(dictionaryKeysList.buttonTopMarginPercentage, screenDimensionsList.homeScreenButtonRecipesTopPercentageMargin);
         recipesButtonMargins.put(dictionaryKeysList.buttonLeftMarginPercentage, screenDimensionsList.homeScreenButtonRecipesLeftPercentageMargin);
         recipesButtonMargins.put(dictionaryKeysList.buttonRightMarginPercentage, screenDimensionsList.homeScreenButtonRecipesRightPercentageMargin);
 
+        SettingsScreenButton homeScreenButtonScan = new SettingsScreenButton(scanButton, scanButtonAction, scanButtonFontLocation, scanButtonIconFileLocation, homeScreenDimensionsMap, scanButtonMargins, this);
         SettingsScreenButton homeScreenButtonRecipes = new SettingsScreenButton(recipesButton, recipesButtonAction, recipesButtonFontLocation, recipesButtonIconFileLocation, homeScreenDimensionsMap, recipesButtonMargins, this);
+        SettingsScreenButton homeScreenButtonDeals = new SettingsScreenButton(dealsButton, dealsButtonAction, dealsButtonFontLocation, dealsButtonIconFileLocation, homeScreenDimensionsMap, dealsButtonMargins, this);
+        SettingsScreenButton homeScreenButtonMyFridge = new SettingsScreenButton(myFridgeButton, myFridgeButtonAction, myFridgeButtonFontLocation, myFridgeButtonIconFileLocation, homeScreenDimensionsMap, myFridgeButtonMargins, this);
+        SettingsScreenButton homeScreenButtonFriends = new SettingsScreenButton(friendsButton, friendsButtonAction, friendsButtonFontLocation, friendsButtonIconFileLocation, homeScreenDimensionsMap, friendsButtonMargins, this);
 
     }
 
