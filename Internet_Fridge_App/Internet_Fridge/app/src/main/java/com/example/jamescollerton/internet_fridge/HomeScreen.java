@@ -150,10 +150,10 @@ public class HomeScreen extends AppCompatActivity {
      * This is used to
      *
      */
-    public void launchMyFridgeScreen(){
+    public void launchUserFridgeScreen(){
 
-        Intent myFridgeIntent = new Intent(this, MyFridgeScreen.class);
-        startActivity(myFridgeIntent);
+        Intent userFridgeIntent = new Intent(this, UserFridgeScreen.class);
+        startActivity(userFridgeIntent);
 
     }
 

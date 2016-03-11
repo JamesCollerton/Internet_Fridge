@@ -42,7 +42,7 @@
                 android:value="com.example.jamescollerton.internet_fridge.HomeScreen" />
         </activity>
         <activity
-            android:name=".MyFridgeScreen"
+            android:name=".UserFridgeScreen"
             android:label="@string/title_activity_my_fridge_screen"
             android:parentActivityName=".HomeScreen"
             android:theme="@style/AppTheme.NoActionBar">
