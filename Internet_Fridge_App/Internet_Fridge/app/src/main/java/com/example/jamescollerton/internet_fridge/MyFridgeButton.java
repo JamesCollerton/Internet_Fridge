@@ -113,9 +113,9 @@ public class MyFridgeButton {
 
                 try {
                     openScreenMethod.invoke(onClickAction);
-                } catch (IllegalArgumentException e) { // exception handling omitted for brevity
-                } catch (IllegalAccessException e) { // exception handling omitted for brevity
-                } catch (InvocationTargetException e) { // exception handling omitted for brevity
+                } catch (IllegalArgumentException e) {
+                } catch (IllegalAccessException e) {
+                } catch (InvocationTargetException e) {
                 }
 
             }

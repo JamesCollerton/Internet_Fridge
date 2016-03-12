@@ -1,7 +1,11 @@
+// -----------------------------------------------------------------------------
+// REQUIREMENTS
+
 var express = require('express');        
 var bodyParser = require('body-parser');
 var mySQL = require('mysql');
 var fs = require('fs');
+var sendEmail = require('./sendEmail.js');
 
 // -----------------------------------------------------------------------------
 // INITIALISING MYSQL CONNECTION
@@ -125,7 +129,7 @@ function initialiseGeneralRouting(){
 // - Delete request with paramters (accessed at DELETE http://localhost:8080/api/MyFridge/:fridgeItemID)
 function initialiseParameterRouting(){
 
-    router.route('/MyFridge/:fridgeItemID')
+    router.route('/MyFridge/FridgeItem/:fridgeItemID')
 
         .get(function(req, res) {
             
@@ -147,6 +151,23 @@ function initialiseParameterRouting(){
 
 }
 
+// This is used for all of the email routing, and will be used for verifying that someone
+// has the correct credentials if needed.
+function initialiseEmailRouting(){
+
+    router.route('/MyFridge/Email')
+
+        .get(function(req, res) {
+
+            sendEmail.initialiseNodeMailer();
+            sendEmail.nodeMailerSendEmail(app);
+
+            res.json({ message: 'Received request for email'})
+
+        });
+
+}
+
 // -----------------------------------------------------------------------------
 // START SERVER AND MYSQL CONNECTION
 
@@ -155,6 +176,7 @@ initialiseAppPort();
 initialiseBasicRouting();
 initialiseGeneralRouting();
 initialiseParameterRouting();
+initialiseEmailRouting();
 
 // This is used to register routes. All of our routes will be prefixed with '/api'
 app.use('/api', router);

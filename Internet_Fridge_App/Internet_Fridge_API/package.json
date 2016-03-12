@@ -5,6 +5,9 @@
         "express": "~4.0.0",
         "mongoose": "~3.6.13",
         "body-parser": "~1.0.1",
-        "mysql": "~2.10.2"
+        "mysql": "~2.10.2",
+        "nodemailer": "~1.0",
+        "validator":"~3.0",
+        "nodemailer-mailgun-transport":"1.0.1"
     }
 }
