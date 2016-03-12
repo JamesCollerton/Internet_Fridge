@@ -3,7 +3,7 @@ package com.example.jamescollerton.internet_fridge;
 /**
  * Created by JamesCollerton on 11/03/2016.
  */
-public class HomeScreenCommandClasses {
+public class ScreenCommandClasses {
 
     public class UserFridgeScreenCommand {
 

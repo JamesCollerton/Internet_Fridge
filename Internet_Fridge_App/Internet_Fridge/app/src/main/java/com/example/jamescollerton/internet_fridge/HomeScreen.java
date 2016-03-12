@@ -37,6 +37,7 @@ public class HomeScreen extends AppCompatActivity {
     private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
+    private ScreenCommandClasses screenCommandClasses = new ScreenCommandClasses();
 
     /**
      *
@@ -194,6 +195,8 @@ public class HomeScreen extends AppCompatActivity {
         Button myFridgeButton = (Button) findViewById(R.id.homeScreenButtonMyFridgeID);
         Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
         Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
+
+        ScreenCommandClasses.UserFridgeScreenCommand test = screenCommandClasses.new UserFridgeScreenCommand(this);
 
         String scanButtonAction = "testAction";
         String dealsButtonAction = "testAction";
