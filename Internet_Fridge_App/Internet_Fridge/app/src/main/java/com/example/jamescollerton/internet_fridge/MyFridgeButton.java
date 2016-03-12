@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +38,7 @@ public class MyFridgeButton {
      * @param buttonObject The button object on the menu screen.
      *
      */
-    public MyFridgeButton(Button buttonObject, String onClickAction, String fontLocation,
+    public MyFridgeButton(Button buttonObject, Object onClickAction, String fontLocation,
                           String iconFileLocation, Map<String, Integer> screenDimensionsMap,
                           Map<String, Double> buttonMargins, AppCompatActivity parentScreen) {
 
@@ -91,12 +93,31 @@ public class MyFridgeButton {
      *
      * This is used to set the action when the button is clicked.
      *
+     * TODO: Write an exit function class for these exceptions.
+     *
      */
-    private void setButtonClickAction(final String onClickAction){
+    private void setButtonClickAction(final Object onClickAction){
 
         buttonObject.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println(onClickAction);
+
+                Method openScreenMethod = null;
+
+                try {
+                    openScreenMethod = onClickAction.getClass().getMethod("openScreen");
+                } catch (SecurityException e) {
+                    System.out.println("Security Exception");
+                } catch (NoSuchMethodException e) {
+                    System.out.println("No such method Exception");
+                }
+
+                try {
+                    openScreenMethod.invoke(onClickAction);
+                } catch (IllegalArgumentException e) { // exception handling omitted for brevity
+                } catch (IllegalAccessException e) { // exception handling omitted for brevity
+                } catch (InvocationTargetException e) { // exception handling omitted for brevity
+                }
+
             }
 
         });

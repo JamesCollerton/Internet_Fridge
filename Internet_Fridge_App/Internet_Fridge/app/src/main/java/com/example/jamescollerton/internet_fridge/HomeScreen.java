@@ -196,13 +196,11 @@ public class HomeScreen extends AppCompatActivity {
         Button friendsButton = (Button) findViewById(R.id.homeScreenButtonFriendsID);
         Button recipesButton = (Button) findViewById(R.id.homeScreenButtonRecipesID);
 
-        ScreenCommandClasses.UserFridgeScreenCommand test = screenCommandClasses.new UserFridgeScreenCommand(this);
-
-        String scanButtonAction = "testAction";
-        String dealsButtonAction = "testAction";
-        String myFridgeButtonAction = "testAction";
-        String friendsButtonAction = "testAction";
-        String recipesButtonAction = "testAction";
+        ScreenCommandClasses.UserFridgeScreenCommand scanButtonAction = screenCommandClasses.new UserFridgeScreenCommand(this);
+        ScreenCommandClasses.UserFridgeScreenCommand dealsButtonAction = screenCommandClasses.new UserFridgeScreenCommand(this);
+        ScreenCommandClasses.UserFridgeScreenCommand myFridgeButtonAction = screenCommandClasses.new UserFridgeScreenCommand(this);
+        ScreenCommandClasses.UserFridgeScreenCommand friendsButtonAction = screenCommandClasses.new UserFridgeScreenCommand(this);
+        ScreenCommandClasses.UserFridgeScreenCommand recipesButtonAction = screenCommandClasses.new UserFridgeScreenCommand(this);
 
         String scanButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
         String dealsButtonFontLocation = this.getResources().getString(R.string.appDefaultFontLocation);
