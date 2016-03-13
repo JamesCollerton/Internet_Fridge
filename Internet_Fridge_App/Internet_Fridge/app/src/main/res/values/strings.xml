@@ -37,6 +37,17 @@
     <string name="settingsScreenButtonOKString">OK</string>
     <string name="settingsScreenButtonCancelString">Cancel</string>
 
+    <!-- Strings for errors spread across the application -->
+    <string name="errorMessageTitle">Error</string>
+    <string name="errorMessageAccept">OK</string>
+
+    <string name="errorMessageOpenScreenSecurityException">New screen failed to open, security exception.</string>
+    <string name="errorMessageOpenScreenNoSuchMethodException">New screen failed to open, no such method exception.</string>
+    <string name="errorMessageOpenScreenIllegalArgumentException">New screen failed to open, illegal argument exception.</string>
+    <string name="errorMessageOpenScreenIllegalAccessException">New screen failed to open, illegal access exception.</string>
+    <string name="errorMessageOpenScreenInvocationTargetException">New screen failed to open, invocation targey exception.</string>
+    <string name="errorMessageOpenScreenIconIOException">Failed to open the icon file.</string>
+
     <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>

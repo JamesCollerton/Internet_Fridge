@@ -106,16 +106,24 @@ public class MyFridgeButton {
                 try {
                     openScreenMethod = onClickAction.getClass().getMethod("openScreen");
                 } catch (SecurityException e) {
-                    System.out.println("Security Exception");
+                    String errorString = parentScreen.getResources().getString(R.string.errorMessageOpenScreenSecurityException);
+                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, errorString);
                 } catch (NoSuchMethodException e) {
-                    System.out.println("No such method Exception");
+                    String errorString = parentScreen.getResources().getString(R.string.errorMessageOpenScreenNoSuchMethodException);
+                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, errorString);
                 }
 
                 try {
                     openScreenMethod.invoke(onClickAction);
                 } catch (IllegalArgumentException e) {
+                    String errorString = parentScreen.getResources().getString(R.string.errorMessageOpenScreenIllegalArgumentException);
+                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, errorString);
                 } catch (IllegalAccessException e) {
+                    String errorString = parentScreen.getResources().getString(R.string.errorMessageOpenScreenIllegalAccessException);
+                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, errorString);
                 } catch (InvocationTargetException e) {
+                    String errorString = parentScreen.getResources().getString(R.string.errorMessageOpenScreenInvocationTargetException);
+                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, errorString);
                 }
 
             }
@@ -169,7 +177,8 @@ public class MyFridgeButton {
             buttonObject.setCompoundDrawables(img, null, null, null);
 
         } catch (IOException settingButtonIconIOException){
-            System.exit(1);
+            String errorString = parentScreen.getResources().getString(R.string.errorMessageOpenScreenIconIOException);
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, errorString);
         }
 
     }

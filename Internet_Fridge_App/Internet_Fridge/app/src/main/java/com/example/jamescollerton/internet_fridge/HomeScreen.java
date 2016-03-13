@@ -62,8 +62,6 @@ public class HomeScreen extends AppCompatActivity {
         initialiseHomeScreenFloatingActionButtons();
         initialiseHomeScreenButtons();
 
-        ErrorDialog errorDialog = new ErrorDialog(this);
-
 //        FOR TESTING THE API CONNECTION.
 //        MyFridgeAPIConnection test = new MyFridgeAPIConnection();
 //        test.execute("http://192.168.1.174:8080/api/MyFridge");
