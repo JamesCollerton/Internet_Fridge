@@ -3,6 +3,7 @@
 
 var express = require('express');        
 var bodyParser = require('body-parser');
+var https = require('https');
 var mySQL = require('mysql');
 var fs = require('fs');
 var sendEmail = require('./sendEmail.js');
@@ -38,7 +39,6 @@ function initialiseMySQLConnection(){
     });
 
 }
-
 // -----------------------------------------------------------------------------
 // INITIALISING NODE APP
 
