@@ -35,6 +35,16 @@ public class HomeScreen extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
+    /**
+     *
+     * These are the custom generated variables. The screenDimensionsMap is used to
+     * hold the dimensions of the screen. The dictionaryKeysList holds all of the
+     * keys for any of the dictionaries across the whole application. screenCommandClass
+     * is used to pass the methods for launching the screens as arguments to the
+     * button creators.
+     *
+     */
     private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
@@ -71,14 +81,11 @@ public class HomeScreen extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-
-//  ----------------------------------------------------------------------------------------------
-//  Default functions inserted by the template. They have been left in for the time being.
-
     /**
      *
-     * This initialises all of the floating action buttons at the bottom of the page.
-     * Eventually this will include a synchronise button and an email button.
+     * This initialises all of the floating action buttons at the bottom of the page. It creates
+     * the buttons and then passes to the custom floating action button class in order to format
+     * them.
      *
      */
     public void initialiseHomeScreenFloatingActionButtons() {
@@ -149,7 +156,7 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      *
-     * This is used to
+     * This function is used for launching the user's My Fridge screen for the app.
      *
      */
     public void launchUserFridgeScreen(){
@@ -158,11 +165,6 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(userFridgeIntent);
 
     }
-
-//  ------------------------------------------------------------------------------------------------
-
-//  ------------------------------------------------------------------------------------------------
-//  Defined functions.
 
     /**
      *
@@ -184,7 +186,12 @@ public class HomeScreen extends AppCompatActivity {
     /**
      *
      * This is used to initialise each of the four buttons on the home screen: Scan, Recipes,
-     * Deals and Friends.
+     * Deals and Friends. It finds the dimensions of the screen, then the four buttons from
+     * the xml file. Next it gets a command from the screenCommandClasses file in order for
+     * it to be passed as a parameter to tell the button what to do. Next it finds all of the fonts
+     * and icons from the values file, and the margins from the screenDimensionList class, which
+     * it assigns to some maps in order for them to be iterated through in the button class and
+     * set the margins.
      *
      */
     private void initialiseHomeScreenButtons(){

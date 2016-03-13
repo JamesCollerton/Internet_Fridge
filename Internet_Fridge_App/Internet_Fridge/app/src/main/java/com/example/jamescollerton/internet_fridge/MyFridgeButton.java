@@ -32,10 +32,18 @@ public class MyFridgeButton {
 
     /**
      *
-     * Finds the tag of the button object so we know which button it represents (scan, deal, friends
-     * or recipes). Then sets the action when the button is clicked.
+     * Sets the screen that the button is from, then gets the button object. Next it finds the ID.
+     * In order it sets the font for the button if there is one to set, the margins, the action
+     * and the icon. If any of these arguments are null then it skips the step, as not all buttons
+     * have all of these properties.
      *
      * @param buttonObject The button object on the menu screen.
+     * @param onClickAction The action to be executed on click, passed from the command class.
+     * @param fontLocation The string for where the font for the button is located.
+     * @param iconFileLocation The string for where the icon is located.
+     * @param screenDimensionsMap A map of the screen size.
+     * @param buttonMargins A map of the margins we want to put onto the buttons.
+     * @param parentScreen The screen the button has been placed on.
      *
      */
     public MyFridgeButton(Button buttonObject, Object onClickAction, String fontLocation,
@@ -61,8 +69,9 @@ public class MyFridgeButton {
     /**
      *
      * This is used to set the button positions relative to the page size. It takes in the button
-     * object (in order to change its margins) and also the homes. Interestingly, this can't be
-     * a switch statement as the values need to be known at compile time for that to work.
+     * object (in order to change its margins) and also the map of margins. It iterates through
+     * the map and assigns a margin according to that percentage. So the top margin will be something
+     * like 0.25 (the percentage) * 1000 (the height of the screen).
      *
      */
     private void setButtonMargins(Map<String, Integer> screenDimensionsMap, Map<String, Double> buttonMargins){
@@ -91,9 +100,9 @@ public class MyFridgeButton {
 
     /**
      *
-     * This is used to set the action when the button is clicked.
-     *
-     * TODO: Write an exit function class for these exceptions.
+     * This is used to set the action when the button is clicked. An object is passed in which
+     * is the onClickAction object, coming from the ScreenCommandClasses. From that command class
+     * it finds the method and then executes it.
      *
      */
     private void setButtonClickAction(final Object onClickAction){
@@ -148,8 +157,7 @@ public class MyFridgeButton {
 
     /**
      *
-     * This function is used to set the button icon file location. It acts as a switch on the button
-     * tag and then puts the icon location dependant on which button it is.
+     * This function is used as a wrapper to set the button icon file location.
      *
      */
     private void setButtonIconFileLocation(String iconFileLocation){
@@ -165,7 +173,6 @@ public class MyFridgeButton {
      * can't find the image in the assets folder it exits gracefully.
      *
      * TODO: Have the paddingLeft and paddingRight variables automatically resize themselves.
-     * TODO: Come up with a good way of exiting the application.
      *
      */
     private void resizeIcon(){

@@ -11,12 +11,6 @@ public class DictionaryKeysList {
     public static final String screenDimensionsMapScreenWidth = "screenWidth";
     public static final String screenDimensionsMapScreenHeight = "screenHeight";
 
-    public static final String homeScreenButtonMapScan = "homeScreenButtonScan";
-    public static final String homeScreenButtonMapDeals = "homeScreenButtonDeals";
-    public static final String homeScreenButtonMapFriends = "homeScreenButtonFriends";
-    public static final String homeScreenButtonMapRecipes = "homeScreenButtonRecipes";
-    public static final String homeScreenButtonMapMyFridge = "homeScreenButtonMyFridge";
-
     public static final String buttonLeftMarginPercentage = "buttonLeftMarginPercentage";
     public static final String buttonRightMarginPercentage = "buttonRightMarginPercentage";
     public static final String buttonTopMarginPercentage = "buttonTopMarginPercentage";

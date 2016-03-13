@@ -7,8 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+/**
+ *
+ * This class deals with the user's fridge screen. It holds all of the data and functionality
+ * for the screen.
+ *
+ */
 public class UserFridgeScreen extends AppCompatActivity {
 
+    /**
+     *
+     * The screen is created from the last saved instance and the toolbar initiated.
+     *
+     * @param savedInstanceState Allows the screen to launch from where it left off.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

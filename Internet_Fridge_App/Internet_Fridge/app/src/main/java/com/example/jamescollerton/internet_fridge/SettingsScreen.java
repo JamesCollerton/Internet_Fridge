@@ -10,8 +10,20 @@ import android.widget.Button;
 
 import java.util.Map;
 
+/**
+ *
+ * This class handles the appearance and functionality of the settings screen.
+ *
+ */
 public class SettingsScreen extends AppCompatActivity {
 
+    /**
+     *
+     * This creates the screen from where it left off, sets the layout and initialises the toolbar.
+     * Next it initialises the OK and cancel buttons at the bottom of the screen.
+     *
+     * @param savedInstanceState Allows the screen to launch from where it left off.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -26,6 +38,13 @@ public class SettingsScreen extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * Used to initialise the buttons at the bottom of the screen. It finds the buttons from the
+     * xml, then sets the actions, fonts and icon locations and margins (which are null as we
+     * don't want any icons or margins). Then it initialises the buttons for us.
+     *
+     */
     private void initialiseSettingsScreenButtons(){
 
         Map<String, Integer> screenDimensionsMap = null;

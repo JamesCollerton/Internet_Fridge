@@ -10,8 +10,6 @@ import android.view.View;
  * This class controls the floating action buttons at the bottom of the screen on the app. It
  * controls their actions and their appearance.
  *
- * I think that most of this functionality will be contained on the server.
- *
  */
 public class HomeScreenFloatingActionButton {
 
