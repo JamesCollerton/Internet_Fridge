@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@drawable/android_background_element"
     tools:context=".UserFridgeScreen">
 
     <android.support.design.widget.AppBarLayout
@@ -23,12 +24,32 @@
 
     <include layout="@layout/content_my_fridge_screen" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id = "@+id/RHE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:layout_weight="0"
+        android:padding="5dp"
+        android:layout_marginTop="200dp">
+
+        <TableRow android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/runLabel"
+                android:text="R"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/hitLabel"
+                android:text="H"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/errorLabel"
+                android:text="E"
+                android:layout_height="wrap_content"
+                />
+        </TableRow>
+
+    </TableLayout>
 
 </android.support.design.widget.CoordinatorLayout>

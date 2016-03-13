@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -60,6 +61,8 @@ public class HomeScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
         initialiseHomeScreenFloatingActionButtons();
         initialiseHomeScreenButtons();
+
+        ErrorDialog errorDialog = new ErrorDialog(this);
 
 //        FOR TESTING THE API CONNECTION.
 //        MyFridgeAPIConnection test = new MyFridgeAPIConnection();

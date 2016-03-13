@@ -9,12 +9,15 @@ var fs = require('fs');
 // -----------------------------------------------------------------------------
 // GLOBAL VARIABLES
 
+// These are used for connecting to the node mailgun client.
 var nodeMailerConnectionDetails;
 var nodemailerMailgun;
 
 // -----------------------------------------------------------------------------
 // AUTHORISATION FOR THE MAILGUN CLIENT
 
+// This sets up the nodemailer functionality with the API key and the domain
+// taken from the untracked file. It then creates a transporter using that file.
 this.initialiseNodeMailer = function (){ 
 
     nodeMailerConnectionDetails = JSON.parse(fs.readFileSync('ignore/nodeMailerConnectionDetails.json', 'utf8'));
@@ -33,6 +36,9 @@ this.initialiseNodeMailer = function (){
 // -----------------------------------------------------------------------------
 // EMAILING FUNCTIONS
 
+// This is actually used to send the email. It sets the from, to, subject and
+// body (html) parameters and then sends it. If there is an error prints it
+// to screen, otherwise logs the email is sent.
 this.nodeMailerSendEmail = function (){
 
     nodemailerMailgun.sendMail({
