@@ -11,6 +11,11 @@ public class DictionaryKeysList {
     public static final String screenDimensionsMapScreenWidth = "screenWidth";
     public static final String screenDimensionsMapScreenHeight = "screenHeight";
 
+    public static final String screenDimensionsMapIntentKey = "screenDimensionsMap";
+
+    public static final String settingsScreenUsernameEditTextFieldKey = "1username";
+    public static final String settingsScreenPasswordEditTextFieldKey = "2password";
+
     public static final String buttonLeftMarginPercentage = "buttonLeftMarginPercentage";
     public static final String buttonRightMarginPercentage = "buttonRightMarginPercentage";
     public static final String buttonTopMarginPercentage = "buttonTopMarginPercentage";

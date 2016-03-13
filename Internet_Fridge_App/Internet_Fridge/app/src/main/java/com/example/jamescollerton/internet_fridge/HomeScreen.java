@@ -18,6 +18,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.io.Serializable;
 import java.util.*;
 
 import android.util.DisplayMetrics;
@@ -45,7 +46,7 @@ public class HomeScreen extends AppCompatActivity {
      * button creators.
      *
      */
-    private Map<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
+    private HashMap<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
     private ScreenCommandClasses screenCommandClasses = new ScreenCommandClasses();
@@ -150,6 +151,7 @@ public class HomeScreen extends AppCompatActivity {
     public void launchSettingsScreen(){
 
         Intent settingsIntent = new Intent(this, SettingsScreen.class);
+        settingsIntent.putExtra(dictionaryKeysList.screenDimensionsMapIntentKey, screenDimensionsMap);
         startActivity(settingsIntent);
 
     }

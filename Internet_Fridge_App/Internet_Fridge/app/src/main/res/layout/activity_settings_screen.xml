@@ -34,11 +34,31 @@
         android:hint="@string/settingsScreenTextFieldEmailHint"
         android:inputType="textEmailAddress" />
 
+    <EditText
+        android:id="@+id/settingsScreenUsernameTextFieldID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="200dp"
+        android:hint="@string/settingsScreenTextFieldUsernameHint"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/settingsScreenPasswordTextFieldID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="300dp"
+        android:hint="@string/settingsScreenTextFieldPasswordlHint"
+        android:inputType="textEmailAddress" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <!--The scan button. -->
+        <!--The OK button. -->
         <Button android:id="@+id/settingsScreenOKButtonID"
             android:tag="@string/homeScreenButtonScanTag"
             android:layout_width="wrap_content"
@@ -53,7 +73,7 @@
             android:drawablePadding="0dip"
             android:singleLine="true"/>
 
-        <!--The scan button. -->
+        <!--The cancel button. -->
         <Button android:id="@+id/settingsScreenCancelButtonID"
             android:tag="@string/homeScreenButtonScanTag"
             android:layout_width="wrap_content"

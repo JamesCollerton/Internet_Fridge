@@ -34,6 +34,8 @@
 
     <!-- Strings for hints in the settings text fields. -->
     <string name="settingsScreenTextFieldEmailHint">Email Address</string>
+    <string name="settingsScreenTextFieldUsernameHint">Username</string>
+    <string name="settingsScreenTextFieldPasswordlHint">Password</string>
     <string name="settingsScreenButtonOKString">OK</string>
     <string name="settingsScreenButtonCancelString">Cancel</string>
 
