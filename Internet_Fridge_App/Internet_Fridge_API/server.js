@@ -180,5 +180,12 @@ initialiseEmailRouting();
 
 // This is used to register routes. All of our routes will be prefixed with '/api'
 app.use('/api', router);
-app.listen(port);
-console.log('Server started on port: ' + port);
+// app.listen(port);
+// console.log('Server started on port: ' + port);
+
+var privateKey  = fs.readFileSync('ignore/Server_Keys/localhost.key', 'utf8');
+var certificate = fs.readFileSync('ignore/Server_Keys/localhost.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(port);
