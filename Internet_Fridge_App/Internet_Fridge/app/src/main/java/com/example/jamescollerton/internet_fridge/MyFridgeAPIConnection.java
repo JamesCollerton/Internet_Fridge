@@ -1,14 +1,28 @@
 package com.example.jamescollerton.internet_fridge;
 
 import android.os.AsyncTask;
+
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.Certificate;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
 
 /**
  * Created by JamesCollerton on 06/03/2016.
@@ -20,6 +34,13 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
+    HomeScreen parentScreen;
+
+    public MyFridgeAPIConnection(HomeScreen parentScreen) {
+        super();
+        this.parentScreen = parentScreen;
+        // do stuff
+    }
     /**
      *
      * This is the async task that is called by default with MyFridgeAPIConnection.execute(). It
@@ -37,7 +58,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
         try {
             return downloadContent(params[0]);
         } catch (IOException e) {
-            System.out.println("Eurgh");
+            System.out.println(e.getMessage());
             return "Unable to retrieve data. URL may be invalid.";
         }
     }
@@ -75,27 +96,89 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
         InputStream is = null;
 
+//        try {
+//            InputStream caInput = parentScreen.getResources().openRawResource(R.raw.localhost);
+//            InputStream caInput = new BufferedInputStream(new FileInputStream());
+//        }catch (Exception e){System.out.println("Woops");}
+
+
         try {
 
+            // Load CAs from an InputStream
+            // (could be from a resource or ByteArrayInputStream or ...)
+            try {
+                CertificateFactory cf = CertificateFactory.getInstance("X.509");
+
+                    InputStream caInput = parentScreen.getResources().openRawResource(R.raw.localhost);
+                    Certificate ca;
+
+                    try {
+                        ca = cf.generateCertificate(caInput);
+                        System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
+                    } finally {
+                        caInput.close();
+                    }
+
+            // Create a KeyStore containing our trusted CAs
+            String keyStoreType = KeyStore.getDefaultType();
+            KeyStore keyStore = KeyStore.getInstance(keyStoreType);
+            keyStore.load(null, null);
+            keyStore.setCertificateEntry("ca", ca);
+
+            // Create a TrustManager that trusts the CAs in our KeyStore
+            String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
+            tmf.init(keyStore);
+
+            // Create an SSLContext that uses our TrustManager
+            SSLContext context = SSLContext.getInstance("TLS");
+            context.init(null, tmf.getTrustManagers(), null);
+
+            // Tell the URLConnection to use a SocketFactory from our SSLContext
             URL url = new URL(APIURL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+            conn.setSSLSocketFactory(context.getSocketFactory());
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.connect();
-//            int response = conn.getResponseCode();
+            int response = conn.getResponseCode();
             is = conn.getInputStream();
 
             String contentAsString = convertInputStreamToString(is);
             System.out.println(contentAsString);
             return contentAsString;
 
+        } catch (CertificateException e){ System.out.println("Certificate exception"); }
+            catch (KeyStoreException e){ System.out.println("Key store exception"); }
+            catch (NoSuchAlgorithmException e){ System.out.println("No such algorithm exception"); }
+            catch (KeyManagementException e){ System.out.println("Key management exception"); }
+//            catch ()
+            catch (Exception e){ System.out.println(e.getMessage()); }
+
+//            URL url = new URL(APIURL);
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            conn.setReadTimeout(10000);
+//            conn.setConnectTimeout(15000);
+//            conn.setRequestMethod("GET");
+//            conn.setDoInput(true);
+//            conn.connect();
+//            int response = conn.getResponseCode();
+//            is = conn.getInputStream();
+//
+//            String contentAsString = convertInputStreamToString(is);
+//            System.out.println(contentAsString);
+//            return contentAsString;
+
+            return "Testing";
+
         } finally {
             if (is != null) {
                 is.close();
             }
         }
+
     }
 
     /**

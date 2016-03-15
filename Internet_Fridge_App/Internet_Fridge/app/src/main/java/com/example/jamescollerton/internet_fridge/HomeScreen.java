@@ -74,8 +74,8 @@ public class HomeScreen extends AppCompatActivity {
         initialiseHomeScreenButtons();
 
 //        FOR TESTING THE API CONNECTION.
-        MyFridgeAPIConnection test = new MyFridgeAPIConnection();
-        test.execute("http://192.168.1.69:8080/api/MyFridge");
+        MyFridgeAPIConnection test = new MyFridgeAPIConnection(this);
+        test.execute("https://192.168.1.69:8080/api/MyFridge");
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
