@@ -168,6 +168,36 @@ function initialiseEmailRouting(){
 
 }
 
+// In the production version of this app we will use an https connection to
+// allow for encryption and better security. This initialises the components
+// needed to do that. First it assigns the router to the express app, then it
+// reads in the keys  and creates an https server.
+function initialiseHTTPSConnection(){
+
+    app.use('/api', router);
+
+    var privateKey  = fs.readFileSync('ignore/Server_Keys/localhost.key', 'utf8');
+    var certificate = fs.readFileSync('ignore/Server_Keys/localhost.crt', 'utf8');
+    var credentials = {key: privateKey, cert: certificate};
+
+    var httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(port);
+
+    console.log('HTTPS server started on port: ' + port);
+
+}
+
+// This is used to initialise the HTTP connection for testing so we don't
+// need to worry about allowing a self signed certificate in the android app.
+// Note that all routes will begin with api.
+function initialiseHTTPConnection(){
+
+    app.use('/api', router);
+    app.listen(port);
+    console.log('HTTP server started on port: ' + port);
+
+}
+
 // -----------------------------------------------------------------------------
 // START SERVER AND MYSQL CONNECTION
 
@@ -177,15 +207,4 @@ initialiseBasicRouting();
 initialiseGeneralRouting();
 initialiseParameterRouting();
 initialiseEmailRouting();
-
-// This is used to register routes. All of our routes will be prefixed with '/api'
-app.use('/api', router);
-// app.listen(port);
-// console.log('Server started on port: ' + port);
-
-var privateKey  = fs.readFileSync('ignore/Server_Keys/localhost.key', 'utf8');
-var certificate = fs.readFileSync('ignore/Server_Keys/localhost.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
-
-var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port);
+initialiseHTTPConnection();

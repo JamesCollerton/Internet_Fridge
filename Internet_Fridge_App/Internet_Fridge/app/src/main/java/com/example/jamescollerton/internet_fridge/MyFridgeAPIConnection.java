@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.net.ssl.HttpsURLConnection;
+
 /**
  * Created by JamesCollerton on 06/03/2016.
  *
@@ -35,6 +37,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
         try {
             return downloadContent(params[0]);
         } catch (IOException e) {
+            System.out.println("Eurgh");
             return "Unable to retrieve data. URL may be invalid.";
         }
     }
