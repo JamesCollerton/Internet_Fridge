@@ -1,6 +1,7 @@
 package com.example.jamescollerton.internet_fridge;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -57,7 +58,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
     protected String doInBackground(String... params) {
         try {
             return downloadContent(params[0]);
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return "Unable to retrieve data. URL may be invalid.";
         }
@@ -96,82 +97,66 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
         InputStream is = null;
 
-//        try {
-//            InputStream caInput = parentScreen.getResources().openRawResource(R.raw.localhost);
-//            InputStream caInput = new BufferedInputStream(new FileInputStream());
-//        }catch (Exception e){System.out.println("Woops");}
-
-
         try {
 
-            // Load CAs from an InputStream
-            // (could be from a resource or ByteArrayInputStream or ...)
-            try {
+            try
+            {
+                // Load CAs from an InputStream
+                // (could be from a resource or ByteArrayInputStream or ...)
                 CertificateFactory cf = CertificateFactory.getInstance("X.509");
 
-                    InputStream caInput = parentScreen.getResources().openRawResource(R.raw.localhost);
-                    Certificate ca;
+                // My CRT file that I put in the assets folder
+                // I got this file by following these steps:
+                // * Go to https://littlesvr.ca using Firefox
+                // * Click the padlock/More/Security/View Certificate/Details/Export
+                // * Saved the file as littlesvr.crt (type X.509 Certificate (PEM))
+                // The MainActivity.context is declared as:
+                // public static Context context;
+                // And initialized in MainActivity.onCreate() as:
+                // MainActivity.context = getApplicationContext();
+                InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
+                Certificate ca = cf.generateCertificate(caInput);
+                System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
 
-                    try {
-                        ca = cf.generateCertificate(caInput);
-                        System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
-                    } finally {
-                        caInput.close();
-                    }
+                // Create a KeyStore containing our trusted CAs
+                String keyStoreType = KeyStore.getDefaultType();
+                KeyStore keyStore = KeyStore.getInstance(keyStoreType);
+                keyStore.load(null, null);
+                keyStore.setCertificateEntry("ca", ca);
 
-            // Create a KeyStore containing our trusted CAs
-            String keyStoreType = KeyStore.getDefaultType();
-            KeyStore keyStore = KeyStore.getInstance(keyStoreType);
-            keyStore.load(null, null);
-            keyStore.setCertificateEntry("ca", ca);
+                // Create a TrustManager that trusts the CAs in our KeyStore
+                String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
+                TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
+                tmf.init(keyStore);
 
-            // Create a TrustManager that trusts the CAs in our KeyStore
-            String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
-            tmf.init(keyStore);
+                // Create an SSLContext that uses our TrustManager
+                SSLContext context = SSLContext.getInstance("TLS");
+                context.init(null, tmf.getTrustManagers(), null);
 
-            // Create an SSLContext that uses our TrustManager
-            SSLContext context = SSLContext.getInstance("TLS");
-            context.init(null, tmf.getTrustManagers(), null);
+                // Tell the URLConnection to use a SocketFactory from our SSLContext
+                URL url = new URL(APIURL);
+                HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+                conn.setSSLSocketFactory(context.getSocketFactory());
+                conn.setReadTimeout(10000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("GET");
+                conn.setDoInput(true);
+//                conn.connect();
+//                int response = conn.getResponseCode();
+                is = conn.getInputStream();
 
-            // Tell the URLConnection to use a SocketFactory from our SSLContext
-            URL url = new URL(APIURL);
-            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-            conn.setSSLSocketFactory(context.getSocketFactory());
-            conn.setReadTimeout(10000);
-            conn.setConnectTimeout(15000);
-            conn.setRequestMethod("GET");
-            conn.setDoInput(true);
-            conn.connect();
-            int response = conn.getResponseCode();
-            is = conn.getInputStream();
+                String contentAsString = convertInputStreamToString(is);
+                System.out.println(contentAsString);
 
-            String contentAsString = convertInputStreamToString(is);
-            System.out.println(contentAsString);
-            return contentAsString;
-
-        } catch (CertificateException e){ System.out.println("Certificate exception"); }
-            catch (KeyStoreException e){ System.out.println("Key store exception"); }
-            catch (NoSuchAlgorithmException e){ System.out.println("No such algorithm exception"); }
-            catch (KeyManagementException e){ System.out.println("Key management exception"); }
-//            catch ()
-            catch (Exception e){ System.out.println(e.getMessage()); }
-
-//            URL url = new URL(APIURL);
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            conn.setReadTimeout(10000);
-//            conn.setConnectTimeout(15000);
-//            conn.setRequestMethod("GET");
-//            conn.setDoInput(true);
-//            conn.connect();
-//            int response = conn.getResponseCode();
-//            is = conn.getInputStream();
-//
-//            String contentAsString = convertInputStreamToString(is);
-//            System.out.println(contentAsString);
-//            return contentAsString;
-
-            return "Testing";
+                return "Testing";
+//                return urlConnection;
+            }
+            catch (Exception ex)
+            {
+//                Log.e(TAG, "Failed to establish SSL connection to server: " + ex.toString());
+                System.out.println(ex.getMessage());
+                return null;
+            }
 
         } finally {
             if (is != null) {
