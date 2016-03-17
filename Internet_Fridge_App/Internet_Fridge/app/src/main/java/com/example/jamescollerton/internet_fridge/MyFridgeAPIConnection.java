@@ -107,13 +107,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             try
             {
                 System.setProperty("jsse.enableSNIExtension", "false");
-                //Java 7 introduced SNI (enabled by default). The server I use is
-                // misconfigured I suppose and
-                // it sends an "Unrecognized Name" warning in the SSL handshake
-                // which breaks my web service.
 
-                // Load CA from an InputStream (CA would be saved in Raw file,
-                // and loaded as a raw resource)
                 CertificateFactory cf = CertificateFactory.getInstance("X.509");
                 InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
 
@@ -139,12 +133,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 SSLContext context = SSLContext.getInstance("TLS");
                 context.init(null, tmf.getTrustManagers(), null);
 
-                // Create all-trusting host name verifier
-                //  to avoid the following :
-                //   java.security.cert.CertificateException: No name matching
-                // This is because Java by default verifies that the certificate CN (Common Name) is
-                // the same as host name in the URL. If they are not, the web service client fails.
-
+                // Prevents the hostname having to match the 
                 HostnameVerifier allHostsValid = new HostnameVerifier() {
                     @Override
                     public boolean verify(String arg0, SSLSession arg1) {
@@ -167,6 +156,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
                     urlConnection.connect();
                     is = urlConnection.getInputStream();
+
 
                     String contentAsString = convertInputStreamToString(is);
                     System.out.println(contentAsString);
