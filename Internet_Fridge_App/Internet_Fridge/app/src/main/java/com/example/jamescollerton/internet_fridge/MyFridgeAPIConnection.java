@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
@@ -104,22 +106,23 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
             try
             {
-                // Load CAs from an InputStream
-                // (could be from a resource or ByteArrayInputStream or ...)
-                CertificateFactory cf = CertificateFactory.getInstance("X.509");
+                System.setProperty("jsse.enableSNIExtension", "false");
+                //Java 7 introduced SNI (enabled by default). The server I use is
+                // misconfigured I suppose and
+                // it sends an "Unrecognized Name" warning in the SSL handshake
+                // which breaks my web service.
 
-                // My CRT file that I put in the assets folder
-                // I got this file by following these steps:
-                // * Go to https://littlesvr.ca using Firefox
-                // * Click the padlock/More/Security/View Certificate/Details/Export
-                // * Saved the file as littlesvr.crt (type X.509 Certificate (PEM))
-                // The MainActivity.context is declared as:
-                // public static Context context;
-                // And initialized in MainActivity.onCreate() as:
-                // MainActivity.context = getApplicationContext();
+                // Load CA from an InputStream (CA would be saved in Raw file,
+                // and loaded as a raw resource)
+                CertificateFactory cf = CertificateFactory.getInstance("X.509");
                 InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
-                Certificate ca = cf.generateCertificate(caInput);
-                System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
+
+                Certificate ca;
+                try {
+                    ca = cf.generateCertificate(caInput);
+                } finally {
+                    caInput.close();
+                }
 
                 // Create a KeyStore containing our trusted CAs
                 String keyStoreType = KeyStore.getDefaultType();
@@ -136,6 +139,12 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 SSLContext context = SSLContext.getInstance("TLS");
                 context.init(null, tmf.getTrustManagers(), null);
 
+                // Create all-trusting host name verifier
+                //  to avoid the following :
+                //   java.security.cert.CertificateException: No name matching
+                // This is because Java by default verifies that the certificate CN (Common Name) is
+                // the same as host name in the URL. If they are not, the web service client fails.
+
                 HostnameVerifier allHostsValid = new HostnameVerifier() {
                     @Override
                     public boolean verify(String arg0, SSLSession arg1) {
@@ -146,21 +155,49 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 //Install it
                 HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 
+
                 // Tell the URLConnection to use a SocketFactory from our SSLContext
                 URL url = new URL(APIURL);
-                HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
 
-                conn.setSSLSocketFactory(context.getSocketFactory());
-//                conn.setReadTimeout(10000);
-//                conn.setConnectTimeout(15000);
-//                conn.setRequestMethod("GET");
-//                conn.setDoInput(true);
-//                conn.connect();
-//                int response = conn.getResponseCode();
-                is = conn.getInputStream();
+                try {
 
-                String contentAsString = convertInputStreamToString(is);
-                System.out.println(contentAsString);
+                    HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+                    urlConnection.setSSLSocketFactory(context.getSocketFactory());
+                    urlConnection.setRequestMethod("GET");
+
+                    urlConnection.connect();
+                    is = urlConnection.getInputStream();
+
+                    String contentAsString = convertInputStreamToString(is);
+                    System.out.println(contentAsString);
+
+                    switch(urlConnection.getResponseCode()){
+                        case 401:
+
+
+                            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getErrorStream()));
+                            StringBuilder sb = new StringBuilder();
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                sb.append(line+"\n");
+                            }
+                            br.close();
+
+                            System.out.println( sb.toString());
+
+                    }
+
+
+
+                } catch (MalformedURLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (ProtocolException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 return "Testing";
             }
