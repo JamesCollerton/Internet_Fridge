@@ -21,8 +21,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 
 /**
@@ -133,16 +136,27 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 SSLContext context = SSLContext.getInstance("TLS");
                 context.init(null, tmf.getTrustManagers(), null);
 
+                HostnameVerifier allHostsValid = new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String arg0, SSLSession arg1) {
+                        return true;
+                    }
+                };
+
+                //Install it
+                HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+
                 // Tell the URLConnection to use a SocketFactory from our SSLContext
                 URL url = new URL(APIURL);
                 HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+
                 conn.setSSLSocketFactory(context.getSocketFactory());
-                conn.setReadTimeout(10000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("GET");
-                conn.setDoInput(true);
-                conn.connect();
-                int response = conn.getResponseCode();
+//                conn.setReadTimeout(10000);
+//                conn.setConnectTimeout(15000);
+//                conn.setRequestMethod("GET");
+//                conn.setDoInput(true);
+//                conn.connect();
+//                int response = conn.getResponseCode();
                 is = conn.getInputStream();
 
                 String contentAsString = convertInputStreamToString(is);
