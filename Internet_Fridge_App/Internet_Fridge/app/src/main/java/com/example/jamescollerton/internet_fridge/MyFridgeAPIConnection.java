@@ -108,9 +108,9 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             {
                 System.setProperty("jsse.enableSNIExtension", "false");
 
+                // Function one.
                 CertificateFactory cf = CertificateFactory.getInstance("X.509");
                 InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
-
                 Certificate ca;
                 try {
                     ca = cf.generateCertificate(caInput);
@@ -118,6 +118,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                     caInput.close();
                 }
 
+                
                 // Create a KeyStore containing our trusted CAs
                 String keyStoreType = KeyStore.getDefaultType();
                 KeyStore keyStore = KeyStore.getInstance(keyStoreType);
@@ -133,7 +134,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 SSLContext context = SSLContext.getInstance("TLS");
                 context.init(null, tmf.getTrustManagers(), null);
 
-                // Prevents the hostname having to match the 
+                // Prevents the hostname having to match the
                 HostnameVerifier allHostsValid = new HostnameVerifier() {
                     @Override
                     public boolean verify(String arg0, SSLSession arg1) {
@@ -143,7 +144,6 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
                 //Install it
                 HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-
 
                 // Tell the URLConnection to use a SocketFactory from our SSLContext
                 URL url = new URL(APIURL);
@@ -157,27 +157,8 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                     urlConnection.connect();
                     is = urlConnection.getInputStream();
 
-
                     String contentAsString = convertInputStreamToString(is);
                     System.out.println(contentAsString);
-
-                    switch(urlConnection.getResponseCode()){
-                        case 401:
-
-
-                            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getErrorStream()));
-                            StringBuilder sb = new StringBuilder();
-                            String line;
-                            while ((line = br.readLine()) != null) {
-                                sb.append(line+"\n");
-                            }
-                            br.close();
-
-                            System.out.println( sb.toString());
-
-                    }
-
-
 
                 } catch (MalformedURLException e) {
                     // TODO Auto-generated catch block
