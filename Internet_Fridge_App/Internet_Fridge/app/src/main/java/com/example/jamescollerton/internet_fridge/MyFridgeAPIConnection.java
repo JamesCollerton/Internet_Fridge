@@ -141,19 +141,18 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 conn.setConnectTimeout(15000);
                 conn.setRequestMethod("GET");
                 conn.setDoInput(true);
-//                conn.connect();
-//                int response = conn.getResponseCode();
+                conn.connect();
+                int response = conn.getResponseCode();
                 is = conn.getInputStream();
 
                 String contentAsString = convertInputStreamToString(is);
                 System.out.println(contentAsString);
 
                 return "Testing";
-//                return urlConnection;
             }
             catch (Exception ex)
             {
-//                Log.e(TAG, "Failed to establish SSL connection to server: " + ex.toString());
+                System.out.println("Here");
                 System.out.println(ex.getMessage());
                 return null;
             }
