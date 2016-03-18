@@ -107,8 +107,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             try
             {
                 System.setProperty("jsse.enableSNIExtension", "false");
-
-                // Function one.
+                
                 CertificateFactory cf = CertificateFactory.getInstance("X.509");
                 InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
                 Certificate ca;
