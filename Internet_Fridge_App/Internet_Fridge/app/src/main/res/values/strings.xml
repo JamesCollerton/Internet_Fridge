@@ -47,15 +47,15 @@
     <string name="errorMessageOpenScreenNoSuchMethodException">New screen failed to open, no such method exception.</string>
     <string name="errorMessageOpenScreenIllegalArgumentException">New screen failed to open, illegal argument exception.</string>
     <string name="errorMessageOpenScreenIllegalAccessException">New screen failed to open, illegal access exception.</string>
-    <string name="errorMessageOpenScreenInvocationTargetException">New screen failed to open, invocation targey exception.</string>
+    <string name="errorMessageOpenScreenInvocationTargetException">New screen failed to open, invocation target exception.</string>
     <string name="errorMessageOpenScreenIconIOException">Failed to open the icon file.</string>
 
-    <string name="errorMessageAPIConnectionRetrieveURL"></string>
-    <string name="errorMessageAPIConnectionAPIConnectionFailed"></string>
-    <string name="errorMessageAPIConnectionOpenCertificateFailed"></string>
-    <string name="errorMessageAPIConnectionKeystoreInitialisationFailed"></string>
-    <string name="errorMessageAPIConnectionTrustManagerFactoryInitialisationFailed"></string>
-    <string name="errorMessageAPIConnectionSSLContextInitialisationFailed"></string>
+    <string name="errorMessageAPIConnectionRetrieveURLFailed">API Connection failed, URL may be invalid.</string>
+    <string name="errorMessageAPIConnectionAPIConnectionFailed">API Connection failed, HTTPS connection failed.</string>
+    <string name="errorMessageAPIConnectionOpenCertificateFailed">API Connection failed, certificate opening failed.</string>
+    <string name="errorMessageAPIConnectionKeystoreInitialisationFailed">API Connection failed, adding certificate to keystore failed.</string>
+    <string name="errorMessageAPIConnectionTrustManagerFactoryInitialisationFailed">API Connection failed, adding keystore to trust manager factory failed.</string>
+    <string name="errorMessageAPIConnectionSSLContextInitialisationFailed">API Connection failed, initialising the SSL context failed.</string>
 
     <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>

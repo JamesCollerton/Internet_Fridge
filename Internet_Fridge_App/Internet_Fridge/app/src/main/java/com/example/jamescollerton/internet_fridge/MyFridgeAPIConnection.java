@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.security.cert.Certificate;
 import java.security.KeyStore;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -30,9 +29,10 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
     HomeScreen parentScreen;
 
     public MyFridgeAPIConnection(HomeScreen parentScreen) {
+
         super();
         this.parentScreen = parentScreen;
-        // do stuff
+
     }
     /**
      *
@@ -52,7 +52,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             return downloadContent(params[0]);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return "Unable to retrieve data. URL may be invalid.";
+            return parentScreen.getResources().getString(R.string.errorMessageAPIConnectionRetrieveURLFailed);
         }
     }
 
@@ -116,7 +116,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             }
             catch (Exception ex)
             {
-                ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to set up API connection.");
+                ErrorDialog errorDialog = new ErrorDialog(parentScreen, parentScreen.getResources().getString(R.string.errorMessageAPIConnectionAPIConnectionFailed));
             }
 
         } finally {
@@ -147,10 +147,8 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             } finally {
                 caInput.close();
             }
-        } catch (CertificateException e){
-            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to open localhost certificate.");
-        } catch (IOException e){
-            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to open localhost certificate.");
+        } catch (Exception e) {
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, parentScreen.getResources().getString(R.string.errorMessageAPIConnectionOpenCertificateFailed));
         }
 
         return(ca);
@@ -175,7 +173,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             keyStore.load(null, null);
             keyStore.setCertificateEntry("ca", ca);
         } catch(Exception e){
-            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to load KeyStore from certificate.");
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, parentScreen.getResources().getString(R.string.errorMessageAPIConnectionKeystoreInitialisationFailed));
         }
 
         return(keyStore);
@@ -199,7 +197,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
             tmf.init(keyStore);
         } catch (Exception e){
-            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to create a Trust Manager with the Certificate.");
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, parentScreen.getResources().getString(R.string.errorMessageAPIConnectionTrustManagerFactoryInitialisationFailed));
         }
 
         return(tmf);
@@ -232,7 +230,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
         } catch(Exception e){
-            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to change SSL settings.");
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, parentScreen.getResources().getString(R.string.errorMessageAPIConnectionSSLContextInitialisationFailed));
         }
 
         return(context);
