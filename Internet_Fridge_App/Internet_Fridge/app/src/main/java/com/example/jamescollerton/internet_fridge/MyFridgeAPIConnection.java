@@ -106,45 +106,57 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
             try
             {
-                System.setProperty("jsse.enableSNIExtension", "false");
-                
-                CertificateFactory cf = CertificateFactory.getInstance("X.509");
-                InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
-                Certificate ca;
-                try {
-                    ca = cf.generateCertificate(caInput);
-                } finally {
-                    caInput.close();
-                }
+//                System.setProperty("jsse.enableSNIExtension", "false");
+
+//                Certificate ca = createServerCertificate();
+//                KeyStore keyStore = createKeyStore(ca);
+//                TrustManagerFactory tmf = createTrustManagerFactory(keyStore);
+//                SSLContext context = createSSLContext(tmf);
+
+                // Function one
+//                CertificateFactory cf = CertificateFactory.getInstance("X.509");
+//                InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
+//                Certificate ca;
+//                try {
+//                    ca = cf.generateCertificate(caInput);
+//                } finally {
+//                    caInput.close();
+//                }
 
                 
                 // Create a KeyStore containing our trusted CAs
-                String keyStoreType = KeyStore.getDefaultType();
-                KeyStore keyStore = KeyStore.getInstance(keyStoreType);
-                keyStore.load(null, null);
-                keyStore.setCertificateEntry("ca", ca);
+//                String keyStoreType = KeyStore.getDefaultType();
+//                KeyStore keyStore = KeyStore.getInstance(keyStoreType);
+//                keyStore.load(null, null);
+//                keyStore.setCertificateEntry("ca", ca);
 
                 // Create a TrustManager that trusts the CAs in our KeyStore
-                String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
-                TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
-                tmf.init(keyStore);
+//                String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
+//                TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
+//                tmf.init(keyStore);
 
                 // Create an SSLContext that uses our TrustManager
-                SSLContext context = SSLContext.getInstance("TLS");
-                context.init(null, tmf.getTrustManagers(), null);
-
-                // Prevents the hostname having to match the
-                HostnameVerifier allHostsValid = new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String arg0, SSLSession arg1) {
-                        return true;
-                    }
-                };
-
-                //Install it
-                HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+//                SSLContext context = SSLContext.getInstance("TLS");
+//                context.init(null, tmf.getTrustManagers(), null);
+//
+//                // Prevents the hostname having to match the
+//                HostnameVerifier allHostsValid = new HostnameVerifier() {
+//                    @Override
+//                    public boolean verify(String arg0, SSLSession arg1) {
+//                        return true;
+//                    }
+//                };
+//
+//                //Install it
+//                HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 
                 // Tell the URLConnection to use a SocketFactory from our SSLContext
+                System.setProperty("jsse.enableSNIExtension", "false");
+
+                Certificate ca = createServerCertificate();
+                KeyStore keyStore = createKeyStore(ca);
+                TrustManagerFactory tmf = createTrustManagerFactory(keyStore);
+                SSLContext context = createSSLContext(tmf);
                 URL url = new URL(APIURL);
 
                 try {
@@ -152,28 +164,21 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                     HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
                     urlConnection.setSSLSocketFactory(context.getSocketFactory());
                     urlConnection.setRequestMethod("GET");
-
                     urlConnection.connect();
+
                     is = urlConnection.getInputStream();
 
                     String contentAsString = convertInputStreamToString(is);
                     System.out.println(contentAsString);
 
-                } catch (MalformedURLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (ProtocolException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to set up API connection.");
                 }
 
                 return "Testing";
             }
             catch (Exception ex)
             {
-                System.out.println("Here");
                 System.out.println(ex.getMessage());
                 return null;
             }
@@ -184,6 +189,84 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             }
         }
 
+    }
+
+    private Certificate createServerCertificate() {
+
+        Certificate ca = null;
+
+        try {
+            CertificateFactory cf = CertificateFactory.getInstance("X.509");
+            InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
+            try {
+                ca = cf.generateCertificate(caInput);
+            } finally {
+                caInput.close();
+            }
+        } catch (CertificateException e){
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to open localhost certificate.");
+        } catch (IOException e){
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to open localhost certificate.");
+        }
+
+        return(ca);
+    }
+
+    private KeyStore createKeyStore(Certificate ca){
+
+        KeyStore keyStore = null;
+
+        try {
+            String keyStoreType = KeyStore.getDefaultType();
+            keyStore = KeyStore.getInstance(keyStoreType);
+            keyStore.load(null, null);
+            keyStore.setCertificateEntry("ca", ca);
+        } catch(Exception e){
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to load KeyStore from certificate.");
+        }
+
+        return(keyStore);
+
+    }
+
+    private TrustManagerFactory createTrustManagerFactory(KeyStore keyStore){
+
+        TrustManagerFactory tmf = null;
+
+        try {
+            String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
+            tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
+            tmf.init(keyStore);
+        } catch (Exception e){
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to create a Trust Manager with the Certificate.");
+        }
+
+        return(tmf);
+    }
+
+    private SSLContext createSSLContext(TrustManagerFactory tmf){
+
+        SSLContext context = null;
+
+        try {
+            context = SSLContext.getInstance("TLS");
+            context.init(null, tmf.getTrustManagers(), null);
+
+            // Prevents the hostname having to match the certificate.
+            HostnameVerifier allHostsValid = new HostnameVerifier() {
+                @Override
+                public boolean verify(String arg0, SSLSession arg1) {
+                    return true;
+                }
+            };
+
+            //Install it
+            HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+        } catch(Exception e){
+            ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to change SSL settings.");
+        }
+
+        return(context);
     }
 
     /**
