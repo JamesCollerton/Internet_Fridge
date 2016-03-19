@@ -65,5 +65,6 @@
     <!-- Fonts -->
     <string name="appDefaultFontLocation">fonts/KeepCalm.ttf</string>
     <string name="title_activity_my_fridge_screen">MyFridge</string>
+    <string name="title_activity_create_user">Create User</string>
 
 </resources>

@@ -50,6 +50,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jamescollerton.internet_fridge.HomeScreen" />
         </activity>
+        <activity
+            android:name=".CreateUserScreen"
+            android:label="@string/title_activity_create_user"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
