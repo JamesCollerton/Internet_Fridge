@@ -50,6 +50,13 @@
     <string name="errorMessageOpenScreenInvocationTargetException">New screen failed to open, invocation targey exception.</string>
     <string name="errorMessageOpenScreenIconIOException">Failed to open the icon file.</string>
 
+    <string name="errorMessageAPIConnectionRetrieveURL"></string>
+    <string name="errorMessageAPIConnectionAPIConnectionFailed"></string>
+    <string name="errorMessageAPIConnectionOpenCertificateFailed"></string>
+    <string name="errorMessageAPIConnectionKeystoreInitialisationFailed"></string>
+    <string name="errorMessageAPIConnectionTrustManagerFactoryInitialisationFailed"></string>
+    <string name="errorMessageAPIConnectionSSLContextInitialisationFailed"></string>
+
     <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>

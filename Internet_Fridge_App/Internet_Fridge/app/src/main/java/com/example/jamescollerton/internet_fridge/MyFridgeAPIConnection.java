@@ -1,32 +1,19 @@
 package com.example.jamescollerton.internet_fridge;
 
 import android.os.AsyncTask;
-import android.util.Log;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
-import java.security.KeyManagementException;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 
@@ -85,10 +72,13 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
     /**
      *
-     * This is used to actually put calls to the API. Declares the InputStream, makes the connection
-     * and opens it, sets timeouts and call type, then connects and gets the response code. Next
-     * gets the input stream (the data). Finally converts the input stream to a string and returns
-     * it. Later this will be deserialized into .JSON.
+     * This is used to actually put calls to the API. Finds the certificate to match to the incoming
+     * HTTPS connection, then creates a keystore to add the certificate to, makes a trust manager
+     * factory entry to add the certificate to. Finally creates an SSL context to add the certificate
+     * to to use in the HTTPS connection.
+     *
+     * Next it creates the URL from the input string, adds the SSL context to use the certificate and
+     * puts the request type. Finally connects, takes in the input stream and converts it to a string.
      *
      * @param APIURL The string that forms the API URL string.
      * @return String response from the API Call.
@@ -101,86 +91,32 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
     private String downloadContent(String APIURL) throws IOException {
 
         InputStream is = null;
+        String contentAsString = null;
 
         try {
 
             try
             {
-//                System.setProperty("jsse.enableSNIExtension", "false");
 
-//                Certificate ca = createServerCertificate();
-//                KeyStore keyStore = createKeyStore(ca);
-//                TrustManagerFactory tmf = createTrustManagerFactory(keyStore);
-//                SSLContext context = createSSLContext(tmf);
-
-                // Function one
-//                CertificateFactory cf = CertificateFactory.getInstance("X.509");
-//                InputStream caInput = new BufferedInputStream(parentScreen.getAssets().open("localhost.crt"));
-//                Certificate ca;
-//                try {
-//                    ca = cf.generateCertificate(caInput);
-//                } finally {
-//                    caInput.close();
-//                }
-
-                
-                // Create a KeyStore containing our trusted CAs
-//                String keyStoreType = KeyStore.getDefaultType();
-//                KeyStore keyStore = KeyStore.getInstance(keyStoreType);
-//                keyStore.load(null, null);
-//                keyStore.setCertificateEntry("ca", ca);
-
-                // Create a TrustManager that trusts the CAs in our KeyStore
-//                String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
-//                TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
-//                tmf.init(keyStore);
-
-                // Create an SSLContext that uses our TrustManager
-//                SSLContext context = SSLContext.getInstance("TLS");
-//                context.init(null, tmf.getTrustManagers(), null);
-//
-//                // Prevents the hostname having to match the
-//                HostnameVerifier allHostsValid = new HostnameVerifier() {
-//                    @Override
-//                    public boolean verify(String arg0, SSLSession arg1) {
-//                        return true;
-//                    }
-//                };
-//
-//                //Install it
-//                HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-
-                // Tell the URLConnection to use a SocketFactory from our SSLContext
                 System.setProperty("jsse.enableSNIExtension", "false");
-
                 Certificate ca = createServerCertificate();
                 KeyStore keyStore = createKeyStore(ca);
                 TrustManagerFactory tmf = createTrustManagerFactory(keyStore);
                 SSLContext context = createSSLContext(tmf);
                 URL url = new URL(APIURL);
 
-                try {
+                HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+                urlConnection.setSSLSocketFactory(context.getSocketFactory());
+                urlConnection.setRequestMethod("GET");
+                urlConnection.connect();
+                is = urlConnection.getInputStream();
+                contentAsString = convertInputStreamToString(is);
+                System.out.println(contentAsString);
 
-                    HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
-                    urlConnection.setSSLSocketFactory(context.getSocketFactory());
-                    urlConnection.setRequestMethod("GET");
-                    urlConnection.connect();
-
-                    is = urlConnection.getInputStream();
-
-                    String contentAsString = convertInputStreamToString(is);
-                    System.out.println(contentAsString);
-
-                } catch (Exception e) {
-                    ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to set up API connection.");
-                }
-
-                return "Testing";
             }
             catch (Exception ex)
             {
-                System.out.println(ex.getMessage());
-                return null;
+                ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to set up API connection.");
             }
 
         } finally {
@@ -189,8 +125,16 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             }
         }
 
+        return(contentAsString);
     }
 
+    /**
+     *
+     * This is used to create the certificate for the server. It opens up the certificate from the
+     * assets folder, reads it in, creates a certificate inside the program and returns it.
+     *
+     * @return Certificate generated from the certificate file in assets.
+     */
     private Certificate createServerCertificate() {
 
         Certificate ca = null;
@@ -212,6 +156,15 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
         return(ca);
     }
 
+    /**
+     *
+     * This is used to create the KeyStore with the certificate added in. It takes in the certificate
+     * as an argument, then opens up a keyStore and adds the certificate.
+     *
+     * @param ca The certificate read in from the assets folder.
+     * @return The keystore with the added certificate.
+     *
+     */
     private KeyStore createKeyStore(Certificate ca){
 
         KeyStore keyStore = null;
@@ -229,6 +182,14 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
     }
 
+    /**
+     *
+     * Used to create a trust manager with the Keystore in. The trust manager is then set in the
+     * SSL context of the HTTPS connection, which means the certificate can be trusted.
+     *
+     * @param keyStore Keystore with the certificate in.
+     * @return TrustManagerFactory with the Keystore in.
+     */
     private TrustManagerFactory createTrustManagerFactory(KeyStore keyStore){
 
         TrustManagerFactory tmf = null;
@@ -244,6 +205,16 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
         return(tmf);
     }
 
+    /**
+     *
+     * This creates the SSLContext to be used with the URL connection. The context is created and
+     * then has the TrustManagerFactory added to it. The allHostsValid function is so that the
+     * certificate name doesn't need to match the connection name (which is super dangerous) but is
+     * fine for internal testing. Finally the context is installed into the connection.
+     *
+     * @param tmf
+     * @return
+     */
     private SSLContext createSSLContext(TrustManagerFactory tmf){
 
         SSLContext context = null;
@@ -252,7 +223,6 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
             context = SSLContext.getInstance("TLS");
             context.init(null, tmf.getTrustManagers(), null);
 
-            // Prevents the hostname having to match the certificate.
             HostnameVerifier allHostsValid = new HostnameVerifier() {
                 @Override
                 public boolean verify(String arg0, SSLSession arg1) {
@@ -260,7 +230,6 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
                 }
             };
 
-            //Install it
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
         } catch(Exception e){
             ErrorDialog errorDialog = new ErrorDialog(parentScreen, "Failed to change SSL settings.");
