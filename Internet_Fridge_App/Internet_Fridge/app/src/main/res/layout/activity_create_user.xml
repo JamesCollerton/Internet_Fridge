@@ -25,21 +25,76 @@
     <include layout="@layout/content_create_user" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Hello!"
         android:id="@+id/createUserScreenTextViewHelloID"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp" />
+        android:textSize="45dp"
+        android:textColor="#ff1493"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="95dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Looks like you're new here... Create an account!"
+        android:gravity="center"
+        android:text="Looks like you're new here... Create an account:"
         android:id="@+id/createUserScreenTextViewDescriptionID"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp" />
+        android:textSize="20dp"
+        android:layout_marginTop="160dp" />
+
+    <EditText
+        android:id="@+id/createUserScreenEmailTextFieldID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="240dp"
+        android:hint="@string/settingsScreenTextFieldEmailHint"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/createUserScreenUsernameTextFieldID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="300dp"
+        android:hint="@string/settingsScreenTextFieldUsernameHint"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/createUserScreenPasswordTextFieldID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="360dp"
+        android:hint="@string/settingsScreenTextFieldPasswordHint"
+        android:inputType="textEmailAddress" />
+
+    <RelativeLayout android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp">
+
+        <Button android:id="@+id/settingsScreenOKButtonID"
+            android:tag="@string/homeScreenButtonScanTag"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="400dp"
+            android:text="Sign me up partner!"
+            android:background="@drawable/rounded_corners_button"
+            android:textColor="@color/appDefaultBackground"
+            android:drawablePadding="0dip"
+            android:singleLine="true"/>
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

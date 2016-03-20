@@ -74,8 +74,11 @@ public class HomeScreen extends AppCompatActivity {
         initialiseHomeScreenButtons();
 
 //        FOR TESTING THE API CONNECTION.
-        MyFridgeAPIConnection test = new MyFridgeAPIConnection(this);
-        test.execute("https://192.168.1.69:8080/api/MyFridge");
+//        MyFridgeAPIConnection test = new MyFridgeAPIConnection(this);
+//        test.execute("https://192.168.1.69:8080/api/MyFridge");
+
+        // FOR TESTING THE CREATE USER SCREEN.
+        launchCreateUserScreen();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -145,7 +148,9 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      *
-     * This function is used for launching the settings screen for the app.
+     * This function is used for launching the settings screen for the app. It adds
+     * the screen dimensions map to the intent so the settings screen knows how big
+     * it is.
      *
      */
     public void launchSettingsScreen(){
@@ -165,6 +170,18 @@ public class HomeScreen extends AppCompatActivity {
 
         Intent userFridgeIntent = new Intent(this, UserFridgeScreen.class);
         startActivity(userFridgeIntent);
+
+    }
+
+    /**
+     *
+     * This function is used for launching the create user screen if a create user screen is needed.
+     *
+     */
+    private void launchCreateUserScreen(){
+
+        Intent createUserIntent = new Intent(this, CreateUserScreen.class);
+        startActivity(createUserIntent);
 
     }
 
