@@ -5,7 +5,8 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 
 /**
- * Created by JamesCollerton on 28/02/2016.
+ *
+ * HomeScreenFloatingActionButton
  *
  * This class controls the floating action buttons at the bottom of the screen on the app. It
  * controls their actions and their appearance.

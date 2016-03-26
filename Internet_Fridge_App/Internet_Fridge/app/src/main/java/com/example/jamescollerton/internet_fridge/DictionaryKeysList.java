@@ -1,7 +1,8 @@
 package com.example.jamescollerton.internet_fridge;
 
 /**
- * Created by JamesCollerton on 28/02/2016.
+ *
+ * DictionaryKeysList
  *
  * This class is to centrally define all of the tags used in dictionaries across the application.
  *

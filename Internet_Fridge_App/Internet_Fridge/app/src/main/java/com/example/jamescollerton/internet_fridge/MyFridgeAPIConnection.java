@@ -17,7 +17,8 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 
 /**
- * Created by JamesCollerton on 06/03/2016.
+ *
+ * MyFridgeAPIConnection
  *
  * This class handles calls to the API written in Node.js. It is async so will need to be handled
  * with callbacks in order to get the returned string. When executed it will call doInBackground,

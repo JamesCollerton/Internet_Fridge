@@ -1,7 +1,9 @@
 package com.example.jamescollerton.internet_fridge;
 
 /**
- * Created by JamesCollerton on 06/03/2016.
+ *
+ * StringConstantsList
+ *
  */
 public class StringConstantsList {
 

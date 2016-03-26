@@ -1,7 +1,8 @@
 package com.example.jamescollerton.internet_fridge;
 
 /**
- * Created by JamesCollerton on 28/02/2016.
+ *
+ * ScreenDimensionsList
  *
  * This is just a list of all of the percentage dimenstions for the elements on the screen. For
  * example the scan button will be 0.35 of the screen height from the top.

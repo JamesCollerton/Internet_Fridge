@@ -6,7 +6,7 @@ import android.support.v7.app.AlertDialog;
 
 /**
  *
- * Created by JamesCollerton on 12/03/2016.
+ * ErrorDialog
  *
  * This class is used to control the error message pop up window. When an error
  * is thrown, a relevant string is passed to this, the window pops up with the

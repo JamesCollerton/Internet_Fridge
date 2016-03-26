@@ -9,6 +9,8 @@ import android.view.View;
 
 /**
  *
+ * UserFridgeScreen
+ *
  * This class deals with the user's fridge screen. It holds all of the data and functionality
  * for the screen.
  *

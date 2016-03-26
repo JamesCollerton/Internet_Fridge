@@ -1,7 +1,8 @@
 package com.example.jamescollerton.internet_fridge;
 
 /**
- * Created by JamesCollerton on 11/03/2016.
+ *
+ * ScreenCommandClasses
  *
  * This class is used in order to pass the openScreen arguments for the different screens to the
  * button functions. A ScreenCommandClass instance is initiated and then one of the sub classes

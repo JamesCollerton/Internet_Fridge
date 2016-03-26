@@ -18,6 +18,8 @@ import java.util.Map;
 
 /**
  *
+ * SettingsScreen
+ *
  * This class handles the appearance and functionality of the settings screen.
  *
  */
