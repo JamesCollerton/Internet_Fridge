@@ -107,4 +107,28 @@ public class ScreenCommandClasses {
 
     }
 
+    /**
+     *
+     * Used for opening the home screen from the create users screen. It is passed as an argument
+     * to the button so that it can be invoked when the button is pressed.
+     *
+     */
+    public class HomeScreenCommand {
+
+        private CreateUserScreen parentScreen;
+
+        HomeScreenCommand(CreateUserScreen parentScreen){
+
+            this.parentScreen = parentScreen;
+
+        }
+
+        public void openScreen(){
+
+            parentScreen.launchHomeScreen();
+
+        }
+
+    }
+
 }

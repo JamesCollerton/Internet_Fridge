@@ -183,6 +183,7 @@ public class HomeScreen extends AppCompatActivity {
     private void launchCreateUserScreen(){
 
         Intent createUserIntent = new Intent(this, CreateUserScreen.class);
+        createUserIntent.putExtra(dictionaryKeysList.screenDimensionsMapIntentKey, screenDimensionsMap);
         startActivity(createUserIntent);
 
     }
