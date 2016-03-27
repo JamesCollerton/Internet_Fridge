@@ -20,6 +20,9 @@ public class DictionaryKeysList {
     public static final String createUserScreenUsernameEditTextFieldKey = "1username";
     public static final String createUserScreenPasswordEditTextFieldKey = "2password";
 
+    public static final String createUserScreenEditTextFieldTopMargin = "topMargin";
+    public static final String createUserScreenEditTextFieldSideMargin = "sideMargin";
+
     public static final String buttonLeftMarginPercentage = "buttonLeftMarginPercentage";
     public static final String buttonRightMarginPercentage = "buttonRightMarginPercentage";
     public static final String buttonTopMarginPercentage = "buttonTopMarginPercentage";

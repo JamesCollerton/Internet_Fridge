@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Hello!"
+        android:text="@string/createUserScreenTextHello"
         android:id="@+id/createUserScreenTextViewHelloID"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Looks like you're new here... Create an account:"
+        android:text="@string/createUserScreenTextDescription"
         android:id="@+id/createUserScreenTextViewDescriptionID"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -55,7 +55,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="240dp"
-        android:hint="@string/settingsScreenTextFieldEmailHint"
+        android:hint="@string/createUserScreenTextFieldEmailHint"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -65,7 +65,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="300dp"
-        android:hint="@string/settingsScreenTextFieldUsernameHint"
+        android:hint="@string/createUserScreenTextFieldUsernameHint"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -75,7 +75,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="360dp"
-        android:hint="@string/settingsScreenTextFieldPasswordHint"
+        android:hint="@string/createUserScreenTextFieldPasswordHint"
         android:inputType="textEmailAddress" />
 
     <LinearLayout
@@ -89,7 +89,7 @@
             android:layout_marginTop="450dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
-            android:text="Sign me up partner!"
+            android:text="@string/createUserScreenButtonSignUpString"
             android:background="@drawable/rounded_corners_button"
             android:textColor="@color/appDefaultBackground"
             android:drawablePadding="0dip"

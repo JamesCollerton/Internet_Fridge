@@ -117,8 +117,8 @@ public class CreateUserScreen extends AppCompatActivity {
         editingTextView.setLayoutParams(editingTextViewLayoutParams);
 
         HashMap<String, Double> editTextFieldPositions = new HashMap<>();
-        editTextFieldPositions.put("topMargin", topEditTextFieldTopMargin);
-        editTextFieldPositions.put("sideMargin", topEditTextFieldSideMargin);
+        editTextFieldPositions.put(dictionaryKeysList.createUserScreenEditTextFieldTopMargin, topEditTextFieldTopMargin);
+        editTextFieldPositions.put(dictionaryKeysList.createUserScreenEditTextFieldSideMargin, topEditTextFieldSideMargin);
 
         return (editTextFieldPositions);
 
@@ -169,20 +169,8 @@ public class CreateUserScreen extends AppCompatActivity {
                                                          screenDimensionsList.createUserScreenEditTextEmailTopPercentageMargin,
                                                          screenDimensionsList.createUserScreenEditTextEmailSidePercentageMargin);
 
-        double topEditTextFieldTopMargin = editTextFieldPositions.get("topMargin");
-        double topEditTextFieldSideMargin = editTextFieldPositions.get("sideMargin");
-
-//        CoordinatorLayout.LayoutParams topEditTextFieldParams = (CoordinatorLayout.LayoutParams) topEditTextField.getLayoutParams();
-//
-//        double topEditTextFieldTopMargin = screenDimensionsList.createUserScreenEditTextEmailTopPercentageMargin *
-//                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
-//
-//        double topEditTextFieldSideMargin = screenDimensionsList.createUserScreenEditTextEmailSidePercentageMargin *
-//                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenWidth);
-//
-//        topEditTextFieldParams.setMargins((int) topEditTextFieldSideMargin, (int) topEditTextFieldTopMargin, (int) topEditTextFieldSideMargin, 0);
-//
-//        topEditTextField.setLayoutParams(topEditTextFieldParams);
+        double topEditTextFieldTopMargin = editTextFieldPositions.get(dictionaryKeysList.createUserScreenEditTextFieldTopMargin);
+        double topEditTextFieldSideMargin = editTextFieldPositions.get(dictionaryKeysList.createUserScreenEditTextFieldSideMargin);
 
         int i = 0;
 

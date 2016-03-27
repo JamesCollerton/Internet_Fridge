@@ -44,8 +44,8 @@ public class ScreenDimensionsList {
     public static final double createUserScreenButtonSignUpLeftPercentageMargin = 0.25;
     public static final double createUserScreenButtonSignUpRightPercentageMargin = 0.5;
 
-    public static final double createUserScreenTextViewHelloTopPercentageMargin = 0.2;
-    public static final double createUserScreenTextViewDescriptionTopPercentageMargin = 0.3;
+    public static final double createUserScreenTextViewHelloTopPercentageMargin = 0.16;
+    public static final double createUserScreenTextViewDescriptionTopPercentageMargin = 0.28;
     public static final double createUserScreenTextViewSidePercentageMargin = 0.07;
 
     public static final double createUserScreenEditTextEmailTopPercentageMargin = 0.4;

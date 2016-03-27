@@ -36,8 +36,22 @@
     <string name="settingsScreenTextFieldEmailHint">Email Address</string>
     <string name="settingsScreenTextFieldUsernameHint">Username</string>
     <string name="settingsScreenTextFieldPasswordHint">Password</string>
+
+    <!-- Strings for the buttons in the settings screen. -->
     <string name="settingsScreenButtonOKString">OK</string>
     <string name="settingsScreenButtonCancelString">Cancel</string>
+
+    <!-- Strings for the textviews on the page in the sign up sheet. -->
+    <string name="createUserScreenTextHello">Hello</string>
+    <string name="createUserScreenTextDescription">Looks like you\'re new here... Create an account:</string>
+
+    <!-- Strings for hints in the create user text fields. -->
+    <string name="createUserScreenTextFieldEmailHint">Email Address</string>
+    <string name="createUserScreenTextFieldUsernameHint">Username</string>
+    <string name="createUserScreenTextFieldPasswordHint">Password</string>
+
+    <!-- Strings for the buttons on the create user screen. -->
+    <string name="createUserScreenButtonSignUpString">Sign me up partner!</string>
 
     <!-- Strings for errors spread across the application -->
     <string name="errorMessageTitle">Error</string>
