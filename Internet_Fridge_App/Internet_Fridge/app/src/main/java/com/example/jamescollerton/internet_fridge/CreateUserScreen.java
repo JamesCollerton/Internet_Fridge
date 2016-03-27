@@ -104,7 +104,7 @@ public class CreateUserScreen extends AppCompatActivity {
      * @param sidePercentageMargin The percentage from the side of the page we would like to make it.
      *
      */
-    private void setTextViewMargins(TextView editingTextView, double topPercentageMargin, double sidePercentageMargin){
+    private HashMap<String, Double> setTextViewMargins(TextView editingTextView, double topPercentageMargin, double sidePercentageMargin){
 
         CoordinatorLayout.LayoutParams editingTextViewLayoutParams = (CoordinatorLayout.LayoutParams) editingTextView.getLayoutParams();
 
@@ -116,6 +116,12 @@ public class CreateUserScreen extends AppCompatActivity {
 
         editingTextView.setLayoutParams(editingTextViewLayoutParams);
 
+        HashMap<String, Double> editTextFieldPositions = new HashMap<>();
+        editTextFieldPositions.put("topMargin", topEditTextFieldTopMargin);
+        editTextFieldPositions.put("sideMargin", topEditTextFieldSideMargin);
+
+        return (editTextFieldPositions);
+
     }
 
     /**
@@ -126,7 +132,7 @@ public class CreateUserScreen extends AppCompatActivity {
      * equidistantly from there.
      *
      * In this function all of the text fields are taken from the page, and all but the top one
-     * are added to a hashmap. The top text field and the hashmap are then passed to the next function.
+     * are added to a HashMap. The top text field and the HashMap are then passed to the next function.
      *
      */
     private void initialiseTextViews(){
@@ -159,17 +165,24 @@ public class CreateUserScreen extends AppCompatActivity {
      */
     private void setEditTextFieldMargins(EditText topEditTextField, Map<String, EditText> remainingEditTextFields){
 
-        CoordinatorLayout.LayoutParams topEditTextFieldParams = (CoordinatorLayout.LayoutParams) topEditTextField.getLayoutParams();
+        HashMap<String, Double> editTextFieldPositions = setTextViewMargins(topEditTextField,
+                                                         screenDimensionsList.createUserScreenEditTextEmailTopPercentageMargin,
+                                                         screenDimensionsList.createUserScreenEditTextEmailSidePercentageMargin);
 
-        double topEditTextFieldTopMargin = screenDimensionsList.createUserScreenEditTextEmailTopPercentageMargin *
-                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+        double topEditTextFieldTopMargin = editTextFieldPositions.get("topMargin");
+        double topEditTextFieldSideMargin = editTextFieldPositions.get("sideMargin");
 
-        double topEditTextFieldSideMargin = screenDimensionsList.createUserScreenEditTextEmailSidePercentageMargin *
-                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenWidth);
-
-        topEditTextFieldParams.setMargins((int) topEditTextFieldSideMargin, (int) topEditTextFieldTopMargin, (int) topEditTextFieldSideMargin, 0);
-
-        topEditTextField.setLayoutParams(topEditTextFieldParams);
+//        CoordinatorLayout.LayoutParams topEditTextFieldParams = (CoordinatorLayout.LayoutParams) topEditTextField.getLayoutParams();
+//
+//        double topEditTextFieldTopMargin = screenDimensionsList.createUserScreenEditTextEmailTopPercentageMargin *
+//                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenHeight);
+//
+//        double topEditTextFieldSideMargin = screenDimensionsList.createUserScreenEditTextEmailSidePercentageMargin *
+//                (double) screenDimensionsMap.get(dictionaryKeysList.screenDimensionsMapScreenWidth);
+//
+//        topEditTextFieldParams.setMargins((int) topEditTextFieldSideMargin, (int) topEditTextFieldTopMargin, (int) topEditTextFieldSideMargin, 0);
+//
+//        topEditTextField.setLayoutParams(topEditTextFieldParams);
 
         int i = 0;
 
