@@ -35,13 +35,21 @@ public class ScreenDimensionsList {
     public static final double homeScreenButtonMyFridgeLeftPercentageMargin = 0.07;
     public static final double homeScreenButtonMyFridgeRightPercentageMargin = 0.07;
 
+    public static final double settingsScreenEditTextEmailTopPercentageMargin = 0.2;
+    public static final double settingsScreenEditTextEmailSidePercentageMargin = 0.07;
+    public static final double settingsScreenEditTextLineSize = 100;
+
     public static final double createUserScreenButtonSignUpTopPercentageMargin = 0.75;
     public static final double createUserScreenButtonSignUpBottomPercentageMargin = 0.0;
     public static final double createUserScreenButtonSignUpLeftPercentageMargin = 0.25;
     public static final double createUserScreenButtonSignUpRightPercentageMargin = 0.5;
 
-    public static final double settingsScreenEditTextEmailTopPercentageMargin = 0.2;
-    public static final double settingsScreenEditTextEmailSidePercentageMargin = 0.07;
-    public static final double settingsScreenEditTextLineSize = 100;
+    public static final double createUserScreenTextViewHelloTopPercentageMargin = 0.2;
+    public static final double createUserScreenTextViewDescriptionTopPercentageMargin = 0.3;
+    public static final double createUserScreenTextViewSidePercentageMargin = 0.07;
+
+    public static final double createUserScreenEditTextEmailTopPercentageMargin = 0.4;
+    public static final double createUserScreenEditTextEmailSidePercentageMargin = 0.07;
+    public static final double createUserScreenScreenEditTextLineSize = 130;
 
 }

@@ -78,44 +78,25 @@
         android:hint="@string/settingsScreenTextFieldPasswordHint"
         android:inputType="textEmailAddress" />
 
-    <!--<RelativeLayout android:id="@+id/RelativeLayout01"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="440dp">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Button android:id="@+id/createUserScreenSignUpButton"
+            android:tag="@string/homeScreenButtonScanTag"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:text="Sign me up partner!"
+            android:background="@drawable/rounded_corners_button"
+            android:textColor="@color/appDefaultBackground"
+            android:drawablePadding="0dip"
+            android:paddingLeft="10dip"
+            android:singleLine="true"
+            android:paddingRight="10dip"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--<Button android:id="@+id/createUserScreenSignUpButton"-->
-                <!--android:tag="@string/homeScreenButtonScanTag"-->
-                <!--android:layout_width="170dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginRight="400dp"-->
-                <!--android:text="Sign me up partner!"-->
-                <!--android:background="@drawable/rounded_corners_button"-->
-                <!--android:textColor="@color/appDefaultBackground"-->
-                <!--android:drawablePadding="0dip"-->
-                <!--android:singleLine="true"/>-->
-
-            <Button android:id="@+id/createUserScreenSignUpButton"
-                android:tag="@string/homeScreenButtonScanTag"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="450dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
-                android:text="Sign me up partner!"
-                android:background="@drawable/rounded_corners_button"
-                android:textColor="@color/appDefaultBackground"
-                android:drawablePadding="0dip"
-                android:paddingLeft="10dip"
-                android:singleLine="true"
-                android:paddingRight="10dip"/>
-
-        </LinearLayout>
-
-    <!--</RelativeLayout>-->
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
