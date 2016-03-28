@@ -1,10 +1,12 @@
 package com.example.jamescollerton.internet_fridge;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.PasswordTransformationMethod;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ public class CreateUserScreen extends AppCompatActivity {
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
     private ScreenCommandClasses screenCommandClasses = new ScreenCommandClasses();
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
+    private StringConstantsList stringConstantsList = new StringConstantsList();
 
     /**
      *
@@ -56,6 +59,7 @@ public class CreateUserScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setPasswordEditTextFont();
         setScreenDimensions();
 
         initialiseText();
@@ -74,6 +78,20 @@ public class CreateUserScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
         screenDimensionsMap = (HashMap<String, Integer>)intent.getSerializableExtra(dictionaryKeysList.screenDimensionsMapIntentKey);
+
+    }
+
+    /**
+     *
+     * This function is used to alter the password hint appearance. For some reason by default the
+     * password hint is set to some weird font, this is used to undo that.
+     *
+     */
+    private void setPasswordEditTextFont(){
+
+        EditText password = (EditText) findViewById(R.id.createUserScreenPasswordTextFieldID);
+        password.setTypeface(Typeface.DEFAULT);
+        password.setTransformationMethod(new PasswordTransformationMethod());
 
     }
 
@@ -259,8 +277,8 @@ public class CreateUserScreen extends AppCompatActivity {
         EditText emailAddressTextField = (EditText)findViewById(R.id.createUserScreenEmailTextFieldID);
         String emailAddress = emailAddressTextField.getText().toString();
 
-        MyFridgeAPIConnection test = new MyFridgeAPIConnection(this);
-        test.execute("https://192.168.3.172:8080/api/MyFridge/Email/registerUser/" + username + "/" + password + "/" + emailAddress);
+        MyFridgeAPIConnection registerUserAPIConnection = new MyFridgeAPIConnection(this);
+        registerUserAPIConnection.execute(stringConstantsList.createUserScreenRegisterUserURLPrefix + username + "/" + password + "/" + emailAddress);
 
     }
 

@@ -39,14 +39,14 @@ this.initialiseNodeMailer = function (){
 // This is actually used to send the email. It sets the from, to, subject and
 // body (html) parameters and then sends it. If there is an error prints it
 // to screen, otherwise logs the email is sent.
-this.nodeMailerSendEmail = function (){
+this.nodeMailerSendEmail = function (emailRecipient, emailSubject, emailHTMLContent){
 
     nodemailerMailgun.sendMail({
 
         from: 'jc1175@my.bristol.ac.uk',
-        to: 'jc1175@my.bristol.ac.uk',
-        subject: 'Email test',
-        html: 'Email html',
+        to: emailRecipient,
+        subject: emailSubject,
+        html: emailHTMLContent,
 
     }, function (err, info) {
 

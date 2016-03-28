@@ -7,6 +7,7 @@ var https = require('https');
 var mySQL = require('mysql');
 var fs = require('fs');
 var sendEmail = require('./sendEmail.js');
+var registerUser = require('./registerUser.js');
 
 // -----------------------------------------------------------------------------
 // INITIALISING MYSQL CONNECTION
@@ -155,29 +156,18 @@ function initialiseParameterRouting(){
 // has the correct credentials if needed.
 function initialiseEmailRouting(){
 
-    // router.route('/MyFridge/Email')
-
-    //     .get(function(req, res) {
-
-    //         sendEmail.initialiseNodeMailer();
-    //         sendEmail.nodeMailerSendEmail(app);
-
-    //         res.json({ message: 'Received request for email'})
-
-    //     });
-
     router.route('/MyFridge/Email/registerUser/:username/:password/:emailAddress')
 
         .get(function(req, res) {
 
-            console.log("Username: " + req.params.username);
-            console.log("Password: " + req.params.password);
-            console.log("Email address: " + req.params.emailAddress);
+            // console.log(req.params.username + req.params.password + req.params.emailAddress);
+
+            registerUser.registerUser(req.params.username, req.params.password, req.params.emailAddress);
 
             // sendEmail.initialiseNodeMailer();
             // sendEmail.nodeMailerSendEmail(app);
 
-            res.json({ message: 'Received request for email'})
+            res.json({ message: 'Received register user request.'})
 
         });
 

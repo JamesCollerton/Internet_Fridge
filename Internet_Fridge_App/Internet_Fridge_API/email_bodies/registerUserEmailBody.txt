@@ -1,0 +1,13 @@
+Hi!
+
+Thanks for registering with MyFridge, we're really glad to have you on board. Your login credentials are:
+
+Username: <USERNAME>
+Password: <PASSWORD>
+
+Use them to log into the app any time.
+
+Keep cool!
+
+
+MyFridge Team.
