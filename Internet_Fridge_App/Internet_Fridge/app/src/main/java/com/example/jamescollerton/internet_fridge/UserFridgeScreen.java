@@ -26,9 +26,9 @@ public class UserFridgeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // Sets up the top toolbar.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_fridge_screen);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -17,7 +17,8 @@ import java.util.Map;
  * CreateUserScreen
  *
  * This class is used to hold and control the functionality and appearance of the create user
- * screen.
+ * screen that is launched at the start of the app when it is detected that no user profile on
+ * that device exists.
  *
  */
 public class CreateUserScreen extends AppCompatActivity {
@@ -25,7 +26,11 @@ public class CreateUserScreen extends AppCompatActivity {
     /**
      *
      * The screen dimensions map is used to store how big the device screen is so that components
-     * can be dynamically spaced on the page.
+     * can be dynamically spaced on the page. The dictionaryKeysList is used to hold all of the
+     * dictionary keys used across the application. The screen command class is used so we can pass
+     * open screen commands as arguments in functions. Finally the screen dimensions list is a list
+     * of all of the percentage borders for the app (for example if we want the title 50% of the
+     * way down the screen, that will be stored here).
      *
      */
     private HashMap<String, Integer> screenDimensionsMap;
@@ -45,6 +50,7 @@ public class CreateUserScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // Setting up the top toolbar.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -102,6 +108,8 @@ public class CreateUserScreen extends AppCompatActivity {
      * @param editingTextView Whichever text view we want to edit the margins of.
      * @param topPercentageMargin The percentage from the top of the page we would like to make it.
      * @param sidePercentageMargin The percentage from the side of the page we would like to make it.
+     *
+     * @return The absolute top and side positions to be used to set other elements relative to.
      *
      */
     private HashMap<String, Double> setTextViewMargins(TextView editingTextView, double topPercentageMargin, double sidePercentageMargin){
@@ -190,7 +198,11 @@ public class CreateUserScreen extends AppCompatActivity {
 
     /**
      *
-     * This is used to initialise the buttons on screen.
+     * This is used to initialise the buttons on screen. It takes the actual button object, the
+     * action that we want to execute (opening a screen from the screen command classes), the font,
+     * the icon file location is null as we don't want one, then sets all of the margins using the
+     * screen dimensions list class. Finally all of these are instantiated using the MyFridgeButton
+     * class.
      *
      */
     private void initialiseButtons(){
@@ -223,6 +235,7 @@ public class CreateUserScreen extends AppCompatActivity {
     public void launchHomeScreen(){
 
         Intent homeScreenIntent = new Intent(this, HomeScreen.class);
+        homeScreenIntent.putExtra(dictionaryKeysList.userCreatedIntentKey, true);
         startActivity(homeScreenIntent);
 
     }

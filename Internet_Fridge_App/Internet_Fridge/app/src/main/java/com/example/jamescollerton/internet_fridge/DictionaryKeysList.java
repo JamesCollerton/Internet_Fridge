@@ -28,4 +28,6 @@ public class DictionaryKeysList {
     public static final String buttonTopMarginPercentage = "buttonTopMarginPercentage";
     public static final String buttonBottomMarginPercentage = "buttonBottomMarginPercentage";
 
+    public static final String userCreatedIntentKey = "userCreated";
+
 }

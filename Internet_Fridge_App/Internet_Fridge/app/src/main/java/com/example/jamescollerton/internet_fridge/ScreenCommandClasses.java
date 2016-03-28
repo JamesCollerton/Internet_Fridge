@@ -8,13 +8,16 @@ package com.example.jamescollerton.internet_fridge;
  * button functions. A ScreenCommandClass instance is initiated and then one of the sub classes
  * is also initiated. The openScreen method is then read in in the button function and executed.
  *
+ * For the subclasses within this class to work we need to have each one with an openScreen function.
+ *
  */
 public class ScreenCommandClasses {
 
     /**
      *
-     * Used for opening the User's fridge screen. Initiated with a copy of the parent screen, the
-     * user fridge screen is then launched from that when the method is called.
+     * Used for opening the User's fridge screen. Initiated with a copy of the parent screen (which
+     * will be a HomeScreen), the user fridge screen is then launched from that when the method is
+     * called.
      *
      */
     public class UserFridgeScreenCommand {

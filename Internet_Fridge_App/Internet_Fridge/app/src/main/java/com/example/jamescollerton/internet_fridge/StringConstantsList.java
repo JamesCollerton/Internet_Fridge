@@ -4,6 +4,8 @@ package com.example.jamescollerton.internet_fridge;
  *
  * StringConstantsList
  *
+ * This is a list of all of the string constants used within the app.
+ *
  */
 public class StringConstantsList {
 

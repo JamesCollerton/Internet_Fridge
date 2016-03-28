@@ -48,6 +48,7 @@ public class SettingsScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // Sets up the top toolbar.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -61,6 +62,12 @@ public class SettingsScreen extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * This is used to find the dimensions of the screen from the intent of the parent activity.
+     * They should be inserted as an extra.
+     *
+     */
     private void setScreenDimensions(){
 
         Intent intent = getIntent();
@@ -127,8 +134,9 @@ public class SettingsScreen extends AppCompatActivity {
      * next thing that happens is for all of the remaining text fields, they are looped through and
      * they are spaced below the top one by adding on the height of a text line each time.
      *
-     * @param topEditTextField
-     * @param remainingEditTextFields
+     * @param topEditTextField Top edit text field, this is set a percentage down the page.
+     * @param remainingEditTextFields List of all of the other text fields so they can be positioned relative.
+     *
      */
     private void setEditTextFieldMargins(EditText topEditTextField, Map<String, EditText> remainingEditTextFields){
 

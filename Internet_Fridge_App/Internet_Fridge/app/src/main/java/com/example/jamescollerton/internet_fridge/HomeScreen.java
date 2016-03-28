@@ -45,20 +45,24 @@ public class HomeScreen extends AppCompatActivity {
      * hold the dimensions of the screen. The dictionaryKeysList holds all of the
      * keys for any of the dictionaries across the whole application. screenCommandClass
      * is used to pass the methods for launching the screens as arguments to the
-     * button creators.
+     * button creators. screenDimensionsList is used to hold all of the percentages we want
+     * to use as margins (for example if we want the title 50% of the way down the page).
      *
      */
     private HashMap<String, Integer> screenDimensionsMap = new HashMap<String, Integer>();
     private DictionaryKeysList dictionaryKeysList = new DictionaryKeysList();
     private ScreenDimensionsList screenDimensionsList = new ScreenDimensionsList();
     private ScreenCommandClasses screenCommandClasses = new ScreenCommandClasses();
+    private Boolean userCreated;
 
     /**
      *
      * Loads up its latest instance (presumably from when its been sleeping).
      * Then sets the content view and the toolbar from the XML. Sets all of the
      * setting buttons on the toolbar and the floating action buttons at the bottom
-     * of the page. Then initialises all of the buttons on the page.
+     * of the page. Then initialises all of the buttons on the page. If the user has been
+     * detected to already have created an account then we do not launch the create user screen,
+     * otherwise that screen is launched.
      *
      * @param savedInstanceState
      *
@@ -66,10 +70,12 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // Creating the top toolbar.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        setUserCreated();
         setScreenDimensions();
         setSupportActionBar(toolbar);
         initialiseHomeScreenFloatingActionButtons();
@@ -80,7 +86,7 @@ public class HomeScreen extends AppCompatActivity {
 //        test.execute("https://192.168.1.69:8080/api/MyFridge");
 
         // FOR TESTING THE CREATE USER SCREEN.
-        launchCreateUserScreen();
+        if(!userCreated) { launchCreateUserScreen(); }
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -178,13 +184,34 @@ public class HomeScreen extends AppCompatActivity {
     /**
      *
      * This function is used for launching the create user screen if a create user screen is needed.
+     * The screen dimensions are added to the intent so they can be retrieved from the other side
+     * to relatively position the components of the screen.
      *
      */
     private void launchCreateUserScreen(){
 
+        userCreated = true;
+
         Intent createUserIntent = new Intent(this, CreateUserScreen.class);
         createUserIntent.putExtra(dictionaryKeysList.screenDimensionsMapIntentKey, screenDimensionsMap);
         startActivity(createUserIntent);
+
+    }
+
+    /**
+     *
+     * This is used to set the user created flag. If a user has already been created then the flag
+     * needs to be set to true so that we don't launch the create user screen again by accident. The
+     * user created flag is taken from the intent. If this is the first time the app has been launched
+     * then this will return null. Otherwise it will return a usable value.
+     *
+     */
+    private void setUserCreated(){
+
+        Intent intent = getIntent();
+        Boolean temporaryUserCreated = (Boolean)intent.getSerializableExtra(dictionaryKeysList.userCreatedIntentKey);
+        if(temporaryUserCreated == null){ userCreated = false; }
+        else{ userCreated = temporaryUserCreated; }
 
     }
 
