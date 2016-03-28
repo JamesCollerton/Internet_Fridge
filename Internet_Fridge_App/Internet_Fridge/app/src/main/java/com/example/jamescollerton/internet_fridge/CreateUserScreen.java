@@ -234,9 +234,33 @@ public class CreateUserScreen extends AppCompatActivity {
      */
     public void launchHomeScreen(){
 
+        registerUser();
+
         Intent homeScreenIntent = new Intent(this, HomeScreen.class);
         homeScreenIntent.putExtra(dictionaryKeysList.userCreatedIntentKey, true);
         startActivity(homeScreenIntent);
+
+    }
+
+    /**
+     *
+     * This is used to register the user on the server side. It takes their email address, their
+     * password and their username and sends it over to the API using the https connection.
+     *
+     */
+    private void registerUser(){
+
+        EditText usernameTextField = (EditText)findViewById(R.id.createUserScreenUsernameTextFieldID);
+        String username = usernameTextField.getText().toString();
+
+        EditText passwordTextField = (EditText)findViewById(R.id.createUserScreenPasswordTextFieldID);
+        String password = passwordTextField.getText().toString();
+
+        EditText emailAddressTextField = (EditText)findViewById(R.id.createUserScreenEmailTextFieldID);
+        String emailAddress = emailAddressTextField.getText().toString();
+
+        MyFridgeAPIConnection test = new MyFridgeAPIConnection(this);
+        test.execute("https://192.168.3.172:8080/api/MyFridge/Email/registerUser/" + username + "/" + password + "/" + emailAddress);
 
     }
 

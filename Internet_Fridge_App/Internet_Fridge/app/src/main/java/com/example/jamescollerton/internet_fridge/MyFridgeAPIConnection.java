@@ -1,5 +1,6 @@
 package com.example.jamescollerton.internet_fridge;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -27,9 +28,9 @@ import javax.net.ssl.TrustManagerFactory;
  */
 public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
-    HomeScreen parentScreen;
+    Activity parentScreen;
 
-    public MyFridgeAPIConnection(HomeScreen parentScreen) {
+    public MyFridgeAPIConnection(Activity parentScreen) {
 
         super();
         this.parentScreen = parentScreen;

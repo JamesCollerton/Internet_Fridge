@@ -155,12 +155,27 @@ function initialiseParameterRouting(){
 // has the correct credentials if needed.
 function initialiseEmailRouting(){
 
-    router.route('/MyFridge/Email')
+    // router.route('/MyFridge/Email')
+
+    //     .get(function(req, res) {
+
+    //         sendEmail.initialiseNodeMailer();
+    //         sendEmail.nodeMailerSendEmail(app);
+
+    //         res.json({ message: 'Received request for email'})
+
+    //     });
+
+    router.route('/MyFridge/Email/registerUser/:username/:password/:emailAddress')
 
         .get(function(req, res) {
 
-            sendEmail.initialiseNodeMailer();
-            sendEmail.nodeMailerSendEmail(app);
+            console.log("Username: " + req.params.username);
+            console.log("Password: " + req.params.password);
+            console.log("Email address: " + req.params.emailAddress);
+
+            // sendEmail.initialiseNodeMailer();
+            // sendEmail.nodeMailerSendEmail(app);
 
             res.json({ message: 'Received request for email'})
 
