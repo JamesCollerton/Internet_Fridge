@@ -7,6 +7,6 @@ VALUES
 	('1', 'Eggs', 1);
 
 INSERT INTO FridgeUsers
-	(Username, Password)
+	(Username, Password, EmailAddress, Salt)
 VALUES
-	('Test Username', 'Test Password');
+	('Test Username', 'Test Password', 'Test Email', 'Test Salt');

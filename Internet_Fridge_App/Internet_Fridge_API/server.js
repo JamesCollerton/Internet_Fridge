@@ -154,18 +154,16 @@ function initialiseParameterRouting(){
 
 // This is used for all of the email routing, and will be used for verifying that someone
 // has the correct credentials if needed.
+
+// TODO: Need to add in a callback from registering the user so we get the
+// right .JSON returned.
 function initialiseEmailRouting(){
 
     router.route('/MyFridge/Email/registerUser/:username/:password/:emailAddress')
 
         .get(function(req, res) {
 
-            // console.log(req.params.username + req.params.password + req.params.emailAddress);
-
-            registerUser.registerUser(req.params.username, req.params.password, req.params.emailAddress);
-
-            // sendEmail.initialiseNodeMailer();
-            // sendEmail.nodeMailerSendEmail(app);
+            registerUser.registerUser(req.params.username, req.params.password, req.params.emailAddress, mySQLConnection);
 
             res.json({ message: 'Received register user request.'})
 
