@@ -8,6 +8,7 @@
         "mysql": "~2.10.2",
         "nodemailer": "~1.0",
         "validator":"~3.0",
-        "nodemailer-mailgun-transport":"1.0.1"
+        "nodemailer-mailgun-transport":"1.0.1",
+        "crypto":"0.0.3"
     }
 }
