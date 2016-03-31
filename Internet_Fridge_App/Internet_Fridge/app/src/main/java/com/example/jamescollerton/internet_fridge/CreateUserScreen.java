@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  *
@@ -263,10 +264,11 @@ public class CreateUserScreen extends AppCompatActivity {
     /**
      *
      * This is used to register the user on the server side. It takes their email address, their
-     * password and their username and sends it over to the API using the https connection.
+     * password and their username and sends it over to the API using the https connection. The
+     * API connection uses a callback so we can do something with the output.
      *
      */
-    private void registerUser(){
+    public void registerUser(){
 
         EditText usernameTextField = (EditText)findViewById(R.id.createUserScreenUsernameTextFieldID);
         String username = usernameTextField.getText().toString();
@@ -277,7 +279,17 @@ public class CreateUserScreen extends AppCompatActivity {
         EditText emailAddressTextField = (EditText)findViewById(R.id.createUserScreenEmailTextFieldID);
         String emailAddress = emailAddressTextField.getText().toString();
 
-        MyFridgeAPIConnection registerUserAPIConnection = new MyFridgeAPIConnection(this);
+        MyFridgeAPIConnection registerUserAPIConnection = new MyFridgeAPIConnection(this, new MyFridgeAPIConnection.AsyncResponse(){
+
+            @Override
+            public void processFinish(String output){
+
+                System.out.println("Output: " + output);
+
+            }
+
+        });
+
         registerUserAPIConnection.execute(stringConstantsList.createUserScreenRegisterUserURLPrefix + username + "/" + password + "/" + emailAddress);
 
     }

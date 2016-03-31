@@ -33,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="45dp"
-        android:textColor="#ff1493"
+        android:textColor="@color/appDefaultTitleColour"
         android:textStyle="bold|italic"
         android:layout_marginTop="95dp" />
 

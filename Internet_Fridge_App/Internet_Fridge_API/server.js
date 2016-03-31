@@ -210,6 +210,6 @@ initialiseBasicRouting();
 initialiseGeneralRouting();
 initialiseParameterRouting();
 initialiseEmailRouting();
-initialiseHTTPConnection();
-// initialiseHTTPSConnection();
+// initialiseHTTPConnection();
+initialiseHTTPSConnection();
 

@@ -28,14 +28,44 @@ import javax.net.ssl.TrustManagerFactory;
  */
 public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
-    Activity parentScreen;
+    /**
+     *
+     * Parent screen is used so that we know which activity the API connection is called from.
+     * Delegate is used along with the AsyncResponse interface in order to make the user wait for the
+     * API to return success or failure and to continue.
+     *
+     */
+    private Activity parentScreen;
+    public AsyncResponse delegate = null;
 
-    public MyFridgeAPIConnection(Activity parentScreen) {
+    /**
+     *
+     * This is used in order to return something from the async task so we know if the API
+     * connection has been successful or not.
+     *
+     */
+    public interface AsyncResponse {
+        void processFinish(String output);
+    }
+
+    /**
+     *
+     * This is the constructor for the API connection. It takes in the parent screen the connection
+     * was launched from, and also the delegation interface. This is so we can take in a callback
+     * argument and so some stuff with the result of the API connection.
+     *
+     * @param parentScreen The activity the API connection was launched from.
+     * @param delegate So we can use a callback function and do something with the response.
+     *
+     */
+    public MyFridgeAPIConnection(Activity parentScreen, AsyncResponse delegate) {
 
         super();
         this.parentScreen = parentScreen;
+        this.delegate = delegate;
 
     }
+
     /**
      *
      * This is the async task that is called by default with MyFridgeAPIConnection.execute(). It
@@ -44,8 +74,6 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      *
      * @param params List of the parameters that are fed into the API call (URL)
      * @return String response from the API call.
-     *
-     * TODO: Replace the error string with something defined elsewhere.
      *
      */
     @Override
@@ -60,15 +88,16 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
 
     /**
      *
-     * At the minute this doesn't do anything, but later will be used to print something to do
-     * with the call having finished.
+     * This is used to pass the output of the doInBackground function to the AsyncResponse interface
+     * so that we can have it returned in the callback.
      *
-     * @param result Result parameter for use in logging.
+     * @param result The string returned from downloadContent.
      *
-     * TODO: Decide on a postExecute function.
      */
     @Override
     protected void onPostExecute(String result) {
+
+        delegate.processFinish(result);
 
     }
 
@@ -90,7 +119,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      * TODO: Do something with the response number.
      *
      */
-    private String downloadContent(String APIURL) throws IOException {
+    public String downloadContent(String APIURL) throws IOException {
 
         InputStream is = null;
         String contentAsString = null;
@@ -189,6 +218,7 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      *
      * @param keyStore Keystore with the certificate in.
      * @return TrustManagerFactory with the Keystore in.
+     *
      */
     private TrustManagerFactory createTrustManagerFactory(KeyStore keyStore){
 
@@ -212,8 +242,9 @@ public class MyFridgeAPIConnection extends AsyncTask<String, String, String> {
      * certificate name doesn't need to match the connection name (which is super dangerous) but is
      * fine for internal testing. Finally the context is installed into the connection.
      *
-     * @param tmf
-     * @return
+     * @param tmf The trust manager factory with the certificate added in.
+     * @return The SSL context with the trust manager factory with accepted certificate in.
+     *
      */
     private SSLContext createSSLContext(TrustManagerFactory tmf){
 

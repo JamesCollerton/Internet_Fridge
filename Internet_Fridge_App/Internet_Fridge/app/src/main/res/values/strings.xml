@@ -42,7 +42,7 @@
     <string name="settingsScreenButtonCancelString">Cancel</string>
 
     <!-- Strings for the textviews on the page in the sign up sheet. -->
-    <string name="createUserScreenTextHello">Hello</string>
+    <string name="createUserScreenTextHello">Hello!</string>
     <string name="createUserScreenTextDescription">Looks like you\'re new here... Create an account:</string>
 
     <!-- Strings for hints in the create user text fields. -->
@@ -74,6 +74,7 @@
     <!-- Colors -->
     <color name="appDefaultBackground">#FFFFFF</color>
     <color name="appDefaultButton">#3F51B5</color>
+    <color name="appDefaultTitleColour">#FF1493</color>
     <color name="appDefaultButtonPressed">#8EC127</color>
 
     <!-- Fonts -->

@@ -20,6 +20,7 @@ this.registerUser = function(username, password, emailAddress, mySQLConnection){
     	MySQLUpdateUserTable(username, password, emailAddress, mySQLConnection, function(MySQLSuccess){
 
             if(MySQLSuccess){
+                
                 sendUserRegistrationEmail(username, password, emailAddress, function(sendEmailSuccess){
 
                     if(sendEmailSuccess){

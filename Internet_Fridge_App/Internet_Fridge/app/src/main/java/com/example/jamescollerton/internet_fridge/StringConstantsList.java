@@ -15,7 +15,7 @@ public class StringConstantsList {
     public final String homeScreenRefreshSnackBarMessage = "Refreshing the fridge contents.";
 
     // This is the base API URL used for the server. All other URLs are created using this.
-    public final String APIURL = "192.168.3.95:8080";
+    public final String APIURL = "192.168.3.113:8080";
 
     // These are the base URLs (without parameters) for various actions.
     public final String createUserScreenRegisterUserURLPrefix = "https://" + APIURL + "/api/MyFridge/Email/registerUser/";
