@@ -153,19 +153,18 @@ function initialiseParameterRouting(){
 }
 
 // This is used for all of the email routing, and will be used for verifying that someone
-// has the correct credentials if needed.
-
-// TODO: Need to add in a callback from registering the user so we get the
-// right .JSON returned.
+// has the correct credentials if needed. It takes the username, password and email address
+// arguments from the API and then feeds them to the register user functions in the registerUser.js
+// file.
 function initialiseEmailRouting(){
 
     router.route('/MyFridge/Email/registerUser/:username/:password/:emailAddress')
 
         .get(function(req, res) {
 
-            registerUser.registerUser(req.params.username, req.params.password, req.params.emailAddress, mySQLConnection);
+            var responseJSON = registerUser.registerUser(req.params.username, req.params.password, req.params.emailAddress, mySQLConnection);
 
-            res.json({ message: 'Received register user request.'})
+            res.json(responseJSON);
 
         });
 
@@ -197,6 +196,7 @@ function initialiseHTTPConnection(){
 
     app.use('/api', router);
     app.listen(port);
+    
     console.log('HTTP server started on port: ' + port);
 
 }
@@ -210,6 +210,6 @@ initialiseBasicRouting();
 initialiseGeneralRouting();
 initialiseParameterRouting();
 initialiseEmailRouting();
-// initialiseHTTPConnection();
-initialiseHTTPSConnection();
+initialiseHTTPConnection();
+// initialiseHTTPSConnection();
 

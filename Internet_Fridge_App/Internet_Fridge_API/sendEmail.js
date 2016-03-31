@@ -38,8 +38,10 @@ this.initialiseNodeMailer = function (){
 
 // This is actually used to send the email. It sets the from, to, subject and
 // body (html) parameters and then sends it. If there is an error prints it
-// to screen, otherwise logs the email is sent.
-this.nodeMailerSendEmail = function (emailRecipient, emailSubject, emailHTMLContent){
+// to screen, otherwise logs the email is sent. The callback is used, if there
+// is an error then it returns false (error with the function). Otherwise returns
+// true (function executed successfully).
+this.nodeMailerSendEmail = function (emailRecipient, emailSubject, emailHTMLContent, callback){
 
     nodemailerMailgun.sendMail({
 
@@ -50,9 +52,10 @@ this.nodeMailerSendEmail = function (emailRecipient, emailSubject, emailHTMLCont
 
     }, function (err, info) {
 
-        if (err) { console.log('Error: ' + err); }
-        else { console.log('Email sent.'); }
+        if (err) { callback(false) }
 
-      });
+    });
+
+    callback(true);
 
 }
