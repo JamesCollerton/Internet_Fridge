@@ -6,13 +6,19 @@ User EmailAddress (pk) Password CreatedDate
 --------------------------------------------------------------------------------
 Items.
 
-Item Barcode Quantity ExpiryDate
+Item Barcode (pk) Quantity ExpiryDate Owner
+
+	Item Barcode (pk)
+	Owner (pk) Barcode (pk) Quantity ExpiryDate
 
 --------------------------------------------------------------------------------
 
 Recipes
 
 RecipeName RecipeWebsite Ingredients Quantity
+
+	RecipeName RecipeWebsite (pk)
+	RecipeWebsite (pk) Ingredients Quantity
 
 --------------------------------------------------------------------------------
 
@@ -24,12 +30,16 @@ User EmailAddress FriendEmailAddress
 
 Deals
 
-Location
+Shop Location Barcode Price 
 
 --------------------------------------------------------------------------------
 
 Error Logging
 
+Message Time Query
+
 --------------------------------------------------------------------------------
 
 Request Logging
+
+Request Time FailSuccessStatus
