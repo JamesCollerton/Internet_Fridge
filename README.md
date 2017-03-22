@@ -10,6 +10,6 @@ A video demonstrating the API can be found here:
 
 https://youtu.be/mH5nhLyiRDc
 
-## APP
+## App
 
 I then wanted to extend this idea into a full app. I started the basis of it with a MySQL database, nodeJS server and Android app, but it was a lot of work. It's still currently in development, but I haven't worked on it in a while
