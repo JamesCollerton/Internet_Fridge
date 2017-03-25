@@ -14,6 +14,8 @@ https://youtu.be/mH5nhLyiRDc
 
 I then wanted to extend this idea into a full app. I started the basis of it with a MySQL database, nodeJS server and Android app, but it was a lot of work. It's still currently in development, but I haven't worked on it in a while
 
+So far I have implemented the app home screen, login screen, basic server/ REST API with HTTPS and the MySQL database.
+
 App Home Screen            | App Login Screen
 :-------------------------:|:-------------------------:
 ![alt text](/README_Images/Home_Screen.png  "Login_Screen")  | ![alt text](/README_Images/Login_Screen.png "Home_Screen") 
