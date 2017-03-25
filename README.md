@@ -14,6 +14,6 @@ https://youtu.be/mH5nhLyiRDc
 
 I then wanted to extend this idea into a full app. I started the basis of it with a MySQL database, nodeJS server and Android app, but it was a lot of work. It's still currently in development, but I haven't worked on it in a while
 
-![alt text](https://github.com/JamesCollerton/Internet_Fridge/tree/master/README_Images/Home_Screen.png  "Login_Screen")
+![alt text](/README_Images/Home_Screen.png  "Login_Screen")
 
-![alt text](https://github.com/JamesCollerton/Internet_Fridge/tree/master/README_Images/Login_Screen.png "Home_Screen")
+![alt text](/README_Images/Login_Screen.png "Home_Screen")
