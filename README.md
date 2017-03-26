@@ -16,6 +16,8 @@ I then wanted to extend this idea into a full app. I started the basis of it wit
 
 So far I have implemented the app home screen, login screen, basic server/ REST API with HTTPS and the MySQL database.
 
+<br />
+
 <center>
 
 App Home Screen            | App Login Screen
